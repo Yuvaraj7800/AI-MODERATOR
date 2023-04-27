@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ManageUser from './components/admin/ManageUser';
 import UpdateUser from './components/admin/UpdateUser';
 import Admin from './components/admin';
+import ToxicityPrediction from './components/Toxicity';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path='manage' element={<ManageUser />} />
             <Route path='update/:userid' element={<UpdateUser />} />
           </Route>
+            <Route path='toxic' element={<ToxicityPrediction />} />
 
         </Routes>
 
