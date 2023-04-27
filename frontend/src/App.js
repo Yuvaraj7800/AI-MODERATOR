@@ -10,6 +10,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ManageUser from './components/admin/ManageUser';
 import UpdateUser from './components/admin/UpdateUser';
 import Admin from './components/admin';
+import User from './components/user';
+import GenerateExtension from './components/user/GenerateExtension';
+import GeneratePlugin from './components/user/GeneratePlugin';
 
 
 function App() {
@@ -29,6 +32,12 @@ function App() {
           <Route path='admin' element={<Admin />}>
             <Route path='manage' element={<ManageUser />} />
             <Route path='update/:userid' element={<UpdateUser />} />
+          </Route>
+
+         
+          <Route path='user' element={<User />} >
+            <Route path='extension' element={<GenerateExtension />}/>
+            <Route path='plugin' element={<GeneratePlugin />}/>
           </Route>
 
         </Routes>
