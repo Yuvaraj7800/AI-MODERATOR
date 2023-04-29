@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const archiver = require("archiver");
 
-const BASE_PATH = path.join(__dirname, "../extensions");
+const BASE_PATH = path.join(__dirname);
 console.log(BASE_PATH);
 
 const { scripts, manifest, html } = require("../extConfig");
@@ -54,22 +54,23 @@ const createFolder = (folderPath) => {
 };
 
 const createCode = (filename, imagesData, manifestData, scriptData, htmlData, cb) => {
-  let extPath = path.join(BASE_PATH, "custom_smartX_extension");
+  console.log(scriptData);
+  let extPath = path.join(BASE_PATH, "generated_extensions");
   createFolder(extPath);
-  createFolder(path.join(extPath, "icons"));
+  createFolder(path.join(extPath, "assets"));
   // let images = ["default_icon48.png", "default_icon128.png"];
   imagesData.forEach((image) => {
     const data = fs.readFileSync(
-      path.join(__dirname, `../assets/icons/${image}`)
+      path.join(__dirname, `../assets/${image}`)
     );
-    fs.writeFileSync(path.join(extPath, "icons", image), data);
+    fs.writeFileSync(path.join(extPath, "assets", image), data);
   });
 
   createFolder(extPath);
   createFolder(path.join(extPath, "scripts"));
   createFile({
     filename: path.join(extPath, "manifest.json"),
-    content: JSON.stringify(manifest("Custom SmartX Extension", "Custom SmartX Extension", "default_icon48.png", "default_icon128.png", ["alarms", "storage"])),
+    content: JSON.stringify(manifest("AIModerator", "AI Moderator", imagesData[0], imagesData[1], ["alarms", "storage"])),
   });
 
   html.forEach((html) => {

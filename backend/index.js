@@ -1,5 +1,6 @@
 const express = require('express');
 const userRouter = require('./routers/userRouter');
+const extensionRouter = require('./routers/extensionRouter');
 
 
 const cors = require('cors')
@@ -16,6 +17,7 @@ app.use(cors({
 app.use(express.json());
 
 app.use('/users', userRouter);
+app.use('/extension', extensionRouter);
 
 // routes
 app.get('/', (req, res) => {

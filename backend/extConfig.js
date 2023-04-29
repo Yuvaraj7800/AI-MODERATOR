@@ -4,16 +4,13 @@ const ext_config = {
       name,
       description,
       action: {
-        default_icon: `icons/${icon48}`,
+        default_icon: `assets/${icon48}`,
       },
       icons: {
-        48: `icons/${icon48}`,
-        128: `icons/${icon128}`,
+        48: `assets/${icon48}`,
+        128: `assets/${icon128}`,
       },
       version: "1.0",
-      chrome_url_overrides: {
-        newtab: "new_tab.html",
-      },
   
       permissions,
     }),
@@ -22,9 +19,7 @@ const ext_config = {
         filename: "background.js",
         content: (
           code
-        ) => `chrome.browserAction.onClicked.addListener(function() {
-  chrome.tabs.create({url: "https://www.example.com"});
-  });`,
+        ) => `${code}`,
       },
     ],
     html: [

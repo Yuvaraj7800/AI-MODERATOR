@@ -34,27 +34,27 @@ const Navbar = () => {
             {/* Left links */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/home">
+                <NavLink className="nav-link" to="/main/home">
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/login">
+                <NavLink className="nav-link" to="/main/login">
                   Login
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/signup">
+                <NavLink className="nav-link" to="/main/signup">
                   Signup
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/event">
+                <NavLink className="nav-link" to="/main/event">
                   Event Handling
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/manage">
+                <NavLink className="nav-link" to="/main/manage">
                   Manage Users
                 </NavLink>
               </li>
