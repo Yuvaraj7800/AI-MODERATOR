@@ -13,6 +13,7 @@ import Admin from './components/admin';
 import ToxicityPrediction from './components/Toxicity';
 import ExtensionManager from './components/user/ExtensionManager';
 import User from './components/user';
+import ModeratorPlugin from './plugin/ModeratorPlugin';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
 
           <Route path='user' element={<User />}>
             <Route path='extension' element={<ExtensionManager />} />
+            <Route path='modplugin' element={<ModeratorPlugin />} />
           </Route>
             <Route path='toxic' element={<ToxicityPrediction />} />
 
