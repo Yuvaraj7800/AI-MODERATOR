@@ -6,13 +6,13 @@ import Login from './components/main/Login';
 import Navbar from './components/main/Navbar';
 import Signup from './components/main/Signup';
 import EventHandling from './components/main/EventHandling';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import ManageUser from './components/admin/ManageUser';
 import UpdateUser from './components/admin/UpdateUser';
 import Admin from './components/admin';
+import ToxicityPrediction from './components/Toxicity';
+import ExtensionManager from './components/user/ExtensionManager';
 import User from './components/user';
-import GenerateExtension from './components/user/GenerateExtension';
-import GeneratePlugin from './components/user/GeneratePlugin';
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
       <BrowserRouter>
 
         <Routes>
+          <Route path='/' element={<Navigate to="/main/home" />} />
           <Route path='main' element={<Main />} >
             <Route path='home' element={<Home />} />
             <Route path='login' element={<Login />} />
@@ -34,11 +35,10 @@ function App() {
             <Route path='update/:userid' element={<UpdateUser />} />
           </Route>
 
-         
-          <Route path='user' element={<User />} >
-            <Route path='extension' element={<GenerateExtension />}/>
-            <Route path='plugin' element={<GeneratePlugin />}/>
+          <Route path='user' element={<User />}>
+            <Route path='extension' element={<ExtensionManager />} />
           </Route>
+            <Route path='toxic' element={<ToxicityPrediction />} />
 
         </Routes>
 
