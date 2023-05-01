@@ -26,4 +26,4 @@ console.log('Script running in background');`
   )
 }
 
-export default ExtensionManager;
+export default ExtensionManager
