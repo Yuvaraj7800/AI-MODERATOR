@@ -25,10 +25,11 @@ const Navbar = () => {
             {/* Navbar brand */}
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
               <img
-                src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                height={15}
-                alt="MDB Logo"
-                loading="lazy"
+                src="/icon_128.png"
+               
+                height={30}
+                alt="AI MODERATOR"
+                loading="lazy" 
               />
             </a>
             {/* Left links */}
@@ -120,10 +121,11 @@ const Navbar = () => {
                 aria-expanded="false"
               >
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                  src="/yuvi.jpeg"
+                  //alt="Black and White Portrait of a Man"
                   className="rounded-circle"
                   height={25}
-                  alt="Black and White Portrait of a Man"
+                  
                   loading="lazy"
                 />
               </a>

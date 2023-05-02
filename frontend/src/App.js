@@ -16,13 +16,19 @@ import User from './components/user';
 import ModeratorPlugin from './plugin/ModeratorPlugin';
 
 
+
+
+
 function App() {
   return (
     <div>
 
+     
+
       <BrowserRouter>
 
         <Routes>
+          
           <Route path='/' element={<Navigate to="/main/home" />} />
           <Route path='main' element={<Main />} >
             <Route path='home' element={<Home />} />

@@ -1,11 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import './navbar.css';
+
+
+
+
+
+
+
 
 const Navbar = () => {
+  
   return (
     <>
+    
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      
+      <nav className="navbar navbar-expand-lg navbar-light bg-sky">
+        
         {/* Container wrapper */}
         <div className="container-fluid">
           {/* Toggle button */}
@@ -25,11 +37,14 @@ const Navbar = () => {
             {/* Navbar brand */}
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
               <img
-                src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                height={15}
-                alt="MDB Logo"
+                 
+                src="/icon_128.png"
+               
+                height={30}
+                alt="AI MODERATOR"
                 loading="lazy"
               />
+              
             </a>
             {/* Left links */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -120,10 +135,10 @@ const Navbar = () => {
                 aria-expanded="false"
               >
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                  src="/yuvi.jpeg"
                   className="rounded-circle"
                   height={25}
-                  alt="Black and White Portrait of a Man"
+                  //alt="Black and White Portrait of a Man"
                   loading="lazy"
                 />
               </a>
