@@ -15,7 +15,6 @@ const getToxicity = (text, cb) => {
     model
       .classify(sentences)
       .then((result) => {
-        // console.log(result);
         cb(result);
       })
       .catch((err) => {
