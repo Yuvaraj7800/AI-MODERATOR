@@ -1,33 +1,4 @@
-const ext_config = {
-  manifest: (name, description, icon48, icon128, permissions) => ({
-    manifest_version: 3,
-    name,
-    description,
-    action: {
-      default_icon: `assets/${icon48}`,
-    },
-    icons: {
-      48: `assets/${icon48}`,
-      128: `assets/${icon128}`,
-    },
-    version: "1.0",
-    "content_scripts": [{
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "js": [
-        "scripts/content_script.js"
-      ]
-    }],
-    permissions,
-  }),
-  scripts: [
-    {
-      filename: "content_script.js",
-      content: (
-        code
-      ) => `console.log("working fine");
+console.log("working fine");
         const threshold = 0.9;
         const getToxicity = (text, cb) => {
           // Load the model. Users optionally pass in a threshold and an array of
@@ -79,47 +50,4 @@ const ext_config = {
         for (let li of liList) {
           handleElementModerate(li);
         }
-        `,
-    },
-  ],
-  html: [
-    {
-      filename: "new_tab.html",
-      content: (body) => `<!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Font Awesome -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    rel="stylesheet"
-  />
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    rel="stylesheet"
-  />
-  <!-- MDB -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
-    rel="stylesheet"
-  />
-      <title>Custom Extension Tab</title>
-  </head>
-  <body>
-      ${body}
-      <!-- MDB -->
-  <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
-  ></script>
-  </body>
-  </html>`,
-    },
-  ],
-};
-
-module.exports = ext_config;
-
+        

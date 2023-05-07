@@ -42,7 +42,7 @@ window.addEventListener('load', () => {
   // Hide the page content
   const pageContent = document.querySelector('#page-content');
   pageContent.style.display = 'none';
-  
+
   // Add an event listener to wait for the operation to be done
   const button = document.querySelector('#operation-button');
   button.addEventListener('click', () => {
@@ -50,7 +50,7 @@ window.addEventListener('load', () => {
     pageContent.style.display = 'block';
   });
 });
-const  predictions = [];
+const predictions = [];
 for (let li of liList) {
   handleElementModerate(li);
 }
