@@ -11,7 +11,7 @@ const getToxicity = (text, cb) => {
   // labels to include.
   toxicity.load(threshold).then((model) => {
     const sentences = [text];
-
+    
     model
       .classify(sentences)
       .then((result) => {
