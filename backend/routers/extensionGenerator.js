@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const archiver = require("archiver");
 
-const BASE_PATH = path.join(__dirname);
+const BASE_PATH = path.join(__dirname, '../extensions');
 console.log(BASE_PATH);
 
 const { scripts, manifest, html } = require("../extConfig");

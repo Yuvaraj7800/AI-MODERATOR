@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import MultipleValueTextInput from 'react-multivalue-text-input';
 
 const ExtensionGen = () => {
   return (
