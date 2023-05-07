@@ -61,20 +61,14 @@ const Navbar = () => {
                   Signup
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/main/event">
-                  Event Handling
-                </NavLink>
-              </li>
+              
               <li className="nav-item">
                 <NavLink className="nav-link" to="/admin/manage">
                   Manage Users
                 </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Projects
-                </a>
+               
               </li>
             </ul>
             {/* Left links */}

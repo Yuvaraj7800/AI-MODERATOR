@@ -16,11 +16,13 @@ const getToxicity = (text, cb) => {
     // labels to include.
     return toxicity.load(threshold).then(async (model) => {
       const sentences = [text];
-    
+
       const predictions = await model.classify(sentences);
       console.log(predictions);
       return predictions;
     })
+  })
+}
 
 const handleElementModerate = (element) => {
   getToxicity(element.innerHTML, (result) => {
@@ -41,7 +43,7 @@ window.addEventListener('load', () => {
   // Hide the page content
   const pageContent = document.querySelector('#page-content');
   pageContent.style.display = 'none';
-  
+
   // Add an event listener to wait for the operation to be done
   const button = document.querySelector('#operation-button');
   button.addEventListener('click', () => {
@@ -49,7 +51,7 @@ window.addEventListener('load', () => {
     pageContent.style.display = 'block';
   });
 });
-const  predictions = [];
+const predictions = [];
 for (let li of liList) {
   handleElementModerate(li);
 }
@@ -61,24 +63,24 @@ for (let li of document.body.querySelectorAll("h1")) {
 }
 
 getToxicity('you suck')
-.then(res => {
-  console.log(res);
-})
+  .then(res => {
+    console.log(res);
+  })
 
 
 
-for(let i = 0; i < liList.length; i++){
-    // console.log(li.innerHTML);
-    const words = liList[i].textContent.split(' ');
+// for (let i = 0; i < liList.length; i++) {
+//   // console.log(li.innerHTML);
+//   const words = liList[i].textContent.split(' ');
 
-    getToxicity(liList[i].textContent)
-.then(res => {
-  if(res.length){
-    liList[i].innerHTML.replace(/./gi, '*');
-  }
-  // console.log(res);
-})
-
+//   getToxicity(liList[i].textContent)
+//     .then(res => {
+//       if (res.length) {
+//         liList[i].innerHTML.replace(/./gi, '*');
+//       }
+//       // console.log(res);
+//     })
+// }
   // Loop through each word in the array
   // for (let j = 0; j < words.length; j++) {
   //   // Check if the word contains the specific word you're looking for (in this example, "example")
@@ -93,4 +95,3 @@ for(let i = 0; i < liList.length; i++){
   // liList[i].innerHTML = words.join(' ');
     // if(li)
     // await getToxicity(li.innerHTML);
-}})}

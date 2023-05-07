@@ -5,7 +5,6 @@ import Home from './components/main/Home';
 import Login from './components/main/Login';
 import Navbar from './components/main/Navbar';
 import Signup from './components/main/Signup';
-import EventHandling from './components/main/EventHandling';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import ManageUser from './components/admin/ManageUser';
 import UpdateUser from './components/admin/UpdateUser';
@@ -15,6 +14,9 @@ import ExtensionManager from './components/user/ExtensionManager';
 import User from './components/user';
 import ModeratorPlugin from './plugin/ModeratorPlugin';
 import Selectoption from './components/user/Selectoption';
+import Extension from './components/user/ExtensionGen';
+import Plugin from './components/user/PluginGen';
+
 
 
 
@@ -34,8 +36,6 @@ function App() {
             <Route path='home' element={<Home />} />
             <Route path='login' element={<Login />} />
             <Route path='signup' element={<Signup />} />
-            <Route path='event' element={<EventHandling />} />
-
           </Route>
           <Route path='admin' element={<Admin />}>
             <Route path='manage' element={<ManageUser />} />
@@ -46,6 +46,8 @@ function App() {
             <Route path='extension' element={<ExtensionManager />} />
             <Route path='modplugin' element={<ModeratorPlugin />} />
             <Route path='select' element={<Selectoption />} />
+            <Route path='extensiongen' element={<Extension />} />
+            <Route path='plugingen' element={<Plugin />} />
           </Route>
             <Route path='toxic' element={<ToxicityPrediction />} />
 
