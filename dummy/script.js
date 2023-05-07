@@ -12,7 +12,6 @@ const getToxicity = (text, cb) => {
   toxicity.load(threshold).then((model) => {
     const sentences = [text];
 
-<<<<<<< HEAD
     // Load the model. Users optionally pass in a threshold and an array of
     // labels to include.
     return toxicity.load(threshold).then(async (model) => {
@@ -22,19 +21,6 @@ const getToxicity = (text, cb) => {
       console.log(predictions);
       return predictions;
     })
-=======
-    model
-      .classify(sentences)
-      .then((result) => {
-        // console.log(result);
-        cb(result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
-};
->>>>>>> ab864a274172d2cd9cb67861d4937d772f8212fc
 
 const handleElementModerate = (element) => {
   getToxicity(element.innerHTML, (result) => {
