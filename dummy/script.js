@@ -67,7 +67,6 @@ getToxicity('you suck')
 
 
 
-<<<<<<< HEAD
 for(let i = 0; i < liList.length; i++){
     // console.log(li.innerHTML);
     const words = liList[i].textContent.split(' ');
@@ -95,6 +94,3 @@ for(let i = 0; i < liList.length; i++){
     // if(li)
     // await getToxicity(li.innerHTML);
 }
-=======
-// console.log(predictions);
->>>>>>> ab864a274172d2cd9cb67861d4937d772f8212fc
