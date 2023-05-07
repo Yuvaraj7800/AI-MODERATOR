@@ -17,7 +17,9 @@
                 "https://*/*"
             ],
             "js": [
-                "scripts/content_script.js"
+                "scripts/content_script.js",
+                "scripts/tfjs.js",
+                "scripts/toxicity.js"
             ]
         }
     ],
