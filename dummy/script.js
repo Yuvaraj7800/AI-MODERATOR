@@ -1,4 +1,4 @@
-console.log('working fine');
+console.log("working fine");
 // document.body.style.backgroundColor = 'green';
 
 // get all li content
@@ -6,8 +6,13 @@ console.log('working fine');
 // The minimum prediction confidence.
 const threshold = 0.9;
 
-const getToxicity = async (text) => {
+const getToxicity = (text, cb) => {
+  // Load the model. Users optionally pass in a threshold and an array of
+  // labels to include.
+  toxicity.load(threshold).then((model) => {
+    const sentences = [text];
 
+<<<<<<< HEAD
     // Load the model. Users optionally pass in a threshold and an array of
     // labels to include.
     return toxicity.load(threshold).then(async (model) => {
@@ -17,7 +22,56 @@ const getToxicity = async (text) => {
       console.log(predictions);
       return predictions;
     })
+=======
+    model
+      .classify(sentences)
+      .then((result) => {
+        // console.log(result);
+        cb(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+};
+>>>>>>> ab864a274172d2cd9cb67861d4937d772f8212fc
 
+const handleElementModerate = (element) => {
+  getToxicity(element.innerHTML, (result) => {
+    // console.log(result);
+    const isToxic = result.filter((obj) => obj.results[0].match);
+    // console.log(isToxic);
+    if (isToxic.length > 0) {
+      element.innerHTML = '*'.repeat(element.innerHTML.length)
+      // element.style.backgroundColor = "red";
+    }
+  });
+}
+
+const liList = document.body.querySelectorAll("li");
+
+// Wait for the page to load
+window.addEventListener('load', () => {
+  // Hide the page content
+  const pageContent = document.querySelector('#page-content');
+  pageContent.style.display = 'none';
+  
+  // Add an event listener to wait for the operation to be done
+  const button = document.querySelector('#operation-button');
+  button.addEventListener('click', () => {
+    // Show the page content
+    pageContent.style.display = 'block';
+  });
+});
+const  predictions = [];
+for (let li of liList) {
+  handleElementModerate(li);
+}
+for (let li of document.body.querySelectorAll("p")) {
+  handleElementModerate(li);
+}
+for (let li of document.body.querySelectorAll("h1")) {
+  handleElementModerate(li);
 }
 
 getToxicity('you suck')
@@ -26,8 +80,8 @@ getToxicity('you suck')
 })
 
 
-const liList =  document.body.querySelectorAll('li');
 
+<<<<<<< HEAD
 for(let i = 0; i < liList.length; i++){
     // console.log(li.innerHTML);
     const words = liList[i].textContent.split(' ');
@@ -55,3 +109,6 @@ for(let i = 0; i < liList.length; i++){
     // if(li)
     // await getToxicity(li.innerHTML);
 }
+=======
+// console.log(predictions);
+>>>>>>> ab864a274172d2cd9cb67861d4937d772f8212fc
