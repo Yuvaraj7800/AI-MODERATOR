@@ -93,4 +93,4 @@ for(let i = 0; i < liList.length; i++){
   // liList[i].innerHTML = words.join(' ');
     // if(li)
     // await getToxicity(li.innerHTML);
-
+}
