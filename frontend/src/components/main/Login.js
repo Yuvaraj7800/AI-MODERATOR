@@ -1,8 +1,12 @@
 import { useFormik } from "formik";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
   const loginForm = useFormik({
     initialValues: {
       email: "",
@@ -26,11 +30,14 @@ const Login = () => {
 
         sessionStorage.setItem('user', JSON.stringify(data));
 
+
         Swal.fire({
           title : 'Well Done',
           icon : "success",
           text : "You have successfully logged in"
-        })
+        });
+
+        navigate('/user/select');
       }else if(res.status === 401){
         Swal.fire({
           title : 'Oops',

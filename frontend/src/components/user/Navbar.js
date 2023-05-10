@@ -50,8 +50,8 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/event">
-                  Event Handling
+                <NavLink className="nav-link" to="/user/select">
+                  select
                 </NavLink>
               </li>
               <li className="nav-item">

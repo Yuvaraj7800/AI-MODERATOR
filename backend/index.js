@@ -15,8 +15,10 @@ app.use(cors({
 
 
 app.use(express.json());
+app.use(express.static('./static/uploads'));
+app.use(express.static('./archives'));
 
-app.use('/users', userRouter);
+app.use('/user', userRouter);
 app.use('/extension', extensionRouter);
 
 // routes

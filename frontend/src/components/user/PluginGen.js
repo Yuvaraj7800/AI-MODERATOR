@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef, useState } from 'react';
+import MultipleValueTextInput from 'react-multivalue-text-input';
 
 const PluginGen = () => {
   return (
@@ -68,9 +69,16 @@ const PluginGen = () => {
             </label>
           </div>
         </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <MultipleValueTextInput
+            onItemAdded={(item, allItems) => console.log(`Item added: ${item}`)}
+            onItemDeleted={(item, allItems) => console.log(`Item removed: ${item}`)}
+            label="Items"
+            name="item-input"
+            placeholder="Enter whatever items you want; separate them with COMMA or ENTER."
+          />
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
       </form>
     </div>
     {/* Bootstrap JS */}

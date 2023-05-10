@@ -18,6 +18,7 @@ import Extension from './components/user/ExtensionGen';
 import Plugin from './components/user/PluginGen';
 import Comment from './components/user/comment';
 import Review from './components/user/review';
+import UserAuth from './auth/UserAuth';
 
 
 
@@ -44,7 +45,7 @@ function App() {
             <Route path='update/:userid' element={<UpdateUser />} />
           </Route>
 
-          <Route path='user' element={<User />}>
+          <Route path='user' element={ <UserAuth> <User /> </UserAuth> }>
             <Route path='extension' element={<ExtensionManager />} />
             <Route path='modplugin' element={<ModeratorPlugin />} />
             <Route path='select' element={<Selectoption />} />

@@ -18,7 +18,7 @@ const Selectoption = () => {
           <div className="card-body">
             <h5 className="card-title">Extension</h5>
             <p className="card-text">Description of Extension</p>
-            <a href="#" className="btn btn-primary">
+            <a href="http://localhost:3000/user/extensiongen" className="btn btn-primary">
               Generate Extension
             </a>
           </div>
@@ -29,7 +29,7 @@ const Selectoption = () => {
           <div className="card-body">
             <h5 className="card-title">Plugin</h5>
             <p className="card-text">Description of Plugin</p>
-            <a href="#" className="btn btn-primary">
+            <a href="http://localhost:3000/user/plugingen" className="btn btn-primary">
               Generate Plugin
             </a>
           </div>

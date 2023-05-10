@@ -1,6 +1,6 @@
 import React from 'react'
 
-const comment = () => {
+const CommentPlugin = () => {
   return (
     <>
   <title>Comment System</title>
@@ -84,4 +84,4 @@ const comment = () => {
   )
 }
 
-export default comment
+export default CommentPlugin;
