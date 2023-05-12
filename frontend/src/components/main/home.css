@@ -1,12 +1,10 @@
-.mytag{
+.head{
     font-size: 40px;
     font-weight: bold;
     text-align: center;
     margin: 30px;
 }
-.h1{
 
-}
 .para{
-    text-size-adjust: 20px;
+    font-size: 20px;
 }
