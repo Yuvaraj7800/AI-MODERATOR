@@ -2,5 +2,11 @@
     font-size: 40px;
     font-weight: bold;
     text-align: center;
-    background-color: aqua;
+    margin: 30px;
+}
+.h1{
+
+}
+.para{
+    text-size-adjust: 20px;
 }
