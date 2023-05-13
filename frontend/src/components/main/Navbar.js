@@ -61,6 +61,16 @@ const Navbar = () => {
                   Signup
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/main/aboutus">
+                  AboutUs
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/main/contactus">
+                  ContactUs
+                </NavLink>
+              </li>
               
               
               <li className="nav-item">
@@ -73,11 +83,11 @@ const Navbar = () => {
           {/* Right elements */}
           <div className="d-flex align-items-center">
             {/* Icon */}
-            <a className="text-reset me-3" href="#">
+            {/* <a className="text-reset me-3" href="#">
               <i className="fas fa-shopping-cart" />
-            </a>
+            </a> */}
             {/* Notifications */}
-            <div className="dropdown">
+            {/* <div className="dropdown">
               <a
                 className="text-reset me-3 dropdown-toggle hidden-arrow"
                 href="#"
@@ -111,7 +121,7 @@ const Navbar = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             {/* Avatar */}
             <div className="dropdown">
               <a

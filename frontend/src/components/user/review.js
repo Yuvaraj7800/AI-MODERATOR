@@ -1,6 +1,6 @@
 import React from 'react'
 
-const review = () => {
+const ReviewPlugin = () => {
   return (
     <>
   <title>Review System</title>
@@ -94,4 +94,4 @@ const review = () => {
   )
 }
 
-export default review
+export default ReviewPlugin;

@@ -1,6 +1,7 @@
 const express = require('express');
 const userRouter = require('./routers/userRouter');
 const extensionRouter = require('./routers/extensionRouter');
+const utilRouter = require('./routers/util');
 
 
 const cors = require('cors')
@@ -17,9 +18,11 @@ app.use(cors({
 app.use(express.json());
 app.use(express.static('./static/uploads'));
 app.use(express.static('./archives'));
+app.use(express.static('./pluginScripts'));
 
 app.use('/user', userRouter);
 app.use('/extension', extensionRouter);
+app.use('/util', utilRouter);
 
 // routes
 app.get('/', (req, res) => {

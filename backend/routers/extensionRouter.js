@@ -5,7 +5,10 @@ const Model = require("../models/extensionModel");
 const createCode = require("./extensionGenerator");
 
 router.post("/generate", (req, res) => {
-  const {filename, imagesData, manifestData, scriptData, htmlData} = req.body;
+  const {filename, imagesData, manifestData, scriptData, htmlData, configOptions} = req.body;
+
+  console.log(configOptions);
+
   createCode(filename, imagesData, manifestData, scriptData, htmlData, (zipfile) => {
     res.json({
       downloadLink: `http://localhost:5000/${zipfile}`,

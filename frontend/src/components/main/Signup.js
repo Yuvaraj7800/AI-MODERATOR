@@ -42,12 +42,12 @@ const Signup = () => {
 
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#2779e2" }}>
+    <section className="vh-120" style={{ backgroundColor: "#9FA6B2"}}>
       <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-xl-9">
-            <h1 className="text-white mb-4">New Registration</h1>
-            <div className="card" style={{ borderRadius: 15 }}>
+            <h1 className=" align-items-center text-white mb-4">New Registration</h1>
+            <div className="card" style={{  borderRadius: 15 }}>
               <div className="card-body">
                 <form onSubmit={signupForm.handleSubmit}>
                 <div className="row align-items-center pt-4 pb-3">
