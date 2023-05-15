@@ -22,17 +22,14 @@ import Comment from './components/user/comment';
 import Review from './components/user/review';
 import UserAuth from './auth/UserAuth';
 import ContactUs from './components/main/ContactUs';
-
-
-
-
+import {Toaster} from 'react-hot-toast';
 
 function App() {
   return (
     <div>
 
      
-
+    <Toaster position='top-center' />
       <BrowserRouter>
 
         <Routes>
@@ -51,7 +48,7 @@ function App() {
           </Route>
 
           <Route path='user' element={ <UserAuth> <User /> </UserAuth> }>
-            <Route path='extension' element={<ExtensionManager />} />
+            <Route path='manageextension' element={<ExtensionManager />} />
             <Route path='modplugin' element={<ModeratorPlugin />} />
             <Route path='select' element={<Selectoption />} />
             <Route path='extensiongen' element={<Extension />} />

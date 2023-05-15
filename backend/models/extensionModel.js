@@ -3,7 +3,9 @@ const {Schema, model, Types} = require('../connection');
 const myschema = new Schema({
     user : { type : Types.ObjectId, ref : 'users' },
     title : {type: String, required: true},
-    avatar: String,
+    icon: String,
+    features: Array,
+    itemsToInclude: Array,
     createdAt : Date
 });
 

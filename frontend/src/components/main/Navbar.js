@@ -1,13 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-
-
-
-
-
-
-
 const Navbar = () => {
   
   return (
@@ -69,6 +62,16 @@ const Navbar = () => {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/main/contactus">
                   ContactUs
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/user/extensiongen">
+                  Generate Extension
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/user/plugingen">
+                  Generate Plugin
                 </NavLink>
               </li>
               

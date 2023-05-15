@@ -1,4 +1,3 @@
-import { useFormik } from 'formik';
 import React, { useRef, useState } from 'react';
 import MultipleValueTextInput from 'react-multivalue-text-input';
 import app_config from '../../config';
@@ -14,6 +13,11 @@ const ExtensionGen = () => {
   const [link, setLink] = useState('');
   const [selFile, setSelFile] = useState(null);
   const url = app_config.apiUrl;
+  const [selWords, setSelWords] = useState([]);
+
+  const [itemsToInclude, setItemsToInclude] = useState([]);
+
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   const [selFeatures, setSelFeatures] = useState([]);
 
@@ -42,7 +46,9 @@ const ExtensionGen = () => {
     initialValues: {
       title: '',
       icon : '',
-      features : []
+      features : [],
+      user: currentUser._id,
+      itemsToInclude
     },
     onSubmit: async (values) => {
       values.icon = selFile.name;
@@ -121,8 +127,8 @@ const ExtensionGen = () => {
           </div>
 
           <MultipleValueTextInput
-            onItemAdded={(item, allItems) => console.log(`Item added: ${item}`)}
-            onItemDeleted={(item, allItems) => console.log(`Item removed: ${item}`)}
+            onItemAdded={(item, allItems) => setItemsToInclude(allItems)}
+            onItemDeleted={(item, allItems) => setItemsToInclude(allItems)}
             label="Items"
             name="item-input"
             placeholder="Enter whatever items you want; separate them with COMMA or ENTER."
