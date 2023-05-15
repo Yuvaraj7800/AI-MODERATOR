@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>User Profile</title>
+  <title>Login Card</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <style>
-    .user-profile {
-      max-width: 500px;
+    .login-card {
+      max-width: 400px;
       margin: 0 auto;
+      margin-top: 100px;
     }
-    .user-profile img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
+    .login-card .card-header {
+      background-color: #f7f7f7;
+      border-bottom: none;
+    }
+    .login-card .card-body {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .login-card .card-body .form-group {
       margin-bottom: 20px;
     }
-    .user-profile h2 {
-      margin-bottom: 10px;
+    .login-card .card-body .form-group label {
+      font-weight: bold;
     }
-    .user-profile p {
-      margin-bottom: 20px;
+    .login-card .card-body .btn-primary {
+      width: 100%;
     }
   </style>
 </head>
 <body>
-  <div class="container mt-5">
-    <div class="user-profile">
-      <img src="path_to_user_avatar.jpg" alt="User Avatar">
-      <h2>User Name</h2>
-      <p>Email: user@example.com</p>
-      <p>Location: City, Country</p>
-      <p>Occupation: Web Developer</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="login-card">
+          <div class="card-header">
+            <h4>Login</h4>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password">
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- Bootstrap JS -->
