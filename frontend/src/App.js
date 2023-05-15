@@ -1,10 +1,12 @@
 //import logo from './logo.svg';
 import './App.css';
+
 import Main from './components/main';
 import Home from './components/main/Home';
 import Login from './components/main/Login';
 import Navbar from './components/main/Navbar';
 import Signup from './components/main/Signup';
+import AboutUs from './components/main/AboutUs';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import ManageUser from './components/admin/ManageUser';
 import UpdateUser from './components/admin/UpdateUser';
@@ -19,6 +21,7 @@ import Plugin from './components/user/PluginGen';
 import Comment from './components/user/comment';
 import Review from './components/user/review';
 import UserAuth from './auth/UserAuth';
+import ContactUs from './components/main/ContactUs';
 
 
 
@@ -39,6 +42,8 @@ function App() {
             <Route path='home' element={<Home />} />
             <Route path='login' element={<Login />} />
             <Route path='signup' element={<Signup />} />
+            <Route path='aboutus' element={<AboutUs/>} />
+            <Route path='contactus' element={<ContactUs/>} />
           </Route>
           <Route path='admin' element={<Admin />}>
             <Route path='manage' element={<ManageUser />} />

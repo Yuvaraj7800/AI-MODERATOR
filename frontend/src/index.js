@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CommentPlugin from './components/user/comment';
+import ReviewPlugin from './components/user/review';
 
 const rootEl = document.getElementById('root');
 
-if(rootEl){
+if (rootEl) {
   const root = ReactDOM.createRoot(rootEl);
   root.render(
     <React.StrictMode>
@@ -17,12 +18,23 @@ if(rootEl){
 
 }
 
-const pluginEl = document.getElementById('plugin');
-if(pluginEl){
-  const plugin = ReactDOM.createRoot(pluginEl);
-  plugin.render(
+const commentEl = document.getElementById('cmnt-plugin');
+if (commentEl) {
+  const comment = ReactDOM.createRoot(commentEl);
+  comment.render(
     <React.StrictMode>
       <CommentPlugin />
+    </React.StrictMode>
+  );
+
+}
+
+const reviewEl = document.getElementById('review-plugin');
+if (reviewEl) {
+  const comment = ReactDOM.createRoot(reviewEl);
+  comment.render(
+    <React.StrictMode>
+      <ReviewPlugin />
     </React.StrictMode>
   );
 
