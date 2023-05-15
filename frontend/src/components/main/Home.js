@@ -15,7 +15,7 @@ const Home = () => {
       <div className='head'> 
       
       
-                <h1>AI-MODERATOR </h1></div>
+                <h2>AI-MODERATOR </h2></div>
                 <div className='head1'>
                 <img
                   src="/ai.png"

@@ -1,5 +1,5 @@
 .head{
-    font-size: 40px;
+    font-size: 35px;
     /* font-weight: bold; */
 
     text-align: center;
@@ -17,9 +17,9 @@
 
 .para{
     display: flex;
-        font-size: 20px;
+        font-size: 18px;
     text-align: justify;
-    margin: 9px;
+    margin: 8px;
     
     
 }

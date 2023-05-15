@@ -3,7 +3,7 @@ import React from 'react'
 const AboutUs = () => {
   return (
     <div>
-     <div className='head'><h1 >AI-MODERATOR</h1> </div>
+     <div className='head'><h2 >AI-MODERATOR</h2> </div>
       
       <p className='para' mb-3 >
       As an AI content moderator, my primary function is to help ensure that the content published on various platforms, such as social media, forums, or websites, aligns with community guidelines and policies. I rely on advanced algorithms and natural language processing techniques to automatically identify and flag potentially inappropriate or harmful content, such as hate speech, graphic violence, or spam.
