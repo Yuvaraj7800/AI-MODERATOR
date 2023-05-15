@@ -1,106 +1,252 @@
 import React from 'react'
 import './contact.css';
 
+
+
 const ContactUs = () => {
   return (
 
-    <p style={{ backgroundImage: 'url("contact.jpeg")' }}>
-
-    <div>
-      
-  <meta charSet="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="contact.css" />
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-    crossOrigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-    crossOrigin="anonymous"
-  />
-
+    <>
+    
+  <div className='head'><h2>Contect-Information</h2></div>
+  <br/>
+  <br/>
+  
+  
   
   <div className="container">
-   <div className='head2'>
-    <h1>Contact Us</h1>
-   </div>
-    <div className="content">
-      <div className="content-form">
-        <section>
-          <i className="fa fa-map-marker fa-2x" aria-hidden="true" />
-          <h2>address</h2>
-          <p>
-            Babu Banarasi Das University <br />
-            Lucknow <br />
-            Uttar Pradesh
-          </p>
-        </section>
-        <section>
-          <i className="fa fa-phone fa-2x" aria-hidden="true" />
-          <h2>Phone</h2>
-          <p>8840290552</p>
-        </section>
-        <section>
-          <i className="fa fa-envelope fa-2x" aria-hidden="true" />
-          <h2>E-mail</h2>
-          <p>aimoderator8800@gmail.com</p>
-        </section>
-      </div>
+    <div className="left-side">
+      
+      
+      <p>
+        <b>Location:</b>
+        Babu Banarasi Das University
+        <br />
+        
+        Lucknow, Uttar Pradesh
+        <br />
+        India
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      </p>
+      <p>
+        <b>Email:</b> aimoderator1010@example.com
+        <br /> 
+        <br/>
+        <br/>
+        <br/>
+       <b> Phone:</b> +91 8840290552
+      </p>
     </div>
-    <form>
-      <div className="form">
-        <div className="right">
-          <div className="contact-form">
-            <input type="text" required="" />
-            <span>Full Name</span>
-          </div>
-          <div className="contact-form">
-            <input type="E-mail" required="" />
-            <span>E-mail Id</span>
-          </div>
-          <div className="contact-form">
-            <textarea
-              name="text"
-              defaultValue={"                    \n                  "}
+    <div className="right-side">
+      
+      <form action="#" method="POST">
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" name="name" required="" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" required="" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="message">Message:</label>
+          <textarea id="message" name="message" required="" defaultValue={""} />
+        </div>
+        <div className="form-group">
+          <input type="submit" className="submit-btn" defaultValue="Submit" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <footer
+  className="text-center text-white"
+  style={{ backgroundColor: "#caced1" }}
+>
+  {/* Grid container */}
+  <div className="container p-4">
+    {/* Section: Images */}
+    <section className="">
+      <div className="row">
+        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            className="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
+              className="w-100"
             />
-            <span> Type your Message....</span>
+            <a href="#!">
+              <div
+                className="mask"
+                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
+              />
+            </a>
           </div>
-          <div className="contact-form">
-            <input type="submit" name="submit" />
+        </div>
+        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            className="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/111.webp"
+              className="w-100"
+            />
+            <a href="#!">
+              <div
+                className="mask"
+                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
+              />
+            </a>
+          </div>
+        </div>
+        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            className="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/112.webp"
+              className="w-100"
+            />
+            <a href="#!">
+              <div
+                className="mask"
+                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
+              />
+            </a>
+          </div>
+        </div>
+        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            className="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/114.webp"
+              className="w-100"
+            />
+            <a href="#!">
+              <div
+                className="mask"
+                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
+              />
+            </a>
+          </div>
+        </div>
+        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            className="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/115.webp"
+              className="w-100"
+            />
+            <a href="#!">
+              <div
+                className="mask"
+                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
+              />
+            </a>
+          </div>
+        </div>
+        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            className="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/116.webp"
+              className="w-100"
+            />
+            <a href="#!">
+              <div
+                className="mask"
+                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
+              />
+            </a>
           </div>
         </div>
       </div>
-    </form>
+    </section>
+    {/* Section: Images */}
   </div>
-  <div className="media">
-    <li>
-      <i className="fa fa-facebook-square fa-2x" aria-hidden="true" />
-    </li>
-    <li>
-      <i className="fa fa-instagram fa-2x" aria-hidden="true" />
-    </li>
-    <li>
-      <i className="fa fa-whatsapp fa-2x" aria-hidden="true" />
-    </li>
-    <li>
-      <i className="fa fa-twitter-square fa-2x" aria-hidden="true" />
-    </li>
+  {/* Grid container */}
+  <footer className="bg-#caced1 text-center text-white">
+  {/* Grid container */}
+  <div className="container p-4 pb-0">
+    {/* Section: Social media */}
+    <section className="mb-4">
+      {/* Facebook */}
+      <a
+        className="btn text-white btn-floating m-1"
+        style={{ backgroundColor: "#3b5998" }}
+        href="#!"
+        role="button"
+      >
+        <i className="fab fa-facebook-f" />
+      </a>
+      {/* Twitter */}
+      <a
+        className="btn text-white btn-floating m-1"
+        style={{ backgroundColor: "#55acee" }}
+        href="#!"
+        role="button"
+      >
+        <i className="fab fa-twitter" />
+      </a>
+      {/* Google */}
+      <a
+        className="btn text-white btn-floating m-1"
+        style={{ backgroundColor: "#dd4b39" }}
+        href="#!"
+        role="button"
+      >
+        <i className="fab fa-google" />
+      </a>
+      {/* Instagram */}
+      <a
+        className="btn text-white btn-floating m-1"
+        style={{ backgroundColor: "#ac2bac" }}
+        href="#!"
+        role="button"
+      >
+        <i className="fab fa-instagram" />
+      </a>
+      {/* Linkedin */}
+      <a
+        className="btn text-white btn-floating m-1"
+        style={{ backgroundColor: "#0082ca" }}
+        href="#!"
+        role="button"
+      >
+        <i className="fab fa-linkedin-in" />
+      </a>
+      {/* Github */}
+      <a
+        className="btn text-white btn-floating m-1"
+        style={{ backgroundColor: "#333333" }}
+        href="#!"
+        role="button"
+      >
+        <i className="fab fa-github" />
+      </a>
+    </section>
+    {/* Section: Social media */}
   </div>
-  <div className="empty"></div>
+  {/* Grid container */}
+ 
+</footer>
+
+</footer>
+</>
 
 
-    </div>
-    </p>
   )
 }
 
