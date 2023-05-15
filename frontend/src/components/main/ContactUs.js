@@ -8,13 +8,14 @@ const ContactUs = () => {
 
     <>
     
+    
   <div className='head'><h2>Contect-Information</h2></div>
   <br/>
   <br/>
   
   
   
-  <div className="container">
+  <div className="container " >
     <div className="left-side">
       
       
