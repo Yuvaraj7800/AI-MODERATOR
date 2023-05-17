@@ -64,16 +64,7 @@ const Navbar = () => {
                   ContactUs
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/user/extensiongen">
-                  Generate Extension
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/user/plugingen">
-                  Generate Plugin
-                </NavLink>
-              </li>
+              
               
               
               <li className="nav-item">

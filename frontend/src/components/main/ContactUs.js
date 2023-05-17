@@ -7,15 +7,11 @@ const ContactUs = () => {
   return (
 
     <>
-
-
-      <div className='head'><h2>Contect-Information</h2></div>
+      <div className='head'><h2>Contact-Information</h2></div>
       <br />
       <br />
 
-
-
-      <div className="container " >
+      <div className="container1 " >
         <div className="left-side">
 
 
