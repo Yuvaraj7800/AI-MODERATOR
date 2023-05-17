@@ -15,7 +15,7 @@ import ToxicityPrediction from './components/Toxicity';
 import ExtensionManager from './components/user/ExtensionManager';
 import User from './components/user';
 import ModeratorPlugin from './plugin/ModeratorPlugin';
-import Selectoption from './components/user/Selectoption';
+
 import Extension from './components/user/ExtensionGen';
 import Plugin from './components/user/PluginGen';
 import Comment from './components/user/comment';
@@ -50,7 +50,7 @@ function App() {
           <Route path='user' element={ <UserAuth> <User /> </UserAuth> }>
             <Route path='manageextension' element={<ExtensionManager />} />
             <Route path='modplugin' element={<ModeratorPlugin />} />
-            <Route path='select' element={<Selectoption />} />
+            
             <Route path='extensiongen' element={<Extension />} />
             <Route path='plugingen' element={<Plugin />} />
             <Route path='comment' element={<Comment />} />

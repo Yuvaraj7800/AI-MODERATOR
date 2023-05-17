@@ -1,6 +1,36 @@
 import React from 'react'
+import { useFormik } from "formik";
+import Swal from "sweetalert2";
 
 const CommentPlugin = () => {
+  const commentForm = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      comment: ''
+    },
+    onSubmit: async (values) => {
+      console.log(values);
+      const res = await fetch('http://localhost:5000/comment/add', {
+            method: 'POST',
+            body : JSON.stringify(values),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+
+          console.log(res.status);
+
+          if(res.status === 200){
+            Swal.fire({
+              title : 'Well Done',
+              icon : "success",
+              text : "Thank You for your comment"
+            })
+          }
+    }
+    
+  });
   return (
     <>
       <title>Comment System</title>

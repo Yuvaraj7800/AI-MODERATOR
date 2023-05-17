@@ -12,11 +12,11 @@
     background-color: #caced1;
 }
 
-.container {
-  /* display: flex;
+.container1{
+  display: flex;
   justify-content: space-between;
   max-width: 800px;
-  margin: 0 auto; */
+  margin: 0 auto;
   
 }
 

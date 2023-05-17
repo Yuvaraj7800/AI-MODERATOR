@@ -1,6 +1,35 @@
 import React from 'react'
+import { useFormik } from "formik";
+import Swal from "sweetalert2";
 
 const ReviewPlugin = () => {
+  const reviewForm = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      comment: ''
+    },
+    onSubmit: async (values) => {
+      console.log(values);
+      const res = await fetch('http://localhost:5000/review/add', {
+            method: 'POST',
+            body : JSON.stringify(values),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+
+          console.log(res.status);
+
+          if(res.status === 200){
+            Swal.fire({
+              title : 'Well Done',
+              icon : "success",
+              text : "Thank You for your comment"
+            })
+          }
+    }
+  });
   return (
     <>
   <title>Review System</title>
@@ -82,6 +111,15 @@ const ReviewPlugin = () => {
             defaultValue={""}
           />
         </div>
+        <div className="col-md-9 pe-5">
+                    <input
+                      type="text"
+                      className="form-control form-control-lg"
+                      id="name"
+                      value={reviewForm.values.name}
+                      onChange={reviewForm.handleChange}
+                    />
+                  </div>
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
