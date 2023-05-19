@@ -26,7 +26,7 @@ const ExtensionGen = () => {
   ];
 
   const generateExtension = async (configOptions) => {
-    const res = await fetch('http://localhost:5000/extension/generate', {
+    const res = await fetch('http://localhost:5000/extension/generateandsave', {
       method: 'POST',
       body: JSON.stringify({
         configOptions,
