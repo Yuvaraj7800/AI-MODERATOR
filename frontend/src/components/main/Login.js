@@ -37,7 +37,7 @@ const Login = () => {
           text : "You have successfully logged in"
         });
 
-        navigate('/user/select');
+        navigate('/user/extensiongen');
       }else if(res.status === 401){
         Swal.fire({
           title : 'Oops',
