@@ -1,7 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useUserContext } from "../../context/UserProvider";
 
 const Navbar = () => {
+
+  const { loggedIn, setLoggedIn, logout } = useUserContext();
+
+
+  const showLogout = () => {
+    if (loggedIn) {
+      return (
+        <ul className="navbar-nav">
+          {/* // <li className="nav-item"> */}
+          {/* <button className="btn btn-danger ms-3" aria-current="page" onClick={logout}>
+                        Logout
+                    </button> */}
+          <button type="button" className="btn btn-primary me-3 mb-2" onClick={logout}>
+            LogOut
+          </button>
+          {/* // </li> */}
+        </ul>
+      );
+    }
+  }
+
+
+
   return (
     <>
       {/* Navbar */}
@@ -26,15 +50,15 @@ const Navbar = () => {
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
               <img
                 src="/icon_128.png"
-               
+
                 height={30}
                 alt="AI MODERATOR"
-                loading="lazy" 
+                loading="lazy"
               />
             </a>
             {/* Left links */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              
+
               <li className="nav-item">
                 <NavLink className="nav-link" to="/user/extensiongen">
                   Generate Extension
@@ -45,8 +69,10 @@ const Navbar = () => {
                   Generate Plugin
                 </NavLink>
               </li>
-              
-              
+
+              {showLogout()}
+
+
             </ul>
             {/* Left links */}
           </div>
@@ -108,7 +134,7 @@ const Navbar = () => {
                   //alt="Black and White Portrait of a Man"
                   className="rounded-circle"
                   height={25}
-                  
+
                   loading="lazy"
                 />
               </a>
