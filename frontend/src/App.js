@@ -23,6 +23,7 @@ import Review from './components/user/review';
 import UserAuth from './auth/UserAuth';
 import ContactUs from './components/main/ContactUs';
 import {Toaster} from 'react-hot-toast';
+import CustomizePlugin from './components/user/CustomizePlugin';
 
 function App() {
   return (
@@ -53,6 +54,8 @@ function App() {
             
             <Route path='extensiongen' element={<Extension />} />
             <Route path='plugingen' element={<Plugin />} />
+            <Route path='custPlugin' element={<CustomizePlugin />} />
+            <Route path='custPlugin/:pluginName' element={<CustomizePlugin />} />
             <Route path='comment' element={<Comment />} />
             <Route path='review' element={<Review />} />
           </Route>

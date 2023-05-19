@@ -1,54 +1,57 @@
-import React, { useRef, useState } from 'react';
-import MultipleValueTextInput from 'react-multivalue-text-input';
-import app_config from '../../config';
+import React, { useRef, useState } from "react";
+import MultipleValueTextInput from "react-multivalue-text-input";
+import app_config from "../../config";
 import { useFormik } from "formik";
 
 const ExtensionGen = () => {
-
   const scriptData = `
-  console.log('Script running in background');`
+  console.log('Script running in background');`;
 
   const titleRef = useRef(null);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [link, setLink] = useState('');
+  const [link, setLink] = useState("");
   const [selFile, setSelFile] = useState(null);
   const url = app_config.apiUrl;
   const [selWords, setSelWords] = useState([]);
 
   const [itemsToInclude, setItemsToInclude] = useState([]);
 
-  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+  );
 
   const [selFeatures, setSelFeatures] = useState([]);
 
-  const featureOptions = [
-    'Attack', 'Insult', 'Threat', 'Obscene'
-  ];
+  const featureOptions = ["Attack", "Insult", "Threat", "Obscene"];
 
   const generateExtension = async (configOptions) => {
-    const res = await fetch('http://localhost:5000/extension/generateandsave', {
-      method: 'POST',
+    const res = await fetch("http://localhost:5000/extension/generateandsave", {
+      method: "POST",
       body: JSON.stringify({
         configOptions,
-        filename: 'myfile', imagesData: ['icon_48.png', 'icon_128.png'], manifestData: '', scriptData, htmlData: '<h1>My Custom Extension</h1>'
+        filename: "myfile",
+        imagesData: ["icon_48.png", "icon_128.png"],
+        manifestData: "",
+        scriptData,
+        htmlData: "<h1>My Custom Extension</h1>",
       }),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     });
 
-    const {downloadLink} = await res.json();
+    const { downloadLink } = await res.json();
     setLink(downloadLink);
     console.log(downloadLink);
-  }
+  };
 
   const extForm = useFormik({
     initialValues: {
-      title: '',
-      icon : '',
-      features : [],
+      title: "",
+      icon: "",
+      features: [],
       user: currentUser._id,
-      itemsToInclude
+      itemsToInclude,
     },
     onSubmit: async (values) => {
       values.icon = selFile.name;
@@ -56,7 +59,7 @@ const ExtensionGen = () => {
 
       console.log(values);
       generateExtension(values);
-    }
+    },
   });
 
   const uploadFile = (e) => {
@@ -98,32 +101,31 @@ const ExtensionGen = () => {
           </div>
           <div className="form-group">
             <label htmlFor="imageInput">Image Field</label>
-            <input type="file" className="form-control-file" onChange={uploadFile} />
+            <input
+              type="file"
+              className="form-control-file"
+              onChange={uploadFile}
+            />
           </div>
-            <h5>Features:</h5>
+          <h5>Features:</h5>
           <div className="form-group">
-            {
-              featureOptions.map((feature, index) => (
-                <div className="form-check">
+            {featureOptions.map((feature, index) => (
+              <div className="form-check">
                 <input
                   className="form-check-input"
                   type="checkbox"
                   checked={selFeatures.includes(feature)}
                   onChange={(e) => {
-                    if(e.target.checked){
+                    if (e.target.checked) {
                       setSelFeatures([...selFeatures, feature]);
-                    }else{
+                    } else {
                       setSelFeatures(selFeatures.filter((f) => f !== feature));
                     }
                   }}
                 />
-                <label className="form-check-label">
-                  {feature}
-                </label>
+                <label className="form-check-label">{feature}</label>
               </div>
-              ))
-            }
-           
+            ))}
           </div>
 
           <MultipleValueTextInput
@@ -137,19 +139,19 @@ const ExtensionGen = () => {
             Submit
           </button>
           {/* <button type='button' className='btn btn-primary' onClick={generateExtension} >Generate</button> */}
-          
-          {
-            link ?  <a className='btn btn-success'  href={link} >Download</a>
-            :
-            ''
-          }
+
+          {link ? (
+            <a className="btn btn-success" href={link}>
+              Download
+            </a>
+          ) : (
+            ""
+          )}
         </form>
       </div>
       {/* Bootstrap JS */}
     </>
+  );
+};
 
-
-  )
-}
-
-export default ExtensionGen
+export default ExtensionGen;
