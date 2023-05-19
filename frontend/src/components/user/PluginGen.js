@@ -1,81 +1,61 @@
-import React from 'react'
+import React, { useRef, useState } from 'react';
+import MultipleValueTextInput from 'react-multivalue-text-input';
+import { useFormik } from "formik";
+
+const pluginOptions = [
+  {
+    name: 'Comment System',
+    image : 'https://www.feedbackexpress.com/wp-content/uploads/2018/05/amazon-product-reviews-guide.jpg',
+    features: ['Attack', 'Insult', 'Threat', 'Obscene'],
+    codeToCopy: `<div id="cmnt-plugin"></div>
+<script src="http://localhost:5000/index.js"></script>`
+  },
+  {
+    name: 'Review System',
+    image: 'https://www.feedbackexpress.com/wp-content/uploads/2018/05/amazon-product-reviews-guide.jpg',
+    features: ['Attack', 'Insult', 'Threat', 'Obscene'],
+    codeToCopy: `<div id="review-plugin"></div>
+<script src="http://localhost:5000/index.js"></script>`
+  },
+  
+]
 
 const PluginGen = () => {
+
+  const copyToClipboard = (code) => {
+    navigator.clipboard.writeText(code);
+  }
+
+  const displayPlugins = () => {
+    return pluginOptions.map((plugin, index) => {
+      return (
+        <div className='col-md-4 mb-4'>
+          <div className="card" key={index}>
+            <img src={plugin.image} className='card-img-top'/>
+            <div className="card-body">
+              <h5 className="card-title">{plugin.name}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">Features</h6>
+              <p className="card-text">{plugin.features.join(', ')}</p>
+              <button className="btn btn-primary" onClick={() => copyToClipboard(plugin.codeToCopy)}>Copy Code</button>
+            </div>
+          </div>
+        </div>
+      )
+    })
+  }
+
   return (
     <>
-    <title>Form Example</title>
-    {/* Bootstrap CSS */}
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <div className="container mt-5">
-      <h1>Form Example</h1>
-      <form>
-        <div className="form-group">
-          <label htmlFor="textInput">Text Field</label>
-          <input
-            type="text"
-            className="form-control"
-            id="textInput"
-            placeholder="Enter text"
-          />
+      <div className='container'>
+        <h1 className='text-center'>Choose Your Plugin</h1>
+        <hr className='mb-5' />
+
+        <div className='row'>
+
+          {displayPlugins()}
         </div>
-        <div className="form-group">
-          <label htmlFor="imageInput">Image Field</label>
-          <input type="file" className="form-control-file" id="imageInput" />
-        </div>
-        <div className="form-group">
-          <h5>Features:</h5>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="attackCheckbox"
-            />
-            <label className="form-check-label" htmlFor="attackCheckbox">
-              Attack
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="insultCheckbox"
-            />
-            <label className="form-check-label" htmlFor="insultCheckbox">
-              Insult
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="threatCheckbox"
-            />
-            <label className="form-check-label" htmlFor="threatCheckbox">
-              Threat
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="obsceneCheckbox"
-            />
-            <label className="form-check-label" htmlFor="obsceneCheckbox">
-              Obscene
-            </label>
-          </div>
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
-    </div>
-    {/* Bootstrap JS */}
-  </>
-  
+      </div>
+    </>
 
   )
 }

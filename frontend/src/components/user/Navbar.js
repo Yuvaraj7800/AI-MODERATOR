@@ -34,36 +34,19 @@ const Navbar = () => {
             </a>
             {/* Left links */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              
               <li className="nav-item">
-                <NavLink className="nav-link" to="/home">
-                  Home
+                <NavLink className="nav-link" to="/user/extensiongen">
+                  Generate Extension
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/login">
-                  Login
+                <NavLink className="nav-link" to="/user/plugingen">
+                  Generate Plugin
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/signup">
-                  Signup
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/event">
-                  Event Handling
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/manage">
-                  Manage Users
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Projects
-                </a>
-              </li>
+              
+              
             </ul>
             {/* Left links */}
           </div>
@@ -71,11 +54,11 @@ const Navbar = () => {
           {/* Right elements */}
           <div className="d-flex align-items-center">
             {/* Icon */}
-            <a className="text-reset me-3" href="#">
+            {/* <a className="text-reset me-3" href="#">
               <i className="fas fa-shopping-cart" />
-            </a>
+            </a> */}
             {/* Notifications */}
-            <div className="dropdown">
+            {/* <div className="dropdown">
               <a
                 className="text-reset me-3 dropdown-toggle hidden-arrow"
                 href="#"
@@ -109,7 +92,7 @@ const Navbar = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             {/* Avatar */}
             <div className="dropdown">
               <a

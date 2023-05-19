@@ -5,13 +5,37 @@ const Model = require("../models/extensionModel");
 const createCode = require("./extensionGenerator");
 
 router.post("/generate", (req, res) => {
-  const {filename, imagesData, manifestData, scriptData, htmlData} = req.body;
+  const {filename, imagesData, manifestData, scriptData, htmlData, configOptions} = req.body;
+
   createCode(filename, imagesData, manifestData, scriptData, htmlData, (zipfile) => {
     res.json({
       downloadLink: `http://localhost:5000/${zipfile}`,
       filename: zipfile
     })
-  })
+  })  
+});
+
+router.post("/generateandsave", (req, res) => {
+  const {filename, imagesData, manifestData, scriptData, htmlData, configOptions} = req.body;
+
+  new Model({
+    ...configOptions,
+    createdAt: new Date()
+  }).save()
+  .then((result) => {
+    console.log('extension data saved!!');
+
+    createCode(filename, imagesData, manifestData, scriptData, htmlData, (zipfile) => {
+      res.json({
+        downloadLink: `http://localhost:5000/${zipfile}`,
+        filename: zipfile
+      })
+    })
+  }).catch((err) => {
+      console.error(err);
+  });
+
+  
 });
 
 router.post("/add", (req, res) => {
