@@ -2,8 +2,11 @@ import { useFormik } from "formik";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useUserContext } from "../../context/UserProvider";
 
 const Login = () => {
+
+  const { loggedIn, setLoggedIn } = useUserContext();
 
   const navigate = useNavigate();
 
@@ -18,13 +21,13 @@ const Login = () => {
 
       const res = await fetch('http://localhost:5000/user/authenticate', {
         method: 'POST',
-        body : JSON.stringify(values),
+        body: JSON.stringify(values),
         headers: {
           'Content-Type': 'application/json'
         }
       });
 
-      if(res.status === 200){
+      if (res.status === 200) {
 
         const data = await res.json();
 
@@ -32,24 +35,25 @@ const Login = () => {
 
 
         Swal.fire({
-          title : 'Well Done',
-          icon : "success",
-          text : "You have successfully logged in"
+          title: 'Well Done',
+          icon: "success",
+          text: "You have successfully logged in"
         });
 
+        setLoggedIn(true);
         navigate('/user/extensiongen');
-      }else if(res.status === 401){
+      } else if (res.status === 401) {
         Swal.fire({
-          title : 'Oops',
-          icon : "error",
-          text : "Invalid Credentials"
+          title: 'Oops',
+          icon: "error",
+          text: "Invalid Credentials"
         })
       }
     },
   });
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#9FA6B2"}}>
+    <section className="vh-100" style={{ backgroundColor: "#9FA6B2" }}>
       <div className="container py-5 h-100">
         <div className="row d-flex align-items-center justify-content-center h-100">
           <div className="col-md-8 col-lg-7 col-xl-6">

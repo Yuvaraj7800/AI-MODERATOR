@@ -87,6 +87,7 @@ const createCode = (filename, imagesData, manifestData, scriptData, htmlData, cb
       content: script.content(scriptData),
     });
   });
+  
   createZip(extPath, `${filename}.zip`);
   cb(`${filename}.zip`);
 };
