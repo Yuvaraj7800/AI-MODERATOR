@@ -33,6 +33,7 @@ const CommentPlugin = () => {
   });
   return (
     <>
+    <section className="col-log-6" style={{ backgroundColor: "#a3e7f7" }} >
       <title>Comment System</title>
       {/* Bootstrap CSS */}
       <link
@@ -109,6 +110,7 @@ const CommentPlugin = () => {
         </div>
       </div>
       {/* Bootstrap JS */}
+      </section>
     </>
 
   )

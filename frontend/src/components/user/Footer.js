@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
             <>
                 {/* Footer */}
-                <footer className="text-center text-lg-start text-muted" style={{backgroundColor:'black'}}>
+                <footer className="text-center text-lg-start text-muted " style={{backgroundColor:'black'}}>
                     {/* Section: Social media */}
                     <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                         {/* Left */}

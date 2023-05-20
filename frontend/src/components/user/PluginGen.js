@@ -2,6 +2,9 @@ import React, { useRef, useState } from 'react';
 import MultipleValueTextInput from 'react-multivalue-text-input';
 import { useFormik } from "formik";
 
+
+
+
 const pluginOptions = [
   {
     name: 'Comment System',
@@ -20,6 +23,7 @@ const pluginOptions = [
   
 ]
 
+
 const PluginGen = () => {
 
   const copyToClipboard = (code) => {
@@ -29,7 +33,8 @@ const PluginGen = () => {
   const displayPlugins = () => {
     return pluginOptions.map((plugin, index) => {
       return (
-        <div className='col-md-4 mb-4'>
+        
+        <div className='col-6 mb-4 '>
           <div className="card" key={index}>
             <img src={plugin.image} className='card-img-top'/>
             <div className="card-body">
@@ -40,13 +45,16 @@ const PluginGen = () => {
             </div>
           </div>
         </div>
+        
       )
     })
+    
   }
 
   return (
     <>
-      <div className='container'>
+    <section className=" col-log-6" style={{ backgroundColor: "#a3e7f7" }} >
+      <div className='container '>
         <h1 className='text-center'>Choose Your Plugin</h1>
         <hr className='mb-5' />
 
@@ -55,9 +63,12 @@ const PluginGen = () => {
           {displayPlugins()}
         </div>
       </div>
+      </section>
     </>
+    
 
   )
+  
 }
 
 export default PluginGen

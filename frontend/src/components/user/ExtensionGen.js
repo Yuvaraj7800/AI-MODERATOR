@@ -76,6 +76,8 @@ const ExtensionGen = () => {
 
   return (
     <>
+    <section className="h-100 form mb-1  " style={{ backgroundColor: "#a3e7f7" }} >
+      <div className="container py-5 h-100">
       <title>Form Example</title>
       {/* Bootstrap CSS */}
       <link
@@ -146,6 +148,9 @@ const ExtensionGen = () => {
         </form>
       </div>
       {/* Bootstrap JS */}
+      </div>
+      </section>
+      
     </>
 
 

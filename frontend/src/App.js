@@ -52,8 +52,8 @@ function App() {
               <Route path='update/:userid' element={<UpdateUser />} />
             </Route>
 
-            <Route path='user' element={ <UserAuth> <User /> </UserAuth> }>
-            {/* <Route path='user' element={<User />}> */}
+            {/* <Route path='user' element={ <UserAuth> <User /> </UserAuth> }> */}
+            <Route path='user' element={<User />}>
               <Route path='manageextension' element={<ExtensionManager />} />
               <Route path='modplugin' element={<ModeratorPlugin />} />
 

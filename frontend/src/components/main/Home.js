@@ -55,13 +55,13 @@ const Home = () => {
         <header>
           {/* Background image */}
           <div
-            className="p-5 mb-10 text-center bg-image"
+            className="p-5 mb-5 text-center bg-image"
             style={{
               backgroundImage: 'url("/A.gif")',
-              height: 600,
+              height: 400,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
-              // backgroundPosition: "50% 40%",
+              backgroundPosition: "50% 40%",
               backgroundColor: "rgba(0, 0, 0, 0)"
             }}
           >
@@ -77,9 +77,9 @@ const Home = () => {
           {/* Section */}
           <section>
             <div className='heading'>
-              <h2 className="mt-5 mb-3 text-center display-3">
+              <h3 className="mt-5 mb-3 text-center display-3">
                 <span><b>TOOLS OF AI MODERATOR </b></span>
-              </h2>
+              </h3>
             </div>
             
             {/* Grid row */}
@@ -152,9 +152,9 @@ const Home = () => {
                       <div className="row d-flex justify-content-center">
                         <div className="header-text col-lg-10">
                           <div className='heading'>
-                            <h2 className="mt-5 mb-3 display-3">
+                            <h3 className="mt-5 mb-3 display-3">
                               <span>What is use of AI-MODERATOR?</span>
-                            </h2>
+                            </h3>
                           </div>
                           
                           <div className='content'>
@@ -209,15 +209,15 @@ const Home = () => {
                   >
                     <div
                       className="mask"
-                      style={{ backgroundColor: "rgba(35, 37, 45, 0.6)" }}
+                      style={{ backgroundColor: "rgb(191, 218, 217)" }}
                     >
-                      <div className="container h-100">
-                        <div className="row d-flex justify-content-center align-items-center h-100">
+                      <div className="container h-80">
+                        <div className="row d-flex justify-content-center align-items-center h-80">
                           <div className="col-lg-10">
                             <div className="content pb-5">
-                              <h1 className="mt-5 mb-6 display-3">
+                              <h1 className="mt-5 mb-5 display-3">
                                 {" "}
-                                <span>To create a browser extension or plugin!</span> <br />{" "}
+                                <span><h1>To create a browser extension or plugin!</h1></span> {" "}
                                
                               </h1>{" "}
                               <Link
@@ -229,7 +229,17 @@ const Home = () => {
                                 Get Started
                               </Link>{" "}
                               
+                              
                             </div>
+                            <span><h4>Already registered? </h4> 
+                            <Link
+                                className="btn btn-primary py-3 px-5 mb-5 mb-md-3 me-md-2"
+                                to="/main/login"
+                                role="button"
+                                aria-controls="#picker-editor"
+                              >
+                                Login
+                              </Link>{" "} </span>
                           </div>
                         </div>
                       </div>
@@ -266,14 +276,14 @@ const Home = () => {
           >
             <section>
               <div className='heading'>
-                <h2 className="mb-3 text-center display-3">
+                <h2 className="mb-3 text-center display-3 bg-secondary">
                   <span>NEEDS OF AI-MODERATOR</span>
                 </h2>
               </div>
              
 
               {/* row - 1 */}
-              <div className="row gx-lg-5 mb-5 align-items-center">
+              <div className="row gx-lg-5 mb-5 align-items-center ">
                 <div className="col-md-6 mb-4 mb-md-0">
                   {" "}
                   <img
@@ -281,6 +291,8 @@ const Home = () => {
                     className="w-100 shadow-4-strong rounded-7 mb-4"
                     alt=""
                     aria-controls="#picker-editor"
+                    height={250}
+                    width={300}
                   />{" "}
                 </div>
                 <div className="content text-center col-md-6 mb-4 mb-md-0">
@@ -304,6 +316,8 @@ const Home = () => {
                     className="w-100 shadow-4-strong rounded-7 mb-4"
                     alt=""
                     aria-controls="#picker-editor"
+                    height={250}
+                    width={300}
                   />{" "}
                 </div>
                 <div className="content text-center col-md-6 mb-4 mb-md-0">
@@ -326,6 +340,8 @@ const Home = () => {
                     className="w-100 shadow-4-strong rounded-7 mb-4"
                     alt=""
                     aria-controls="#picker-editor"
+                    height={250}
+                    width={300}
                   />{" "}
                 </div>
                 <div className="content text-center col-md-6 mb-4 mb-md-0">
@@ -352,6 +368,8 @@ const Home = () => {
                     className="w-100 shadow-4-strong rounded-7 mb-4"
                     alt=""
                     aria-controls="#picker-editor"
+                    height={250}
+                    width={300}
                   />{" "}
                 </div>
                 <div className="content text-center col-md-6 mb-4 mb-md-0">
@@ -383,12 +401,12 @@ const Home = () => {
             <section draggable="false" className="container" data-v-271253ee="">
               <section className="">
                 <div className='heading'>
-                  <h2 className="mb-3 text-center display-3">
+                  <h2 className="mb-3 text-center display-3 bg-secondary">
                     <span>Meet Our Team</span>
                   </h2>
                 </div>
                 <div className='sub-heading'> 
-                  <h4 className="mb-10 text-center">
+                  <h4 className="mb-10 text-center ">
                     <span>Faces behind our success</span>
                   </h4>
                 </div>
@@ -414,7 +432,7 @@ const Home = () => {
                         <h4 className="card-tittle fw-bold mb-3">
                           <strong>Yuvaraj</strong>
                         </h4>
-                        <h6 className="mb-3">Frontend Developer</h6>
+                        <h6 className="mb-3 ">Frontend Developer</h6>
                         {/* icons */}
                         <div>
                           <button type="button" className="btn btn-floating  mx-1">

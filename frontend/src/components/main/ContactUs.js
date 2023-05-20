@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './contact.css';
+// import './contact.css';
 import { MDBBtn, MDBInput, MDBTextArea } from 'mdb-react-ui-kit';
 import { Formik } from 'formik'
 import Swal from 'sweetalert2'
