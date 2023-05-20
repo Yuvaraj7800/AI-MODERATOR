@@ -92,7 +92,7 @@ const Footer = () => {
                                         aimoderator@example.com
                                     </p>
                                     <p className=' text-white'>
-                                        <i className="fas fa-phone me-3 text-white" /> + 8840290552
+                                        <i className="fas fa-phone me-3 text-white" /> +91-8840290552
                                     </p>
                                 
                                 </div>

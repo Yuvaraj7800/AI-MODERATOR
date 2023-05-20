@@ -65,7 +65,7 @@ const Signup = () => {
 
 
     return (
-        <section className="vh-auto" style={{ backgroundColor: "#a3e7f7" }}>
+        <section className="h-100 form mb-1 " style={{ backgroundColor: "#a3e7f7" }}>
             <div className="container py-5 h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col col-xl-10">
@@ -83,8 +83,11 @@ const Signup = () => {
                                     <div className="card-body p-4 p-lg-5 text-black">
                                         <form onSubmit={signupForm.handleSubmit}>
                                             <div className="d-flex align-items-center mb-2 pb-1">
-                                                <img src="/A2.png" alt="error"
-                                                    style={{ height: "100px"   }}
+                                                <img src="/A.gif" alt="error"
+                                                    style={{ height: "100px" 
+                                                    , width: "100px"
+                                                    ,marginLeft: "60%"
+                                                  }}
                                                     
                                                 />
                                             </div>

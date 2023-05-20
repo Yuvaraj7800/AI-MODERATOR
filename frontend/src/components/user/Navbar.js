@@ -49,9 +49,10 @@ const Navbar = () => {
             {/* Navbar brand */}
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
               <img
-                src="/icon_128.png"
+                src="/logo2.png"
 
-                height={30}
+                height={50}
+                width={60}
                 alt="AI MODERATOR"
                 loading="lazy"
               />
