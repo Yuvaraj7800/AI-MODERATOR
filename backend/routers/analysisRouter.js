@@ -1,4 +1,4 @@
-const Model = require('../models/commentModel');
+const Model = require('../models/analysisModel');
 const {Router} = require('express');
 const router = Router();
 
@@ -31,6 +31,16 @@ router.get('/getall', (req, res) => {
 
 router.delete('/delete/:id', (req,res) => {
     Model.findByIdAndDelete(req.params.id)
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).json(err);
+    });
+});
+
+router.get('/getbyuser/:id', (req,res) => {
+    Model.find({user : req.params.id})
     .then((result) => {
         res.json(result);
     }).catch((err) => {
