@@ -190,16 +190,16 @@ const Login = () => {
                                                 </div>
                                             </div>
 
-                                            <div className="pt-1 mx-4 mb-2 pb-1 ">
+                                            <div className="pt-1 mb-2 pb-1 ">
                                                 <button
-                                                    className="btn btn-primary btn-block mb-3"
+                                                    className="btn btn-primary float-end mb-3"
                                                     type="submit"
                                                     style={{ borderRadius: "10px" }}
                                                 >
                                                     Login
                                                 </button>
                                             </div>
-                                            <div className='text-center'>
+                                            <div className='text-center mt-5'>
                                                 <NavLink className="text-primary mb-3" to='/main/signup'>
                                                     Forgot password?
                                                 </NavLink>
