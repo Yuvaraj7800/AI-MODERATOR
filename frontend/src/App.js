@@ -26,6 +26,7 @@ import { Toaster } from "react-hot-toast";
 import CustomizePlugin from "./components/user/CustomizePlugin";
 import { useState } from "react";
 import UserProvider from "./context/UserProvider";
+import Dashboard from "./components/user/Dashboard";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -65,6 +66,7 @@ function App() {
 
               <Route path="extensiongen" element={<Extension />} />
               <Route path="plugingen" element={<Plugin />} />
+              <Route path="dashboard" element={<Dashboard />} />
               <Route path="custPlugin" element={<CustomizePlugin />} />
               <Route
                 path="custPlugin/:pluginName"

@@ -1,49 +1,18 @@
-//  import React from 'react';
-// import './home.css';
-// import Footer from './Footer';
-
-
-
-
-
-
-// const Home = () => {
-//   return (
-
-
-//     <div >
-
-//       <div className='head'> 
-
-
-//                 <h2>AI-MODERATOR </h2></div>
-//                 <div className='head1'>
-//                 <img
-//                   src="/ai.png"
-//                   height={90}
-
-//                   loading="lazy"
-//                 />
-//                 </div>
-
-//         <p className='para'> In today’s world, Artificial Intelligence (AI) is the next tech revolution. It is a defining technology of the 21st century that will transform the way businesses work and users interact with the data. Artificial Intelligence primarily aims at building smart machines and programs that are capable of performing complex tasks, which require human intelligence.
-// 	AI-powered technologies have made their mark on a lot of user-oriented services. Google leverages machine learning to predict the search intent of the users and offer them results with great accuracy. Amazon uses the same technology for product recommendations and logistics. Even self-driving cars apply various AI techniques to avoid collisions and traffic congestions. The importance of Artificial Intelligence can’t be argued — the technology has already changed and disrupted many industries and aspects of our daily lives.
-//   </p> 
-
-// {/* <Footer/> */}
-
-
-//     </div>
-
-//   )
-// }
-
-// export default Home;
-
-
-
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Tilt } from 'react-tilt'
+
+const defaultOptions = {
+	reverse:        false,  // reverse the tilt direction
+	max:            35,     // max tilt rotation (degrees)
+	perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
+	scale:          1.1,    // 2 = 200%, 1.5 = 150%, etc..
+	speed:          1000,   // Speed of the enter/exit transition
+	transition:     true,   // Set a transition on enter/exit.
+	axis:           null,   // What axis should be disabled. Can be X or Y.
+	reset:          true,    // If the tilt effect has to be reset on exit.
+	easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
+}
 
 const Home = () => {
   return (
@@ -83,8 +52,9 @@ const Home = () => {
             </div>
             
             {/* Grid row */}
+            
             <div className="row">
-
+            <Tilt options={defaultOptions} >
               <div className="col-md-6">
                 <div className="card">
                   <img
@@ -104,7 +74,8 @@ const Home = () => {
                 </div>
 
               </div>
-
+              </Tilt>
+              <Tilt options={defaultOptions} >
               <div className="col-md-6">
                 <div className="card">
                   <img
@@ -122,8 +93,9 @@ const Home = () => {
                 </div>
 
               </div>
-
+              </Tilt>
             </div>
+            
             {/* Grid row */}
           </section>
           {/* Section */}

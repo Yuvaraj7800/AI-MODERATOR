@@ -87,7 +87,7 @@ const Signup = () => {
                                                 <img src="/AI.gif" alt="error"
                                                     style={{ height: "100px" 
                                                     
-                                                    ,marginLeft: "60%"
+                                                    ,marginLeft: "50%"
                                                   }}
                                                     
                                                 />
