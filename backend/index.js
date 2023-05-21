@@ -5,6 +5,7 @@ const utilRouter = require('./routers/util');
 const commentRouter = require('./routers/CommentRouter');
 const reviewRouter = require('./routers/reviewRouter');
 const contactUsRouter = require('./routers/contactUsRouter');
+const analysisRouter = require('./routers/analysisRouter');
 
 
 const cors = require('cors')
@@ -29,6 +30,7 @@ app.use('/util', utilRouter);
 app.use('/comment', commentRouter);
 app.use('/review', reviewRouter);
 app.use('/contactUs', contactUsRouter);
+app.use('/analysis', analysisRouter);
 
 // routes
 app.get('/', (req, res) => {
