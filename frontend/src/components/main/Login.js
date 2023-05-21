@@ -133,9 +133,9 @@ const Login = () => {
                                 <div className="col-lg-6 mt-1 ">
 
                                     <div className="card-body mx-md-4 my-5">
-                                    <img src="/A.gif" alt="error"
+                                    <img src="/AI.gif" alt="error"
                                                     style={{ height: "100px" 
-                                                    , width: "100px",
+                                                   ,
                                                     
                                                     marginLeft: "60%"
                                                   }}

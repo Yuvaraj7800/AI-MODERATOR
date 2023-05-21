@@ -57,8 +57,8 @@ const Home = () => {
           <div
             className="p-5 mb-5 text-center bg-image"
             style={{
-              backgroundImage: 'url("/A.gif")',
-              height: 400,
+              backgroundImage: 'url("/AI.gif")',
+              height: "90vh",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "50% 40%",
@@ -158,8 +158,8 @@ const Home = () => {
                           </div>
                           
                           <div className='content'>
-                            <p className="mb-5">
-                              <span>AI or automated tools can offer some advantages over human moderation, such as speed, scalability, consistency, and cost-effectiveness. AI can analyze large volumes of data, detect patterns and anomalies, and flag or remove inappropriate or harmful content based on predefined rules or criteria.</span>
+                            <p className="mb-5 justify-content-between">
+                              AI or automated tools can offer some advantages over human moderation, such as speed, scalability, consistency, and cost-effectiveness. AI can analyze large volumes of data, detect patterns and anomalies, and flag or remove inappropriate or harmful content based on predefined rules or criteria.
                             </p>
                           </div>
                           
@@ -521,7 +521,7 @@ const Home = () => {
 
       {/* FAQ */}
       <>
-        {/* <div className="container mb-8">
+        {/* { <div className="container mb-8">
           
           <section>
             <div className='heading'>
@@ -703,7 +703,7 @@ const Home = () => {
               </div>
             </div>
           </section>
-        </div> */}
+        </div> } */}
       </>
       {/* FAQ */}
 
