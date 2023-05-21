@@ -1,119 +1,167 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import Swal from "sweetalert2";
+import { toast } from "react-hot-toast";
 
 const CommentPlugin = () => {
+  const [commentList, setCommentList] = useState([]);
+
+  const fetchComments = async () => {
+    const res = await fetch("http://localhost:5000/comment/getall");
+    const data = await res.json();
+    console.log(data);
+    setCommentList(data);
+  };
+
+  useEffect(() => {
+    fetchComments();
+  }, []);
+
+  const displayComments = () => {
+    return commentList.map((comment) => (
+      <div className="comment">
+        <div className="comment-body">
+          <div className="comment-info">
+            <span className="comment-author">{comment.name}</span>
+            <br />
+            <span className="comment-date">
+              {new Date(comment.createdAt).toLocaleDateString()}
+            </span>
+          </div>
+          <div className="comment-text">{comment.comment}</div>
+        </div>
+      </div>
+    ));
+  };
+
+  const getToxicity = (text, cb) => {
+    const threshold = 0.9;
+    // Load the model. Users optionally pass in a threshold and an array of
+    // labels to include.
+    window.toxicity.load(threshold).then((model) => {
+      const sentences = [text];
+
+      model
+        .classify(sentences)
+        .then(async (result) => {
+          // console.log(result);
+          await cb(result);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  };
+
   const commentForm = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      comment: ''
+      name: "",
+      comment: "",
+      createdAt: new Date(),
     },
-    onSubmit: async (values) => {
+    onSubmit: async (values, { setSubmitting }) => {
       console.log(values);
-      const res = await fetch('http://localhost:5000/comment/add', {
-            method: 'POST',
-            body : JSON.stringify(values),
+      setSubmitting(true);
+      getToxicity(values.comment, async (result) => {
+        console.log(result);
+        const isToxic = result.filter((obj) => obj.results[0].match);
+        // console.log(isToxic);
+        if (isToxic.length > 0) {
+          Swal.fire({
+            title: "Oops",
+            icon: "error",
+            text: "Your comment is toxic",
+          });
+        } else {
+          const res = await fetch("http://localhost:5000/comment/add", {
+            method: "POST",
+            body: JSON.stringify(values),
             headers: {
-              'Content-Type': 'application/json'
-            }
+              "Content-Type": "application/json",
+            },
           });
 
           console.log(res.status);
 
-          if(res.status === 200){
+          if (res.status === 200) {
             Swal.fire({
-              title : 'Well Done',
-              icon : "success",
-              text : "Thank You for your comment"
-            })
+              title: "Well Done",
+              icon: "success",
+              text: "Thank You for your comment",
+            });
+            fetchComments();
           }
-    }
-    
+        }
+        setSubmitting(false);
+      });
+      return;
+    },
   });
+
+
   return (
     <>
-    <section className="col-log-6" style={{ backgroundColor: "#a3e7f7" }} >
-      <title>Comment System</title>
-      {/* Bootstrap CSS */}
-      <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      />
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "\n    .comment {\n      margin-bottom: 20px;\n    }\n    .comment .comment-body {\n      background-color: #f7f7f7;\n      padding: 10px;\n      border-radius: 5px;\n    }\n    .comment .comment-info {\n      margin-bottom: 5px;\n    }\n    .comment .comment-info .comment-author {\n      font-weight: bold;\n    }\n    .comment .comment-info .comment-date {\n      color: #777;\n      font-size: 12px;\n    }\n    .comment .comment-text {\n      margin-top: 10px;\n    }\n  "
-        }}
-      />
-      <div className="container mt-5">
-        <h1>Comment System</h1>
-        {/* Comment 1 */}
-        <div className="comment">
-          <div className="comment-body">
-            <div className="comment-info">
-              <span className="comment-author">John Doe</span>
-              <span className="comment-date">May 1, 2023</span>
-            </div>
-            <div className="comment-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra
-              dolor a ex pharetra gravida.
-            </div>
+      <section className="col-log-6" style={{ backgroundColor: "#a3e7f7" }}>
+        <title>Comment System</title>
+        {/* Bootstrap CSS */}
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <style
+          dangerouslySetInnerHTML={{
+            __html:
+              "\n    .comment {\n      margin-bottom: 20px;\n    }\n    .comment .comment-body {\n      background-color: #f7f7f7;\n      padding: 10px;\n      border-radius: 5px;\n    }\n    .comment .comment-info {\n      margin-bottom: 5px;\n    }\n    .comment .comment-info .comment-author {\n      font-weight: bold;\n    }\n    .comment .comment-info .comment-date {\n      color: #777;\n      font-size: 12px;\n    }\n    .comment .comment-text {\n      margin-top: 10px;\n    }\n  ",
+          }}
+        />
+        <div className="container mt-5">
+          <h1>Comment System</h1>
+          {displayComments()}
+          {/* Add Comment Form */}
+          <div className="comment">
+            <h4>Add a Comment</h4>
+            <form onSubmit={commentForm.handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="nameInput">Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  value={commentForm.values.name}
+                  onChange={commentForm.handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="commentInput">Comment</label>
+                <textarea
+                  className="form-control"
+                  id="comment"
+                  value={commentForm.values.comment}
+                  onChange={commentForm.handleChange}
+                  rows={3}
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                {commentForm.isSubmitting ? (
+                  <>
+                    <span
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    <span className="visually-hidden">Loading...</span>
+                  </>
+                ) : (
+                  "Submit"
+                )}
+              </button>
+            </form>
           </div>
         </div>
-        {/* Comment 2 */}
-        <div className="comment">
-          <div className="comment-body">
-            <div className="comment-info">
-              <span className="comment-author">Jane Smith</span>
-              <span className="comment-date">May 2, 2023</span>
-            </div>
-            <div className="comment-text">
-              Nullam auctor nisi justo, nec dignissim mauris pellentesque at.
-            </div>
-          </div>
-        </div>
-        {/* Comment 3 */}
-        <div className="comment">
-          <div className="comment-body">
-            <div className="comment-info">
-              <span className="comment-author">Mike Johnson</span>
-              <span className="comment-date">May 3, 2023</span>
-            </div>
-            <div className="comment-text">
-              Fusce euismod, enim et volutpat lobortis, nibh nisi tristique tellus,
-              et volutpat mauris mauris id tellus.
-            </div>
-          </div>
-        </div>
-        {/* Add Comment Form */}
-        <div className="comment">
-          <h4>Add a Comment</h4>
-          <form>
-            <div className="form-group">
-              <label htmlFor="nameInput">Name</label>
-              <input type="text" className="form-control" id="nameInput" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="commentInput">Comment</label>
-              <textarea
-                className="form-control"
-                id="commentInput"
-                rows={3}
-                defaultValue={""}
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </form>
-        </div>
-      </div>
-      {/* Bootstrap JS */}
+        {/* Bootstrap JS */}
       </section>
     </>
-
-  )
-}
+  );
+};
 
 export default CommentPlugin;
