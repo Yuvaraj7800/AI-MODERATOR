@@ -6,6 +6,22 @@ import { toast } from "react-hot-toast";
 const CommentPlugin = () => {
   const [commentList, setCommentList] = useState([]);
 
+  const saveAnalysis  = async (values) => {
+    const res = await fetch("http://localhost:5000/analysis/add", {
+      method: "POST",
+      body: JSON.stringify(values),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    console.log(res.status);
+
+    if (res.status === 200) {
+      toast.success("Analysis Saved");
+    }
+  }
+
   const fetchComments = async () => {
     const res = await fetch("http://localhost:5000/comment/getall");
     const data = await res.json();
