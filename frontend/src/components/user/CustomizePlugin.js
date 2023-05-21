@@ -19,6 +19,10 @@ const CustomizePlugin = () => {
 
   const [commentFeatures, setCommentFeatures] = useState([]);
 
+  const generatePlugin = () => {
+    
+  }
+
   const showPluginOptions = () => {
     if (selPlugin === "comment") {
       return (
