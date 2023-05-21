@@ -2,9 +2,9 @@ import { useFormik } from 'formik';
 import React from 'react'
 import * as Yup from 'yup';
 import Swal from 'sweetalert2';
-
+import { NavLink, useNavigate } from 'react-router-dom';
 const Signup = () => {
-
+    const navigate = useNavigate();
     const SignupSchema = Yup.object().shape({
         name: Yup.string() 
             .min(2, 'Too Short!')
@@ -45,8 +45,9 @@ const Signup = () => {
                     icon: 'success',
                     title: 'Your work has been saved',
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1500,
                 })
+                navigate('/main/Login');
             }
             else {
                 Swal.fire({
@@ -83,9 +84,9 @@ const Signup = () => {
                                     <div className="card-body p-4 p-lg-5 text-black">
                                         <form onSubmit={signupForm.handleSubmit}>
                                             <div className="d-flex align-items-center mb-2 pb-1">
-                                                <img src="/A.gif" alt="error"
+                                                <img src="/AI.gif" alt="error"
                                                     style={{ height: "100px" 
-                                                    , width: "100px"
+                                                    
                                                     ,marginLeft: "60%"
                                                   }}
                                                     
