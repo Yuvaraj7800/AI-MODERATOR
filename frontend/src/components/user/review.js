@@ -32,6 +32,7 @@ const ReviewPlugin = () => {
   });
   return (
     <>
+    <section className=" # " style={{ backgroundColor: "#a3e7f7" }} >
   <title>Review System</title>
   {/* Bootstrap CSS */}
   <link
@@ -120,6 +121,7 @@ const ReviewPlugin = () => {
                       onChange={reviewForm.handleChange}
                     />
                   </div>
+                  <br/>
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
@@ -127,6 +129,7 @@ const ReviewPlugin = () => {
     </div>
   </div>
   {/* Bootstrap JS */}
+  </section>
 </>
 
   )

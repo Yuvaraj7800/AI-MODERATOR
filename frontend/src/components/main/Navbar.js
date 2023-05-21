@@ -1,14 +1,60 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useUserContext } from "../../context/UserProvider";
 
 const Navbar = () => {
-  
+
+  const { loggedIn, setLoggedIn, logout } = useUserContext();
+
+  const showLoggedIn = () => {
+    if (!loggedIn) {
+      return (
+        // <ul className="navbar-nav">
+        <>
+          {/* <li className="nav-item"> */}
+          <NavLink className="nav-link" aria-current="page" to="/main/login">
+              Login
+          </NavLink>
+          {/* </li> */}
+          {/* <li className="nav-item"> */}
+          <NavLink className="nav-link" aria-current="page" to="/main/signup">
+              SignUp
+          </NavLink>
+          {/* </li> */}
+        </>
+        // </ul >
+
+      );
+    }
+  }
+
+  const showLogout = () => {
+    if (loggedIn) {
+      return (
+        <ul className="navbar-nav">
+          {/* // <li className="nav-item"> */}
+          {/* <button className="btn btn-danger ms-3" aria-current="page" onClick={logout}>
+                        Logout
+                    </button> */}
+          <button type="button" className="btn btn-primary me-3 mb-2" onClick={logout}>
+            LogOut
+          </button>
+          {/* // </li> */}
+        </ul>
+      );
+    }
+  }
+
+
+
+
+
   return (
     <>
-    
+
       {/* Navbar */}
-      
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+
+      <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: 'black' }}>
         {/* Container wrapper */}
         <div className="container-fluid">
           {/* Toggle button */}
@@ -28,14 +74,15 @@ const Navbar = () => {
             {/* Navbar brand */}
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
               <img
-                 
-                src="/icon_128.png"
-               
-                height={30}
+
+                src="/logo2.png"
+
+                height={50}
+                width={60}
                 alt="AI MODERATOR"
                 loading="lazy"
               />
-              
+
             </a>
             {/* Left links */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -44,7 +91,7 @@ const Navbar = () => {
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink className="nav-link" to="/main/login">
                   Login
                 </NavLink>
@@ -53,7 +100,8 @@ const Navbar = () => {
                 <NavLink className="nav-link" to="/main/signup">
                   Signup
                 </NavLink>
-              </li>
+              </li> */}
+              {showLoggedIn()}
               <li className="nav-item">
                 <NavLink className="nav-link" to="/main/aboutus">
                   AboutUs
@@ -64,11 +112,12 @@ const Navbar = () => {
                   ContactUs
                 </NavLink>
               </li>
-              
-              
-              
+              {showLogout()}
+
+
+
               <li className="nav-item">
-               
+
               </li>
             </ul>
             {/* Left links */}
@@ -76,57 +125,11 @@ const Navbar = () => {
           {/* Collapsible wrapper */}
           {/* Right elements */}
           <div className="d-flex align-items-center">
-            {/* Icon */}
-            {/* <a className="text-reset me-3" href="#">
-              <i className="fas fa-shopping-cart" />
-            </a> */}
-            {/* Notifications */}
-            {/* <div className="dropdown">
-              <a
-                className="text-reset me-3 dropdown-toggle hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="fas fa-bell" />
-                <span className="badge rounded-pill badge-notification bg-danger">
-                  1
-                </span>
-              </a>
-              <ul
-                className="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Some news
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another news
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </div> */}
+            
             {/* Avatar */}
             <div className="dropdown">
-              <a
-                className="dropdown-toggle d-flex align-items-center hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuAvatar"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
+              <a>
+              <img
                   src="/yuvi.jpeg"
                   className="rounded-circle"
                   height={25}
@@ -134,26 +137,7 @@ const Navbar = () => {
                   loading="lazy"
                 />
               </a>
-              <ul
-                className="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuAvatar"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    My profile
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Settings
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Logout
-                  </a>
-                </li>
-              </ul>
+              
             </div>
           </div>
           {/* Right elements */}

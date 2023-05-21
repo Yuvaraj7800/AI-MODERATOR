@@ -3,202 +3,288 @@ import React from 'react'
 const AboutUs = () => {
   return (
     <div>
-     <div className='head'><h2 >AI-MODERATOR</h2> </div>
+      <>
       
-      <p className='para' mb-3 >
-      As an AI content moderator, my primary function is to help ensure that the content published on various platforms, such as social media, forums, or websites, aligns with community guidelines and policies. I rely on advanced algorithms and natural language processing techniques to automatically identify and flag potentially inappropriate or harmful content, such as hate speech, graphic violence, or spam.
+        {/*Page Header*/}
+        <header className=''>
+          {/* Background image */}
+          <div
+            id="intro"
+            className="bg-image"
+            style={{
+              backgroundImage: "url(/background6.jpg)",
+              height: 230,
+              backgroundSize: "cover",
+              backgroundPosition: "50% 65%",
+              position: "relative"
+            }}
+          >
+            <div
+              className="mask text-white"
+              style={{ backgroundColor: "rgba(35, 37, 45, 0.6)" }}
+            >
+              <div className="container d-flex align-items-center text-center h-100">
+                <div className='page-heading'>
+                  <h1 className="fw-bold mb-3">About Us</h1>
+                  <p className='paragraph'>
+                  We are an AI content moderation service specializing in providing efficient and accurate moderation solutions for various online platforms. Our advanced artificial intelligence technology allows us to effectively analyze and filter user-generated content, ensuring compliance with community guidelines, policies, and legal regulations
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Background image */}
+        </header>
+        {/*Page Header*/}
+      </>
 
-I work to maintain a safe and healthy online environment, by preventing the spread of misinformation, protecting users from online harassment and abuse, and promoting respectful and constructive interactions. I am trained on a vast range of linguistic and cultural nuances, and I continuously learn from the feedback provided by human moderators, who can refine my accuracy and improve my decision-making.
+      {/* About Us */}
+      <>
+        <div className='mb-7'>
+          <div style={{ display: "none" }} />
+          <div>
+            <div data-draggable="true" style={{ position: "relative" }}>
+              {/**/}
+              {/**/}
+              <section
+                draggable="false"
+                className="overflow-hidden pt-0"
+                data-v-271253ee=""
+              >
+                <section>
+                  {" "}
+                  {/* Jumbotron */}
+                  <div className="py-2 text-center" style={{ background: '#f6feff' }}>
+                    <div className="container pb-md-5">
+                      <div className="row d-flex justify-content-center">
+                        <div className="header-text col-lg-10">
+                          <div className='heading'>
+                            <h2 className="mt-5 mb-3 display-3">
+                              <span>Why Choose Us?</span>
+                            </h2>
+                          </div>
+                          <div className='sub-heading'>
+                            
+                          </div>
+                          <div className='content'>
+                            <p className="mb-3">
+                              <span>Our AI content moderation system utilizes state-of-the-art machine learning algorithms to recognize and flag inappropriate, offensive, or potentially harmful content across multiple languages, formats, and media types. By combining natural language processing, image recognition, and pattern detection techniques, we can swiftly identify and take action against content that violates platform rules or poses a risk to users' safety.</span>
+                            </p>
+                            <p className="mb-3">
+                              <span>We continuously train and update our AI models to adapt to evolving online trends, new forms of content, and emerging risks. Additionally, our systems provide transparency and accountability by offering detailed reports and analytics on moderation outcomes, helping platforms track and understand content moderation activities.
 
-As an AI content moderator, I adhere to ethical principles of transparency, accountability, and fairness, and I strive to minimize bias and discrimination in my content moderation practices. I work closely with human moderators, who can provide critical context and insight into complex cases, and together we aim to ensure that online communities are inclusive, diverse, and safe for everyone.
-      </p>
+At our core, we strive to uphold the highest standards of content moderation by leveraging the power of AI technology. Our aim is to promote positive online interactions, protect users from harmful content, and foster a trusted and respectful online community.</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>{" "}
+                  {/* Jumbotron */}
+                </section>
+              </section>
+              {/**/}
+            </div>
+          </div>
+        </div>
+      </>
+      {/* About Us */}
 
-      <footer
-  className="text-center text-white"
-  style={{ backgroundColor: "#caced1" }}
->
-  {/* Grid container */}
-  <div className="container p-4">
-    {/* Section: Images */}
-    <section className="">
-      <div className="row">
-        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div
-            className="bg-image hover-overlay ripple shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
-              className="w-100"
-            />
-            <a href="#!">
-              <div
-                className="mask"
-                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
-              />
-            </a>
+      {/* Our Mision */}
+      <div className="container mb-5">
+        {/* Section: Block Content */}
+        <section className="text-center rounded-7 shadow-4-strong"
+          style={{
+            backgroundImage: "url(/background-img4.jpg)",
+            height: 350,
+            backgroundSize: "cover",
+            backgroundPosition: "50% 50%",
+            position: "relative"
+          }}
+        >
+          {/*Grid row*/}
+          <div className="row">
+            {/*Grid column*/}
+            <div className="heading col-md-4 offset-md-7">
+              <h2 className="text-center fw-bold my-3">
+                <strong>Our Mission</strong>
+              </h2>
+              <div className="content">
+                <p className="text-center align-items-justify mb-4">
+                The mission of AI content moderation is to use artificial intelligence technologies to analyze and filter content in order to maintain a safe and respectful online environment
+                </p>
+              </div>
+            </div>
+            {/*Grid column*/}
           </div>
-        </div>
-        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div
-            className="bg-image hover-overlay ripple shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/111.webp"
-              className="w-100"
-            />
-            <a href="#!">
-              <div
-                className="mask"
-                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
-              />
-            </a>
-          </div>
-        </div>
-        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div
-            className="bg-image hover-overlay ripple shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/112.webp"
-              className="w-100"
-            />
-            <a href="#!">
-              <div
-                className="mask"
-                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
-              />
-            </a>
-          </div>
-        </div>
-        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div
-            className="bg-image hover-overlay ripple shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/114.webp"
-              className="w-100"
-            />
-            <a href="#!">
-              <div
-                className="mask"
-                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
-              />
-            </a>
-          </div>
-        </div>
-        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div
-            className="bg-image hover-overlay ripple shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/115.webp"
-              className="w-100"
-            />
-            <a href="#!">
-              <div
-                className="mask"
-                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
-              />
-            </a>
-          </div>
-        </div>
-        <div className="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div
-            className="bg-image hover-overlay ripple shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/fluid/city/116.webp"
-              className="w-100"
-            />
-            <a href="#!">
-              <div
-                className="mask"
-                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    {/* Section: Images */}
-  </div>
-  {/* Grid container */}
-  <footer className="bg-#caced1 text-center text-white">
-  {/* Grid container */}
-  <div className="container p-4 pb-0">
-    {/* Section: Social media */}
-    <section className="mb-4">
-      {/* Facebook */}
-      <a
-        className="btn text-white btn-floating m-1"
-        style={{ backgroundColor: "#3b5998" }}
-        href="#!"
-        role="button"
-      >
-        <i className="fab fa-facebook-f" />
-      </a>
-      {/* Twitter */}
-      <a
-        className="btn text-white btn-floating m-1"
-        style={{ backgroundColor: "#55acee" }}
-        href="#!"
-        role="button"
-      >
-        <i className="fab fa-twitter" />
-      </a>
-      {/* Google */}
-      <a
-        className="btn text-white btn-floating m-1"
-        style={{ backgroundColor: "#dd4b39" }}
-        href="#!"
-        role="button"
-      >
-        <i className="fab fa-google" />
-      </a>
-      {/* Instagram */}
-      <a
-        className="btn text-white btn-floating m-1"
-        style={{ backgroundColor: "#ac2bac" }}
-        href="#!"
-        role="button"
-      >
-        <i className="fab fa-instagram" />
-      </a>
-      {/* Linkedin */}
-      <a
-        className="btn text-white btn-floating m-1"
-        style={{ backgroundColor: "#0082ca" }}
-        href="#!"
-        role="button"
-      >
-        <i className="fab fa-linkedin-in" />
-      </a>
-      {/* Github */}
-      <a
-        className="btn text-white btn-floating m-1"
-        style={{ backgroundColor: "#333333" }}
-        href="#!"
-        role="button"
-      >
-        <i className="fab fa-github" />
-      </a>
-    </section>
-    {/* Section: Social media */}
-  </div>
-  {/* Grid container */}
- 
-</footer>
+          {/*Grid row*/}
+        </section >
+        {/* Section: Block Content */}
+      </div >
+      {/* Our Mission */}
 
-</footer>
-      
-    </div>
+      {/* Our Vision */}
+      <div className="container mb-10">
+        {/* Section: Block Content */}
+        <section className="text-center rounded-7 shadow-4-strong"
+          style={{
+            backgroundImage: "url(/background-img5.jpg)",
+            height: 350,
+            backgroundSize: "cover",
+            backgroundPosition: "50% 50%",
+            position: "relative"
+          }}
+        >
+          {/*Grid row*/}
+          <div className="row">
+            {/*Grid column*/}
+            <div className="heading col-md-4 offset-md-1">
+              <h2 className="text-center fw-bold my-3">
+                <strong>Our Vision</strong>
+              </h2>
+              <div className="content">
+                <p className="text-center align-items-justify mb-4">
+                Our vision of AI content moderation is to develop an advanced system that effectively identifies and filters out inappropriate or harmful content across various online platforms. This AI moderator would possess the ability to analyze text, images, and videos, utilizing machine learning algorithms to accurately detect and flag content that violates community guidelines or legal regulations.
+                </p>
+              </div>
+            </div>
+            {/*Grid column*/}
+          </div>
+          {/*Grid row*/}
+        </section >
+        {/* Section: Block Content */}
+      </div >
+      {/* Our Vision */}
+
+      {/* Team Members */}
+      <>
+      <div className="mb-10">
+          <div data-draggable="true" style={{ position: "relative" }}>
+            {/**/}
+            {/**/}
+            <section draggable="false" className="container" data-v-271253ee="">
+              <section className="">
+                <div className='heading'>
+                  <h2 className="mb-3 text-center display-3 bg-secondary">
+                    <span>Meet Our Team</span>
+                  </h2>
+                </div>
+                <div className='sub-heading'> 
+                  <h4 className="mb-10 text-center ">
+                    <span>Faces behind our success</span>
+                  </h4>
+                </div>
+
+                <div className="row text-center gx-lg-5">
+
+                  <div className="col-lg-6 mb-10 mb-lg-0 hover-zoom">
+                    <div className="card rounded-7 shadow-2-strong h-100">
+                      <div
+                        className="d-flex justify-content-center"
+                        style={{ marginTop: "-75px" }}
+                      >
+                        {" "}
+                        <img
+                          src="/yuvi.jpeg"
+                          className="rounded-circle shadow-5-strong"
+                          alt=""
+                          style={{ width: 150, height: 150 }}
+                          aria-controls="#picker-editor"
+                        />{" "}
+                      </div>
+                      <div className="card-body">
+                        <h4 className="card-tittle fw-bold mb-3">
+                          <strong>Yuvaraj</strong>
+                        </h4>
+                        <h6 className="mb-3 ">Frontend Developer</h6>
+                        {/* icons */}
+                        <div>
+                          <button type="button" className="btn btn-floating  mx-1">
+                            <a href="" className="me-4 text-reset">
+                              <i className="fab fa-facebook-f" />
+                            </a>
+                          </button>
+                          <button type="button" className="btn btn-floating  mx-1">
+                            <a href="" className="me-4 text-reset">
+                              <i className="fab fa-instagram" />
+                            </a>
+                          </button>
+                          <button type="button" className="btn btn-floating mx-1">
+                            <a href="" className="me-4 text-reset">
+                              <i className="fab fa-linkedin" />
+                            </a>
+                          </button>
+                          <button type="button" className="btn btn-floating mx-1">
+                            <a href="" className="me-4 text-reset">
+                              <i className="fab fa-github" />
+                            </a>
+                          </button>
+                        </div>
+                        {/* icons */}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-lg-6 mb-10 mb-lg-0 hover-zoom">
+                    <div className="card rounded-7 shadow-2-strong h-100">
+                      <div
+                        className="d-flex justify-content-center"
+                        style={{ marginTop: "-75px" }}
+                      >
+                        {" "}
+                        <img
+                          src="/avaneesh.jpeg"
+                          className="rounded-circle shadow-5-strong"
+                          alt=""
+                          style={{ width: 150, height: 150 }}
+                          aria-controls="#picker-editor"
+                        />{" "}
+                      </div>
+                      <div className="card-body">
+                        <h4 className="card-tittle fw-bold mb-3">
+                          <strong>Avaneesh Tiwari</strong>
+                        </h4>
+                        <h6 className="mb-3">Backend Developer</h6>
+                        {/* icons */}
+                        <div>
+                          <button type="button" className="btn btn-floating  mx-1">
+                            <a href="" className="me-4 text-reset">
+                              <i className="fab fa-facebook-f" />
+                            </a>
+                          </button>
+                          <button type="button" className="btn btn-floating  mx-1">
+                            <a href="" className="me-4 text-reset">
+                              <i className="fab fa-instagram" />
+                            </a>
+                          </button>
+                          <button type="button" className="btn btn-floating  mx-1">
+                            <a href="" className="me-4 text-reset">
+                              <i className="fab fa-linkedin" />
+                            </a>
+                          </button>
+                          <button type="button" className="btn btn-floating  mx-1">
+                            <a href="" className="me-4 text-reset">
+                              <i className="fab fa-github" />
+                            </a>
+                          </button>
+                        </div>
+                        {/* icons */}
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </section>
+            </section>
+            {/**/}
+          </div>
+        </div>
+      </>
+      {/* Team Members */}
+
+    </div >
   )
 }
 
-export default AboutUs;
+export default AboutUs
