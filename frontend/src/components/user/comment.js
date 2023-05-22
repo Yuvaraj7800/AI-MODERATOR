@@ -120,7 +120,6 @@ const CommentPlugin = ({ userid }) => {
           createdAt: new Date(),
         });
       });
-      return;
     },
   });
 
