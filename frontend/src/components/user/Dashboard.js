@@ -1,125 +1,77 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import app_config from "../../config";
 
 const Dashboard = () => {
+  const { apiUrl } = app_config;
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+  );
+  const [analysisData, setAnalysisData] = useState([]);
+
+  const getAnalysisData = async () => {
+    const response = await fetch(
+      `${apiUrl}/analysis/getbyuser/${currentUser._id}`
+    );
+    const data = await response.json();
+    console.log(data);
+    setAnalysisData(data);
+  };
+
+  useEffect(() => {
+    getAnalysisData();
+  }, []);
+
+  const displayAnalysisData = () => {
+    return analysisData.map((data, index) => (
+      <tr>
+        <td>
+          <p className="fw-bold mb-1">{data.plugin}</p>
+        </td>
+        <td>
+          <p className="fw-normal mb-1">{data.text}</p>
+        </td>
+        <td>
+          {data.status === "Not Toxic" ? (
+            <span className="badge badge-success rounded-pill d-inline">
+              {data.status}
+            </span>
+          ) : (
+            <span className="badge badge-danger rounded-pill d-inline">
+              {data.status}
+            </span>
+          )}
+        </td>
+        <td>
+          <button type="button" className="btn btn-link btn-sm btn-rounded">
+            Edit
+          </button>
+        </td>
+      </tr>
+    ));
+  };
+
   return (
-    <div>
-      <table className="table align-middle mb-0 bg-white">
-  <thead className="bg-light">
-    <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Status</th>
-      <th>Position</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <div className="d-flex align-items-center">
-          <img
-            src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-            alt=""
-            style={{ width: 45, height: 45 }}
-            className="rounded-circle"
-          />
-          <div className="ms-3">
-            <p className="fw-bold mb-1">John Doe</p>
-            <p className="text-muted mb-0">john.doe@gmail.com</p>
-          </div>
+    <div style={{ minHeight: "100vh" }}>
+      <section className="py-5 bg-dark">
+        <div className="container">
+          <p className="display-1 fw-bold text-white">Plugin Dashboard</p>
         </div>
-      </td>
-      <td>
-        <p className="fw-normal mb-1">Software engineer</p>
-        <p className="text-muted mb-0">IT department</p>
-      </td>
-      <td>
-        <span className="badge badge-success rounded-pill d-inline">
-          Active
-        </span>
-      </td>
-      <td>Senior</td>
-      <td>
-        <button type="button" className="btn btn-link btn-sm btn-rounded">
-          Edit
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div className="d-flex align-items-center">
-          <img
-            src="https://mdbootstrap.com/img/new/avatars/6.jpg"
-            className="rounded-circle"
-            alt=""
-            style={{ width: 45, height: 45 }}
-          />
-          <div className="ms-3">
-            <p className="fw-bold mb-1">Alex Ray</p>
-            <p className="text-muted mb-0">alex.ray@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p className="fw-normal mb-1">Consultant</p>
-        <p className="text-muted mb-0">Finance</p>
-      </td>
-      <td>
-        <span className="badge badge-primary rounded-pill d-inline">
-          Onboarding
-        </span>
-      </td>
-      <td>Junior</td>
-      <td>
-        <button
-          type="button"
-          className="btn btn-link btn-rounded btn-sm fw-bold"
-          data-mdb-ripple-color="dark"
-        >
-          Edit
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div className="d-flex align-items-center">
-          <img
-            src="https://mdbootstrap.com/img/new/avatars/7.jpg"
-            className="rounded-circle"
-            alt=""
-            style={{ width: 45, height: 45 }}
-          />
-          <div className="ms-3">
-            <p className="fw-bold mb-1">Kate Hunington</p>
-            <p className="text-muted mb-0">kate.hunington@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p className="fw-normal mb-1">Designer</p>
-        <p className="text-muted mb-0">UI/UX</p>
-      </td>
-      <td>
-        <span className="badge badge-warning rounded-pill d-inline">
-          Awaiting
-        </span>
-      </td>
-      <td>Senior</td>
-      <td>
-        <button
-          type="button"
-          className="btn btn-link btn-rounded btn-sm fw-bold"
-          data-mdb-ripple-color="dark"
-        >
-          Edit
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
+      </section>
+      <div className="container">
+        <table className="table align-middle mb-0 bg-white">
+          <thead className="bg-light">
+            <tr>
+              <th>Plugin</th>
+              <th>Text</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>{displayAnalysisData()}</tbody>
+        </table>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

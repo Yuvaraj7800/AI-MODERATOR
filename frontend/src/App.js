@@ -58,8 +58,7 @@ function App() {
               path="user"
               element={
                 <UserAuth>
-                  {" "}
-                  <User />{" "}
+                  <User />
                 </UserAuth>
               }
             >
@@ -74,7 +73,7 @@ function App() {
                 path="custPlugin/:pluginName"
                 element={<CustomizePlugin />}
               />
-              <Route path="comment" element={<Comment />} />
+              <Route path="comment" element={<Comment userid={'6467b6bbf75c23a105ce440a'} />} />
               <Route path="review" element={<Review />} />
               <Route path="toxic" element={<ToxicityPrediction />} />
 

@@ -3,10 +3,10 @@ import { useFormik } from "formik";
 import Swal from "sweetalert2";
 import { toast } from "react-hot-toast";
 
-const CommentPlugin = () => {
+const CommentPlugin = ({ userid }) => {
   const [commentList, setCommentList] = useState([]);
 
-  const saveAnalysis  = async (values) => {
+  const saveAnalysis = async (values) => {
     const res = await fetch("http://localhost:5000/analysis/add", {
       method: "POST",
       body: JSON.stringify(values),
@@ -20,7 +20,7 @@ const CommentPlugin = () => {
     if (res.status === 200) {
       toast.success("Analysis Saved");
     }
-  }
+  };
 
   const fetchComments = async () => {
     const res = await fetch("http://localhost:5000/comment/getall");
@@ -82,12 +82,14 @@ const CommentPlugin = () => {
         console.log(result);
         const isToxic = result.filter((obj) => obj.results[0].match);
         // console.log(isToxic);
+        let status = "Not Toxic";
         if (isToxic.length > 0) {
           Swal.fire({
             title: "Oops",
             icon: "error",
             text: "Your comment is toxic",
           });
+          status = "Toxic";
         } else {
           const res = await fetch("http://localhost:5000/comment/add", {
             method: "POST",
@@ -109,11 +111,18 @@ const CommentPlugin = () => {
           }
         }
         setSubmitting(false);
+        await saveAnalysis({
+          text: values.comment,
+          toxicity: result,
+          plugin: "Comment",
+          user: userid,
+          status,
+          createdAt: new Date(),
+        });
       });
       return;
     },
   });
-
 
   return (
     <>
