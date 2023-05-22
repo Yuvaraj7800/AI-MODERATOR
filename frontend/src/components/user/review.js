@@ -80,7 +80,7 @@ const ReviewPlugin = () => {
 
   return (
     <>
-      <section className=" # " style={{ backgroundColor: "#a3e7f7" }} >
+      <section className=" # " style={{ backgroundColor: "#E1BEE7" }} >
         <title>Review System</title>
         {/* Bootstrap CSS */}
         <link

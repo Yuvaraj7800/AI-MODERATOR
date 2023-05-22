@@ -26,9 +26,9 @@ const CustomizePlugin = () => {
   const showPluginOptions = () => {
     if (selPlugin === "comment") {
       return (
-        <div className="container">
-          <div className="card mb-3">
-            <div className="card-header">
+        <div className="container" >
+          <div className="card mb-3" >
+            <div className="card-header" >
               <h3>Plugin Configuration</h3>
             </div>
             <div className="card-body">
@@ -131,6 +131,7 @@ const CustomizePlugin = () => {
               </div>
             </div>
           </div>
+          
         );
       }
   };
