@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useUserContext } from "../../context/UserProvider";
 
 const Navbar = () => {
@@ -59,7 +59,7 @@ const Navbar = () => {
             </a>
             {/* Left links */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
+              <li className="nav-item">
                 <NavLink className="nav-link" to="/user/Dashboard">
                   Dashboard
                 </NavLink>
@@ -76,31 +76,50 @@ const Navbar = () => {
                 </NavLink>
               </li>
 
-              {showLogout()}
 
 
             </ul>
             {/* Left links */}
           </div>
-          
+
           {/* Right elements */}
           <div className="d-flex align-items-center">
-            
-            <div className="dropdown">
-              <a>
-                
-             
-                <img
-                  src="/yuvi.jpeg"
-                  //alt="Black and White Portrait of a Man"
-                  className="rounded-circle"
-                  height={25}
 
-                  loading="lazy"
-                />
-              </a>
+
+
+            <a
+              className="dropdown-toggle d-flex align-items-center hidden-arrow"
+              href="#"
+              id="navbarDropdownMenuAvatar"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="/yuvi.jpeg"
+                className="rounded-circle"
+                height={25}
+                loading="lazy"
+              />
+            </a>
+            <ul
+              className="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuAvatar"
+            >
+              <li>
+                <Link className="dropdown-item" to="/user/profile">
+                  My profile
+                </Link>
+              </li>
               
-            </div>
+              <li>
+                <a className="dropdown-item" onClick={logout} style={{cursor:"pointer"}}>
+                  Logout
+                </a>
+              </li>
+            </ul>
+
+
           </div>
           {/* Right elements */}
         </div>

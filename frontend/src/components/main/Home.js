@@ -65,7 +65,7 @@ const Home = () => {
                     
                   />
                   <div className="card-body">
-                    <h5 className="card-title">Extentions</h5>
+                    <h5 className="card-title">Extension</h5>
                     <p className="card-text" style={{textAlign: "justify"}}>
                       Extensions are small software programs that customize the browsing experience. They enable users to tailor Chrome functionality and behavior to individual needs or preferences. They are built on web technologies such as HTML, JavaScript, and CSS.
                     </p>
