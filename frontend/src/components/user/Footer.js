@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
             <>
                 {/* Footer */}
-                <footer className="text-center text-lg-start text-muted " style={{backgroundColor:'black'}}>
+                <footer className="text-center text-lg-start text-muted" style={{backgroundColor:'black'}}>
                     {/* Section: Social media */}
                     <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                         {/* Left */}
@@ -49,7 +49,7 @@ const Footer = () => {
                                         <i className="fas fa-gem me-3 text-secondary  text-white" />
                                         AI MODERATOR
                                     </h6>
-                                    <p className=' text-white'>
+                                    <p className=' text-white'  style={{textAlign: "justify"}}>
                                     AI-powered technologies have made their mark on a lot of user-oriented services. Google leverages machine learning to predict the search intent of the users and offer them results with great accuracy. 
                                     </p>
                                 </div>
@@ -84,7 +84,7 @@ const Footer = () => {
                                     {/* Links */}
                                     <h6 className="text-uppercase fw-bold mb-4 text-white">Contact</h6>
                                     <p className=' text-white'>
-                                        <i className="fas fa-home me-3 text-secondary text-white" /> BBD UNIVERSITY LUCKNOW, 226028, UP, INDIA
+                                        <i className="fas fa-home me-3 text-secondary text-white" /> BBD UNIVERSITY LUCKNOW UTTAR PRADESH, 226028, UP, INDIA
                                         
                                     </p>
                                     <p className=' text-white'>

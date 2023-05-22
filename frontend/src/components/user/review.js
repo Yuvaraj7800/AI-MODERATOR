@@ -1,54 +1,104 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useFormik } from "formik";
 import Swal from "sweetalert2";
+import { toast } from "react-hot-toast";
 
 const ReviewPlugin = () => {
+
+  const [reviewsList, setReviewsList] = useState([])
+
+  const fetchReviews = async () => {
+    const res = await fetch("http://localhost:5000/review/getall");
+    const data = await res.json();
+    console.log(data);
+    setReviewsList(data);
+  };
+
+
   const reviewForm = useFormik({
     initialValues: {
       name: '',
-      email: '',
-      comment: ''
+      rating: '',
+      review: '',
+      createdAt: new Date()
     },
-    onSubmit: async (values) => {
+    onSubmit: async (values, {resetForm}) => {
       console.log(values);
       const res = await fetch('http://localhost:5000/review/add', {
-            method: 'POST',
-            body : JSON.stringify(values),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          });
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
 
-          console.log(res.status);
+      console.log(res.status);
 
-          if(res.status === 200){
-            Swal.fire({
-              title : 'Well Done',
-              icon : "success",
-              text : "Thank You for your comment"
-            })
-          }
+      if (res.status === 200) {
+        Swal.fire({
+          title: 'Well Done',
+          icon: "success",
+          text: "Thank You for your comment"
+        })
+        resetForm();
+        fetchReviews();
+      }
     }
   });
+
+  
+
+  useEffect(() => {
+    fetchReviews();
+  }, []);
+
+  const displayReviews = () => {
+    return reviewsList.map((review) => (
+      <div className="card my-3">
+      <div className="card-body">
+        <h5 className="card-title">{review.name}</h5>
+        <p className="card-text">
+          {review.rating}
+        </p>
+        <p>
+        {review.review}
+        </p>
+       <p>
+        {new Date(review.createdAt).toLocaleDateString()}
+       </p>
+      </div>
+    </div>
+    ));
+
+    
+
+
+  };
+
+
+
+
   return (
     <>
-    <section className=" # " style={{ backgroundColor: "#a3e7f7" }} >
-  <title>Review System</title>
-  {/* Bootstrap CSS */}
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  />
-  <style
-    dangerouslySetInnerHTML={{
-      __html:
-        "\n    .review {\n      margin-bottom: 20px;\n    }\n    .review .review-body {\n      background-color: #f7f7f7;\n      padding: 10px;\n      border-radius: 5px;\n    }\n    .review .review-info {\n      margin-bottom: 5px;\n    }\n    .review .review-info .review-author {\n      font-weight: bold;\n    }\n    .review .review-info .review-rating {\n      color: #f8bb06;\n      font-weight: bold;\n      font-size: 18px;\n    }\n    .review .review-text {\n      margin-top: 10px;\n    }\n  "
-    }}
-  />
-  <div className="container mt-5">
-    <h1>Review System</h1>
-    {/* Review 1 */}
-    <div className="review">
+      <section className=" # " style={{ backgroundColor: "#a3e7f7" }} >
+        <title>Review System</title>
+        {/* Bootstrap CSS */}
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <style
+          dangerouslySetInnerHTML={{
+            __html:
+              "\n    .review {\n      margin-bottom: 20px;\n    }\n    .review .review-body {\n      background-color: #f7f7f7;\n      padding: 10px;\n      border-radius: 5px;\n    }\n    .review .review-info {\n      margin-bottom: 5px;\n    }\n    .review .review-info .review-author {\n      font-weight: bold;\n    }\n    .review .review-info .review-rating {\n      color: #f8bb06;\n      font-weight: bold;\n      font-size: 18px;\n    }\n    .review .review-text {\n      margin-top: 10px;\n    }\n  "
+          }}
+        />
+        <div className="container mt-5">
+          <h1>Review System</h1>
+
+          {displayReviews()}
+
+          {/* <div className="review">
       <div className="review-body">
         <div className="review-info">
           <span className="review-author">John Doe</span>
@@ -60,7 +110,7 @@ const ReviewPlugin = () => {
         </div>
       </div>
     </div>
-    {/* Review 2 */}
+    
     <div className="review">
       <div className="review-body">
         <div className="review-info">
@@ -72,7 +122,7 @@ const ReviewPlugin = () => {
         </div>
       </div>
     </div>
-    {/* Review 3 */}
+    
     <div className="review">
       <div className="review-body">
         <div className="review-info">
@@ -84,35 +134,38 @@ const ReviewPlugin = () => {
           et volutpat mauris mauris id tellus.
         </div>
       </div>
-    </div>
-    {/* Add Review Form */}
-    <div className="review">
-      <h4>Add a Review</h4>
-      <form>
-        <div className="form-group">
-          <label htmlFor="nameInput">Name</label>
-          <input type="text" className="form-control" id="nameInput" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="ratingInput">Rating</label>
-          <select className="form-control" id="ratingInput">
-            <option value={5}>★★★★★</option>
-            <option value={4}>★★★★☆</option>
-            <option value={3}>★★★☆☆</option>
-            <option value={2}>★★☆☆☆</option>
-            <option value={1}>★☆☆☆☆</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="reviewInput">Review</label>
-          <textarea
-            className="form-control"
-            id="review Input"
-            rows={3}
-            defaultValue={""}
-          />
-        </div>
-        <div className="col-md-9 pe-5">
+    </div> */}
+
+          {/* Add Review Form */}
+          <div className="review">
+            <h4>Add a Review</h4>
+            <form onSubmit={reviewForm.handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="nameInput">Name</label>
+                <input type="text" className="form-control" id="name" value={reviewForm.values.name} onChange={reviewForm.handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="ratingInput">Rating</label>
+                <select className="form-control" id="ratingInput">
+                  <option value="5" name='rating' id='5' onChange={reviewForm.handleChange}>★★★★★</option>
+                  <option value='4' name='rating' id='4' onChange={reviewForm.handleChange}>★★★★☆</option>
+                  <option value='3' name='rating' id='3' onChange={reviewForm.handleChange}>★★★☆☆</option>
+                  <option value='2' name='rating' id='2' onChange={reviewForm.handleChange}>★★☆☆☆</option>
+                  <option value='1' name='rating' id='1' onChange={reviewForm.handleChange}>★☆☆☆☆</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="reviewInput">Review</label>
+                <textarea
+                  className="form-control"
+                  id="review"
+                  rows={3}
+                  defaultValue={""}
+                  value={reviewForm.values.review}
+                  onChange={reviewForm.handleChange}
+                />
+              </div>
+              {/* <div className="col-md-9 pe-5">
                     <input
                       type="text"
                       className="form-control form-control-lg"
@@ -120,17 +173,17 @@ const ReviewPlugin = () => {
                       value={reviewForm.values.name}
                       onChange={reviewForm.handleChange}
                     />
-                  </div>
-                  <br/>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
-    </div>
-  </div>
-  {/* Bootstrap JS */}
-  </section>
-</>
+                  </div> */}
+              <br />
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+        {/* Bootstrap JS */}
+      </section>
+    </>
 
   )
 }

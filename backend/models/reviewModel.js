@@ -1,8 +1,9 @@
 const {Schema, model, Types} = require('../connection');
 
 const myschema = new Schema({
-    text : String,
-    rating: Number,
+    name : String,
+    rating: String,
+    review: String,
     createdAt : Date
 });
 

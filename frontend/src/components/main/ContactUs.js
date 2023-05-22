@@ -71,7 +71,7 @@ const ContactUs = () => {
                         <div className="container d-flex align-items-center text-center h-100">
                             <div className='page-heading'>
                                 <h1 className="fw-bold mb-3">Contact Us</h1>
-                                <p className='paragraph'>
+                                <p className='paragraph' style={{textAlign: "justify"}}>
                                     "We'd love to hear from you! Drop us a line and let's start
                                     a conversation about how we can help you to moderate the content."
                                 </p>

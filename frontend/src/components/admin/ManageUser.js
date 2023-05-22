@@ -25,8 +25,8 @@ const ManageUser = () => {
   }
 
   return (
-    <div>
-      <div className="container">
+    <div >
+      <div className="container"  >
         {/* <h3>Loggedin as {currentUser.name}</h3> */}
         <h1>User Manager</h1>
         <hr />

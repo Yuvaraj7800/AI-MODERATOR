@@ -6,10 +6,10 @@ const UpdateUser = () => {
 
     const signupForm = useFormik({
         initialValues: {
-            name : '',
-            email : '',
-            password : '',
-            cPassword : ''
+          name: '',
+          email: '',
+          password: '',
+          createdAt: '',
         },
         onSubmit: async (values) => { 
           console.log(values);
@@ -50,105 +50,96 @@ const UpdateUser = () => {
 
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#2779e2" }}>
-      <div className="container h-100">
+    <section className="h-100 form mb-1 " style={{ backgroundColor: "#a3e7f7" }}>
+    <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-xl-9">
-            <h1 className="text-white mb-4">New Registration</h1>
-            <div className="card" style={{ borderRadius: 15 }}>
-              <div className="card-body">
-                <form onSubmit={signupForm.handleSubmit}>
-                <div className="row align-items-center pt-4 pb-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Full name</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      type="text"
-                      className="form-control form-control-lg"
-                      id="name"
-                      value={signupForm.values.name}
-                      onChange={signupForm.handleChange}
-                    />
-                  </div>
-                </div>
-                
-                <div className="row align-items-center py-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Email address</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      type="email"
-                      className="form-control form-control-lg"
-                      placeholder="example@example.com"
-                      id="email"
-                      value={signupForm.values.email}
-                      onChange={signupForm.handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="row align-items-center py-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Password</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      type="password"
-                      className="form-control form-control-lg"
-                      placeholder="password"
-                      id="password"
-                      value={signupForm.values.password}
-                      onChange={signupForm.handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="row align-items-center py-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Confirm Password</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      type="password"
-                      className="form-control form-control-lg"
-                      placeholder="confirm password"
-                      id="cPassword"
-                      value={signupForm.values.cPassword}
-                      onChange={signupForm.handleChange}
-                    />
-                  </div>
-                </div>
-                
-                <hr className="mx-n3" />
-                <div className="row align-items-center py-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Upload CV</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      className="form-control form-control-lg"
-                      id="formFileLg"
-                      type="file"
-                    />
-                    <div className="small text-muted mt-2">
-                      Upload your CV/Resume or any other relevant file. Max file
-                      size 50 MB
+            <div className="col col-xl-10">
+                <div className="card" style={{ borderRadius: "1rem" }}>
+                    <div className="row g-0">
+                        <div className="col-md-6 col-lg-5 d-none d-md-block">
+                            <img
+                                src="/Altloginimg.jpg"
+                                alt="login form"
+                                className="img-fluid"
+                                style={{ borderRadius: "1rem 0 0 1rem" }}
+                            />
+                        </div>
+                        <div className="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div className="card-body p-4 p-lg-5 text-black">
+                                <form onSubmit={signupForm.handleSubmit}>
+                                    <div className="d-flex align-items-center mb-2 pb-1">
+                                        <img src="/AI.gif" alt="error"
+                                            style={{ height: "100px" 
+                                            
+                                            ,marginLeft: "50%"
+                                          }}
+                                            
+                                        />
+                                    </div>
+                                    <h5
+                                        className="mb-3 pb-3"
+                                        style={{ letterSpacing: 1, textAlign: "center", fontSize: "30px" }}
+                                    >
+                                        Sign upto your account
+                                    </h5>
+                                    <div className=" mb-3">
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            className="form-control form-control-lg"
+                                            placeholder='Full Name'
+                                            value={signupForm.values.name}
+                                            onChange={signupForm.handleChange}
+                                        />
+                                        <span className='text-danger'>{signupForm.errors.name}</span>
+                                    </div>
+
+                                    <div className=" mb-3">
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            autoComplete='off'
+                                            className="form-control form-control-lg"
+                                            placeholder='Email'
+                                            value={signupForm.values.email}
+                                            onChange={signupForm.handleChange}
+                                        />
+                                        <span className='text-danger' >{signupForm.errors.email}</span>
+                                    </div>
+                                    <div className="mb-3">
+                                        <input
+                                            type="password"
+                                            id="password"
+                                            autoComplete='off'
+                                            className="form-control form-control-lg"
+                                            placeholder='Password'
+                                            value={signupForm.values.password}
+                                            onChange={signupForm.handleChange}
+                                        />
+                                        <span className='text-danger'>{signupForm.errors.password}</span>
+                                    </div>
+                                    
+                                    <div className="pt-1 mb-2">
+                                        <button
+                                            className="btn btn-dark btn-sm btn-block"
+                                            type="submit"
+                                            style={{ fontSize: "20px" }}
+                                        >
+                                            Signup
+                                        </button>
+                                    </div>
+                                   
+                                    
+                                    
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                <hr className="mx-n3" />
-                <div className="px-5 py-4">
-                  <button type="submit" className="btn btn-primary btn-lg">
-                    Send application
-                  </button>
-                </div>
-                </form>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
   );
 };
 

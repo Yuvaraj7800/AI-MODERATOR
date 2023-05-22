@@ -8,9 +8,10 @@ import Navbar from "./components/main/Navbar";
 import Signup from "./components/main/Signup";
 import AboutUs from "./components/main/AboutUs";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Admin from "./components/admin";
 import ManageUser from "./components/admin/ManageUser";
 import UpdateUser from "./components/admin/UpdateUser";
-import Admin from "./components/admin";
+
 import ToxicityPrediction from "./components/Toxicity";
 import ExtensionManager from "./components/user/ExtensionManager";
 import User from "./components/user";
@@ -47,6 +48,7 @@ function App() {
               <Route path="aboutus" element={<AboutUs />} />
               <Route path="contactus" element={<ContactUs />} />
             </Route>
+            
             <Route path="admin" element={<Admin />}>
               <Route path="manage" element={<ManageUser />} />
               <Route path="update/:userid" element={<UpdateUser />} />

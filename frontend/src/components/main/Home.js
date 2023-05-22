@@ -4,10 +4,10 @@ import { Tilt } from 'react-tilt'
 
 const defaultOptions = {
 	reverse:        false,  // reverse the tilt direction
-	max:            35,     // max tilt rotation (degrees)
-	perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
-	scale:          1.1,    // 2 = 200%, 1.5 = 150%, etc..
-	speed:          1000,   // Speed of the enter/exit transition
+	max:            10,     // max tilt rotation (degrees)
+	perspective:    800,   // Transform perspective, the lower the more extreme the tilt gets.
+	scale:          1,    // 2 = 200%, 1.5 = 150%, etc..
+	speed:          800,   // Speed of the enter/exit transition
 	transition:     true,   // Set a transition on enter/exit.
 	axis:           null,   // What axis should be disabled. Can be X or Y.
 	reset:          true,    // If the tilt effect has to be reset on exit.
@@ -54,8 +54,8 @@ const Home = () => {
             {/* Grid row */}
             
             <div className="row">
-            <Tilt options={defaultOptions} >
-              <div className="col-md-6">
+            <Tilt options={defaultOptions} className="col-md-6">
+              
                 <div className="card">
                   <img
                     src="https://media.kasperskydaily.com/wp-content/uploads/sites/36/2012/11/05101446/browser-plugin.jpg"
@@ -66,17 +66,17 @@ const Home = () => {
                   />
                   <div className="card-body">
                     <h5 className="card-title">Extentions</h5>
-                    <p className="card-text">
+                    <p className="card-text" style={{textAlign: "justify"}}>
                       Extensions are small software programs that customize the browsing experience. They enable users to tailor Chrome functionality and behavior to individual needs or preferences. They are built on web technologies such as HTML, JavaScript, and CSS.
                     </p>
 
                   </div>
-                </div>
+                
 
               </div>
               </Tilt>
-              <Tilt options={defaultOptions} >
-              <div className="col-md-6">
+              <Tilt options={defaultOptions} className="col-md-6" >
+              
                 <div className="card">
                   <img
                     src="https://media.kasperskydaily.com/wp-content/uploads/sites/36/2012/11/05101446/browser-plugin.jpg"
@@ -85,14 +85,14 @@ const Home = () => {
                   />
                   <div className="card-body">
                     <h5 className="card-title">Plugins</h5>
-                    <p className="card-text">
+                    <p className="card-text" style={{textAlign: "justify"}}>
                       Plugins are software that adds capabilities to an existing program without impacting that program's code. These pieces of software effectively "plug in" to existing operational frameworks, allowing users to get the features they want.
                     </p>
 
                   </div>
                 </div>
 
-              </div>
+              
               </Tilt>
             </div>
             
@@ -130,7 +130,7 @@ const Home = () => {
                           </div>
                           
                           <div className='content'>
-                            <p className="mb-5 justify-content-between">
+                            <p className="mb-5 justify-content-between" style={{textAlign: "justify"}}>
                               AI or automated tools can offer some advantages over human moderation, such as speed, scalability, consistency, and cost-effectiveness. AI can analyze large volumes of data, detect patterns and anomalies, and flag or remove inappropriate or harmful content based on predefined rules or criteria.
                             </p>
                           </div>
@@ -271,7 +271,7 @@ const Home = () => {
                   <h4 className="fw-bold mb-3">
                     <strong>Scalability And Speed</strong>
                   </h4>
-                  <p className="align-items-justify mb-4">
+                  <p className="align-items-justify mb-4" style={{textAlign: "justify"}}>
                   According to World Economic Forum estimations, by 2025, the amount of data created by humans each day will be about 463 Exabyte (one Exabyte is equal to one billion gigabytes), which equates to more than 200 million DVDs per day. With such 
                   large quantities of user-generated content, humans will hardly be able to keep pace. AI, on the other hand, can provide scalable handling of data across multiple channels and in real time. AI can excel humans in terms of the sheer size and volume of the user-generated content it can analyze and detect.
                   </p>
@@ -296,7 +296,7 @@ const Home = () => {
                   <h4 className="fw-bold mb-3">
                     <strong>Automation And Content Filtering</strong>
                   </h4>
-                  <p className="align-items-justify mb-4">
+                  <p className="align-items-justify mb-4" style={{textAlign: "justify"}}>
                   Given the immense volume of user-generated data, moderating content manually becomes a challenge that needs scalable solutions. AI-backed content moderation can automatically analyze texts, visuals and videos for toxic content. AI also can filter and classify content that’s considered inappropriate for the given case and helps prevent it from being posted, thereby supporting human moderators in the content review process and helping brands keep their content clean and safe.
                   </p>{" "}
                 </div>
@@ -320,7 +320,7 @@ const Home = () => {
                   <h4 className="fw-bold mb-3">
                     <strong>Less Exposure To Harmful Content</strong>
                   </h4>
-                  <p className="align-items-justify mb-4">
+                  <p className="align-items-justify mb-4" style={{textAlign: "justify"}}>
                   Human moderators deal with challenging content on a daily basis, and many times, their intervention is questioned by users who see human moderators’ decisions as biased. Passing through massive quantities of indecent content makes moderation a tough job for humans that can even cause negative psychological effects. AI can assist human moderators by filtering suspicious content for human review, thus preventing content moderation teams from having to go through all the content reported by users and reducing human exposure to disturbing content. AI can make human labor more productive, helping people manage online content faster, more effectively and with fewer errors.
                   </p>{" "}
                 </div>
@@ -348,7 +348,7 @@ const Home = () => {
                   <h4 className="fw-bold mb-3">
                     <strong>Moderation Of Live Content</strong>
                   </h4>
-                  <p className="align-items-justify mb-4">
+                  <p className="align-items-justify mb-4" style={{textAlign: "justify"}}>
                   AI could also be used in content moderation to analyze live content. Moderating real-time data is crucial to provide users with a safe user experience. AI can help in livestream content moderation by analyzing content instantly and automatically detecting any harmful cases before they go live.
                   </p>{" "}
                 </div>
@@ -373,7 +373,7 @@ const Home = () => {
             <section draggable="false" className="container" data-v-271253ee="">
               <section className="">
                 <div className='heading'>
-                  <h2 className="mb-3 text-center display-3 bg-secondary">
+                  <h2 className="mb-3 text-center display-3 bg-info">
                     <span>Meet Our Team</span>
                   </h2>
                 </div>

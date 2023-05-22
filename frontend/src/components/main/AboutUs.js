@@ -26,7 +26,7 @@ const AboutUs = () => {
               <div className="container d-flex align-items-center text-center h-100">
                 <div className='page-heading'>
                   <h1 className="fw-bold mb-3">About Us</h1>
-                  <p className='paragraph'>
+                  <p className='paragraph' style={{textAlign: "justify"}}>
                   We are an AI content moderation service specializing in providing efficient and accurate moderation solutions for various online platforms. Our advanced artificial intelligence technology allows us to effectively analyze and filter user-generated content, ensuring compliance with community guidelines, policies, and legal regulations
                   </p>
                 </div>
@@ -67,10 +67,10 @@ const AboutUs = () => {
                             
                           </div>
                           <div className='content'>
-                            <p className="mb-3">
+                            <p className="mb-3" style={{textAlign: "justify"}}>
                               <span>Our AI content moderation system utilizes state-of-the-art machine learning algorithms to recognize and flag inappropriate, offensive, or potentially harmful content across multiple languages, formats, and media types. By combining natural language processing, image recognition, and pattern detection techniques, we can swiftly identify and take action against content that violates platform rules or poses a risk to users' safety.</span>
                             </p>
-                            <p className="mb-3">
+                            <p className="mb-3" style={{textAlign: "justify"}}>
                               <span>We continuously train and update our AI models to adapt to evolving online trends, new forms of content, and emerging risks. Additionally, our systems provide transparency and accountability by offering detailed reports and analytics on moderation outcomes, helping platforms track and understand content moderation activities.
 
 At our core, we strive to uphold the highest standards of content moderation by leveraging the power of AI technology. Our aim is to promote positive online interactions, protect users from harmful content, and foster a trusted and respectful online community.</span>
@@ -110,7 +110,7 @@ At our core, we strive to uphold the highest standards of content moderation by 
                 <strong>Our Mission</strong>
               </h2>
               <div className="content">
-                <p className="text-center align-items-justify mb-4">
+                <p className="text-center align-items-justify mb-4" style={{textAlign: "justify"}}>
                 The mission of AI content moderation is to use artificial intelligence technologies to analyze and filter content in order to maintain a safe and respectful online environment
                 </p>
               </div>
@@ -143,7 +143,7 @@ At our core, we strive to uphold the highest standards of content moderation by 
                 <strong>Our Vision</strong>
               </h2>
               <div className="content">
-                <p className="text-center align-items-justify mb-4">
+                <p className="text-center align-items-justify mb-4" style={{textAlign: "justify"}}>
                 Our vision of AI content moderation is to develop an advanced system that effectively identifies and filters out inappropriate or harmful content across various online platforms. This AI moderator would possess the ability to analyze text, images, and videos, utilizing machine learning algorithms to accurately detect and flag content that violates community guidelines or legal regulations.
                 </p>
               </div>
