@@ -28,7 +28,6 @@ if (commentEl) {
       <CommentPlugin userid={userid} dburl={dburl} />
     </React.StrictMode>
   );
-
 }
 
 const reviewEl = document.getElementById('review-plugin');
