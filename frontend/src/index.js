@@ -21,9 +21,11 @@ if (rootEl) {
 const commentEl = document.getElementById('cmnt-plugin');
 if (commentEl) {
   const comment = ReactDOM.createRoot(commentEl);
+  const userid = commentEl.getAttribute('user');
+  const dburl = commentEl.getAttribute('dburl');
   comment.render(
     <React.StrictMode>
-      <CommentPlugin />
+      <CommentPlugin userid={userid} dburl={dburl} />
     </React.StrictMode>
   );
 
@@ -32,16 +34,14 @@ if (commentEl) {
 const reviewEl = document.getElementById('review-plugin');
 if (reviewEl) {
   const comment = ReactDOM.createRoot(reviewEl);
+  const userid = commentEl.getAttribute('user');
+  const dburl = commentEl.getAttribute('dburl');
   comment.render(
     <React.StrictMode>
-      <ReviewPlugin />
+      <ReviewPlugin userid={userid} dburl={dburl} />
     </React.StrictMode>
   );
-
 }
-
-
-
 
 
 // If you want to start measuring performance in your app, pass a function
