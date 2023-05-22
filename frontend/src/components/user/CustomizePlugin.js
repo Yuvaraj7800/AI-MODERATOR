@@ -154,6 +154,23 @@ const CustomizePlugin = () => {
                   <input className="form-control" />
                 </div>
               </div>
+
+              <div className="">
+                <h3 className="mb-2">Paste the code below in your html file</h3>
+                <textarea
+                  className="form-control"
+                  rows={10}
+                  value={getPluginCode({ userid, dburl })}
+                  disabled
+                ></textarea>
+
+                <button
+                  className="btn btn-secondary mt-3"
+                  onClick={copyToClipboard}
+                >
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
             </div>
           </div>
           <div className="card mb-3">
