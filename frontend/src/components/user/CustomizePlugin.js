@@ -9,6 +9,9 @@ const { apiUrl, pluginOptions } = app_config;
 
 const CustomizePlugin = () => {
   const { pluginName } = useParams();
+
+  const [pluginCount, setPluginCount] = useState(1);
+
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
@@ -26,6 +29,9 @@ const CustomizePlugin = () => {
 
   const [commentFeatures, setCommentFeatures] = useState([]);
 
+
+
+
   const generatePlugin = () => {};
 
   const getPluginCode = ({ userid, pluginName, dburl }) => {
@@ -36,6 +42,9 @@ const CustomizePlugin = () => {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(getPluginCode({ userid, dburl }));
     toast.success("Code Copied to Clipboard");
+    setPluginCount(pluginCount + 1);
+    console.log(pluginCount);
+
   };
 
   const showPluginOptions = () => {

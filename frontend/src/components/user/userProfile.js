@@ -16,7 +16,7 @@ const UserProfile = () => {
         },
         onSubmit: async (values) => {
             console.log(values)
-            const res = await fetch('http://localhost:5000/user/update/'+currentUser._id, {
+            const res = await fetch('http://localhost:5000/user/update/' + currentUser._id, {
                 method: 'PUT',
                 body: JSON.stringify(values),
                 headers: {
@@ -62,7 +62,7 @@ const UserProfile = () => {
                                     <h5 className="my-3">{currentUser.name}</h5>
                                     <p className="text-muted mb-1">{currentUser.email}</p>
                                     <p className="text-muted mb-4">{currentUser.phone}</p>
-                                    
+
                                 </div>
                             </div>
                             <div className="card mb-4 mb-lg-0">
@@ -118,7 +118,7 @@ const UserProfile = () => {
                                                 <input type="text" id="name" onChange={userForm.handleChange} value={userForm.values.name} className="form-control" required="" />
                                             </div>
                                         </div>
-                                        
+
                                         <div className="row mb-3">
                                             <label htmlFor="email" className="col-sm-3 col-form-label">
                                                 Email
@@ -127,7 +127,7 @@ const UserProfile = () => {
                                                 <input type="email" id="email" onChange={userForm.handleChange} value={userForm.values.email} className="form-control" required="" />
                                             </div>
                                         </div>
-                                        
+
                                         <div className="row mb-3">
                                             <label htmlFor="phone" className="col-sm-3 col-form-label">
                                                 Phone Number
@@ -136,9 +136,9 @@ const UserProfile = () => {
                                                 <input type="tel" id="phone" onChange={userForm.handleChange} value={userForm.values.phone} className="form-control" required="" />
                                             </div>
                                         </div>
-                                        
-                                        
-                                        
+
+
+
                                         <div className="row">
                                             <div className="col-sm-9 offset-sm-3">
                                                 <button type="submit" className="btn btn-primary">
@@ -154,24 +154,34 @@ const UserProfile = () => {
                                     <div className="card mb-4 mb-md-0">
                                         <div className="card-body">
                                             <p className="mb-4">
-                                                <span className="text-primary font-italic me-1">
+                                                <p className="text-primary font-italic me-1">
                                                     Extensions
-                                                </span>
+
+                                                </p>
+                                                <div className="progress rounded" style={{ height: 5 }}>
+                                                    <div
+                                                        className="progress-bar"
+                                                        role="progressbar"
+                                                        style={{ width: "100%" }}
+                                                        aria-valuenow={100}
+                                                        aria-valuemin={0}
+                                                        aria-valuemax={100}
+                                                    />
+                                                </div>
+
                                             </p>
-                                            
-                                            <div className="progress rounded" style={{ height: 5 }}>
-                                                <div
-                                                    className="progress-bar"
-                                                    role="progressbar"
-                                                    style={{ width: "80%" }}
-                                                    aria-valuenow={80}
-                                                    aria-valuemin={0}
-                                                    aria-valuemax={100}
-                                                />
+                                            <div className="row justify-content-between">
+                                                <div className='col-md-8'>
+                                                    <p>Number of Extensions Used</p>
+                                                </div>
+                                                <div className='col-md-4'>
+                                                    <input type="text" disabled className='w-100' />
+                                                </div>
                                             </div>
-                                            
-                                            
-                                            
+
+
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -179,25 +189,34 @@ const UserProfile = () => {
                                     <div className="card mb-4 mb-md-0">
                                         <div className="card-body">
                                             <p className="mb-4">
-                                                <span className="text-primary font-italic me-1">
+                                                <p className="text-primary font-italic me-1">
                                                     Plugins
-                                                </span>
+
+                                                </p>
+                                                <div className="progress rounded" style={{ height: 5 }}>
+                                                    <div
+                                                        className="progress-bar"
+                                                        role="progressbar"
+                                                        style={{ width: "100%" }}
+                                                        aria-valuenow={100}
+                                                        aria-valuemin={0}
+                                                        aria-valuemax={100}
+                                                    />
+                                                </div>
+
                                             </p>
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            <div className="progress rounded mb-2" style={{ height: 5 }}>
-                                                <div
-                                                    className="progress-bar"
-                                                    role="progressbar"
-                                                    style={{ width: "66%" }}
-                                                    aria-valuenow={66}
-                                                    aria-valuemin={0}
-                                                    aria-valuemax={100}
-                                                />
+                                            <div className="row justify-content-between">
+                                                <div className='col-md-8'>
+                                                    <p>Number of Plugins Used</p>
+                                                </div>
+                                                <div className='col-md-4'>
+                                                    <input type="text" disabled className='w-100' />
+                                                </div>
                                             </div>
+
+
+
+
                                         </div>
                                     </div>
                                 </div>
