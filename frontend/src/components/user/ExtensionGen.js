@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import MultipleValueTextInput from "react-multivalue-text-input";
 import app_config from "../../config";
 import { useFormik } from "formik";
+import { useUserContext } from "../../context/UserProvider";
 
 const ExtensionGen = () => {
   const scriptData = `
@@ -17,6 +18,8 @@ const ExtensionGen = () => {
   const [extCount, setExtCount] = useState(1);
 
   const [itemsToInclude, setItemsToInclude] = useState([]);
+
+  const {updateUser} = useUserContext();
 
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
@@ -45,6 +48,7 @@ const ExtensionGen = () => {
     const { downloadLink } = await res.json();
     setLink(downloadLink);
     console.log(downloadLink);
+    await updateUser({numExt : currentUser.numExt+1}, setCurrentUser);
   };
 
   const extForm = useFormik({

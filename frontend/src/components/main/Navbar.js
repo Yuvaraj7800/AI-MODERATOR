@@ -45,7 +45,7 @@ const Navbar = () => {
           </a>
           <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
             <li>
-              <NavLink className="dropdown-item" to="/user/userProfile">
+              <NavLink className="dropdown-item" to="/user/profile">
                 My profile
               </NavLink>
             </li>

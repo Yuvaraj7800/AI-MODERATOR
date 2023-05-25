@@ -5,6 +5,8 @@ const myschema = new Schema({
     email : {type: String, required: true},
     password : {type: String, required: true},
     avatar: String,
+    numExt: {type : Number, default: 0},
+    numPlugin: {type : Number, default: 0},
     role : {type: String, default: 'user'},
     createdAt : Date
 
