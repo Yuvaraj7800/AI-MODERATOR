@@ -28,6 +28,8 @@ import CustomizePlugin from "./components/user/CustomizePlugin";
 import { useState } from "react";
 import UserProvider from "./context/UserProvider";
 import Dashboard from "./components/user/Dashboard";
+import userProfile from "./components/user/userProfile";
+import UserProfile from "./components/user/userProfile";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -48,7 +50,7 @@ function App() {
               <Route path="aboutus" element={<AboutUs />} />
               <Route path="contactus" element={<ContactUs />} />
             </Route>
-            
+
             <Route path="admin" element={<Admin />}>
               <Route path="manage" element={<ManageUser />} />
               <Route path="update/:userid" element={<UpdateUser />} />
@@ -69,6 +71,7 @@ function App() {
               <Route path="plugingen" element={<Plugin />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="custPlugin" element={<CustomizePlugin />} />
+              <Route path="userProfile" element={<userProfile />} />
               <Route
                 path="custPlugin/:pluginName"
                 element={<CustomizePlugin />}
@@ -81,6 +84,7 @@ function App() {
               <Route path="plugingen" element={<Plugin />} />
               <Route path="comment" element={<Comment />} />
               <Route path="review" element={<Review />} />
+              <Route path="profile" element={<UserProfile />} />
             </Route>
           </Routes>
         </UserProvider>
