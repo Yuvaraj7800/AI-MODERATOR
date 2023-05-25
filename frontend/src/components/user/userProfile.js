@@ -70,35 +70,35 @@ const UserProfile = () => {
                                     <ul className="list-group list-group-flush rounded-3">
                                         <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                             <i className="fas fa-globe fa-lg text-warning" />
-                                            <p className="mb-0">https://mdbootstrap.com</p>
+                                            <p className="mb-0">https://aimoderator.com</p>
                                         </li>
                                         <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                             <i
                                                 className="fab fa-github fa-lg"
                                                 style={{ color: "#333333" }}
                                             />
-                                            <p className="mb-0">mdbootstrap</p>
+                                            <p className="mb-0">aimoderator</p>
                                         </li>
                                         <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                             <i
                                                 className="fab fa-twitter fa-lg"
                                                 style={{ color: "#55acee" }}
                                             />
-                                            <p className="mb-0">@mdbootstrap</p>
+                                            <p className="mb-0">@aimoderator</p>
                                         </li>
                                         <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                             <i
                                                 className="fab fa-instagram fa-lg"
                                                 style={{ color: "#ac2bac" }}
                                             />
-                                            <p className="mb-0">mdbootstrap</p>
+                                            <p className="mb-0">aimoderator</p>
                                         </li>
                                         <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                             <i
                                                 className="fab fa-facebook-f fa-lg"
                                                 style={{ color: "#3b5998" }}
                                             />
-                                            <p className="mb-0">mdbootstrap</p>
+                                            <p className="mb-0">aimoderator</p>
                                         </li>
                                     </ul>
                                 </div>
