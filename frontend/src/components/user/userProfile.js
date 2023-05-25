@@ -175,7 +175,7 @@ const UserProfile = () => {
                                                     <p>Number of Extensions Used</p>
                                                 </div>
                                                 <div className='col-md-4'>
-                                                    <input type="text" disabled className='w-100' />
+                                                    <p className="h3">{currentUser.numExt}</p>
                                                 </div>
                                             </div>
 
@@ -210,7 +210,7 @@ const UserProfile = () => {
                                                     <p>Number of Plugins Used</p>
                                                 </div>
                                                 <div className='col-md-4'>
-                                                    <input type="text" disabled className='w-100' />
+                                                <p className="h3">{currentUser.numPlugin}</p>
                                                 </div>
                                             </div>
 

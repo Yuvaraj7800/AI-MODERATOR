@@ -27,7 +27,7 @@ const handleElementModerate = (element) => {
   getToxicity(element.innerHTML, (result) => {
     // console.log(result);
     const isToxic = result.filter((obj) => obj.results[0].match);
-    // console.log(isToxic);
+    console.log(isToxic);
     if (isToxic.length > 0) {
       element.innerHTML = '*'.repeat(element.innerHTML.length)
       // element.style.backgroundColor = "red";
@@ -38,21 +38,22 @@ const handleElementModerate = (element) => {
 const liList = document.body.querySelectorAll("li");
 
 // Wait for the page to load
-window.addEventListener('load', () => {
-  // Hide the page content
-  const pageContent = document.querySelector('#page-content');
-  pageContent.style.display = 'none';
+// window.addEventListener('load', () => {
+//   // Hide the page content
+//   // const pageContent = document.querySelector('#page-content');
+//   // pageContent.style.display = 'none';
 
-  // Add an event listener to wait for the operation to be done
-  const button = document.querySelector('#operation-button');
-  button.addEventListener('click', () => {
-    // Show the page content
-    pageContent.style.display = 'block';
-  });
-});
+//   // Add an event listener to wait for the operation to be done
+//   const button = document.querySelector('#operation-button');
+//   button.addEventListener('click', () => {
+//     // Show the page content
+//     pageContent.style.display = 'block';
+//   });
+// });
 const predictions = [];
 for (let li of liList) {
   handleElementModerate(li);
+  console.log('sds');
 }
 for (let li of document.body.querySelectorAll("p")) {
   handleElementModerate(li);

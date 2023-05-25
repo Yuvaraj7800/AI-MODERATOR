@@ -21,7 +21,7 @@ if (rootEl) {
 const commentEl = document.getElementById('cmnt-plugin');
 if (commentEl) {
   const comment = ReactDOM.createRoot(commentEl);
-  const userid = commentEl.getAttribute('user');
+  const userid = commentEl.getAttribute('userid');
   const dburl = commentEl.getAttribute('dburl');
   comment.render(
     <React.StrictMode>
@@ -33,7 +33,7 @@ if (commentEl) {
 const reviewEl = document.getElementById('review-plugin');
 if (reviewEl) {
   const comment = ReactDOM.createRoot(reviewEl);
-  const userid = commentEl.getAttribute('user');
+  const userid = commentEl.getAttribute('userid');
   const dburl = commentEl.getAttribute('dburl');
   comment.render(
     <React.StrictMode>
