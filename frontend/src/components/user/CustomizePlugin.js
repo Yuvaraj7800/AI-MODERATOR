@@ -181,7 +181,6 @@ const CustomizePlugin = () => {
           </div>
         </div>
       );
-<<<<<<< HEAD
     }else if(selPlugin === "review"){
         return (
           <div className="container">
@@ -238,9 +237,6 @@ const CustomizePlugin = () => {
           
         );
       }
-=======
-    }
->>>>>>> f371a20fe480ca08699893db818384d48c9cdda3
   };
 
   return <div>{showPluginOptions()}</div>;
