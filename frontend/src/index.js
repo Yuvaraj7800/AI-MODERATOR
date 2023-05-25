@@ -32,10 +32,10 @@ if (commentEl) {
 
 const reviewEl = document.getElementById('review-plugin');
 if (reviewEl) {
-  const comment = ReactDOM.createRoot(reviewEl);
-  const userid = commentEl.getAttribute('userid');
-  const dburl = commentEl.getAttribute('dburl');
-  comment.render(
+  const review = ReactDOM.createRoot(reviewEl);
+  const userid = reviewEl.getAttribute('userid');
+  const dburl = reviewEl.getAttribute('dburl');
+  review.render(
     <React.StrictMode>
       <ReviewPlugin userid={userid} dburl={dburl} />
     </React.StrictMode>
