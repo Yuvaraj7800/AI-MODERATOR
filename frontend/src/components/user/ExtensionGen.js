@@ -14,6 +14,8 @@ const ExtensionGen = () => {
   const url = app_config.apiUrl;
   const [selWords, setSelWords] = useState([]);
 
+  const [extCount, setExtCount] = useState(1);
+
   const [itemsToInclude, setItemsToInclude] = useState([]);
 
   const [currentUser, setCurrentUser] = useState(
@@ -143,7 +145,7 @@ const ExtensionGen = () => {
           {/* <button type='button' className='btn btn-primary' onClick={generateExtension} >Generate</button> */}
 
           {link ? (
-            <a className="btn btn-success" href={link}>
+            <a className="btn btn-success" href={link} onClick={() => {setExtCount(extCount + 1); console.log(extCount)}}>
               Download
             </a>
           ) : (
