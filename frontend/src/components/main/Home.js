@@ -150,6 +150,86 @@ const Home = () => {
       </>
       {/* About Us */}
 
+
+        {/* Feedback Form */}
+        <div id="feedback-form-wrapper">
+        <div id="floating-icon" >
+          <button
+          style={{ backgroundColor: '#9dfcfb' }}
+            type="button"
+            className="btn btn-sm rounded-4"
+            data-mdb-toggle="modal"
+            data-mdb-target="#exampleModal"
+          >
+            Feedback
+          </button>
+        </div>
+        <div id="feedback-form-modal">
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content" style={{ backgroundColor: '#9dfcfb' }}>
+                <div className="d-md-flex justify-content-md-end mt-2 me-2">
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-mdb-dismiss="modal"
+                    aria-label="Close"
+                  />
+                </div>
+                <div className="modal-body">
+                  <form className="feedback-form mx-1 mx-md-4 text-black" >
+                    <div className="d-flex flex-row align-items-center mb-5">
+                      <div className="flex-fill mb-0">
+                        <div className='mb-5'>
+                          <h3>
+                            How helpful was this?
+                          </h3>
+                        </div>
+                        <div className='mb-4'>
+                          <input
+                            type="text"
+                            id="name"
+                            name='name'
+                            className="form-control form-control-lg"
+                            placeholder="Enter Full Name"
+                          />
+                        </div>
+                        <div className='mb-4'>
+                          <input
+                            type="email"
+                            id="email"
+                            name='email'
+                            className="form-control form-control-lg"
+                            placeholder="Enter Email Address"
+                          />
+                        </div>
+                        
+                        <div className='mb-5'>
+                          {/* Text area fields */}
+                          <textarea class="form-control" id="textarea" rows="4"
+                            placeholder='Enter message....'
+                            name='message'
+                          ></textarea>
+                        </div>
+                        <button
+                          className="btn btn-primary btn-block"
+                          type="submit"
+                          style={{ borderRadius: "10px", marginLeft: '0px' }}
+                        >
+                          Send Your Feedback &nbsp;
+                          <i className="far fa-paper-plane" />
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Feedback Form */}
+
      
      
       <>
@@ -493,7 +573,7 @@ const Home = () => {
 
       {/* FAQ */}
       <>
-        {/* { <div className="container mb-8">
+        { <div className="container mb-8">
           
           <section>
             <div className='heading'>
@@ -675,7 +755,7 @@ const Home = () => {
               </div>
             </div>
           </section>
-        </div> } */}
+        </div> }
       </>
       {/* FAQ */}
 
