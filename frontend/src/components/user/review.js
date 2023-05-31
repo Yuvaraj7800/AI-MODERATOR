@@ -121,8 +121,7 @@ const ReviewPlugin = ({ userid }) => {
 
   return (
     <>
-      <section className=" # " style={{ backgroundColor: "#a3e7f7" }}>
-        <title>Review System</title>
+      <section className="col-log-6 pt-3" style={{ backgroundImage: 'url("/new4.jpg")', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         {/* Bootstrap CSS */}
         <link
           rel="stylesheet"
@@ -134,8 +133,8 @@ const ReviewPlugin = ({ userid }) => {
               "\n    .review {\n      margin-bottom: 20px;\n    }\n    .review .review-body {\n      background-color: #f7f7f7;\n      padding: 10px;\n      border-radius: 5px;\n    }\n    .review .review-info {\n      margin-bottom: 5px;\n    }\n    .review .review-info .review-author {\n      font-weight: bold;\n    }\n    .review .review-info .review-rating {\n      color: #f8bb06;\n      font-weight: bold;\n      font-size: 18px;\n    }\n    .review .review-text {\n      margin-top: 10px;\n    }\n  ",
           }}
         />
-        <div className="container mt-5">
-          <h1>Review System</h1>
+        <div className="container">
+          <h1 className="text-center">Review System</h1>
 
           {displayReviews()}
 
@@ -178,7 +177,10 @@ const ReviewPlugin = ({ userid }) => {
     </div> */}
 
           {/* Add Review Form */}
-          <div className="review">
+
+          <div className="card">
+            <div className="card-body">
+            <div className="review">
             <h4>Add a Review</h4>
             <form onSubmit={reviewForm.handleSubmit}>
               <div className="form-group">
@@ -236,6 +238,12 @@ const ReviewPlugin = ({ userid }) => {
               </button>
             </form>
           </div>
+            </div>
+          </div>
+
+
+          
+
         </div>
         {/* Bootstrap JS */}
       </section>

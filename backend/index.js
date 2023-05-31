@@ -7,6 +7,7 @@ const reviewRouter = require('./routers/reviewRouter');
 const contactUsRouter = require('./routers/contactUsRouter');
 const analysisRouter = require('./routers/analysisRouter');
 const countRouter = require('./routers/countRouter');
+const feedbackRouter= require('./routers/feedbackRouter');
 
 const cors = require('cors')
 
@@ -32,6 +33,7 @@ app.use('/review', reviewRouter);
 app.use('/contactUs', contactUsRouter);
 app.use('/analysis', analysisRouter);
 app.use('/count', countRouter);
+app.use('/feedback', feedbackRouter);
 
 // routes
 app.get('/', (req, res) => {

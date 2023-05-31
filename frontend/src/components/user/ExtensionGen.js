@@ -19,7 +19,7 @@ const ExtensionGen = () => {
 
   const [itemsToInclude, setItemsToInclude] = useState([]);
 
-  const {updateUser} = useUserContext();
+  const { updateUser } = useUserContext();
 
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
@@ -48,7 +48,7 @@ const ExtensionGen = () => {
     const { downloadLink } = await res.json();
     setLink(downloadLink);
     console.log(downloadLink);
-    await updateUser({numExt : currentUser.numExt+1}, setCurrentUser);
+    await updateUser({ numExt: currentUser.numExt + 1 }, setCurrentUser);
   };
 
   const extForm = useFormik({
@@ -84,84 +84,103 @@ const ExtensionGen = () => {
   };
 
   return (
-    <>
-    <section className="h-100 form mb-1  " style={{ backgroundColor: "#a3e7f7" }} >
-      <div className="container py-5 h-100">
-      <title>Form Example</title>
-      {/* Bootstrap CSS */}
-      <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      />
-      <div className="container mt-5">
-        <h1>Form Example</h1>
-        <form onSubmit={extForm.handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="textInput">Text Field</label>
-            <input
-              type="text"
-              className="form-control"
-              id="title"
-              value={extForm.values.title}
-              onChange={extForm.handleChange}
-              placeholder="Enter text"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="imageInput">Image Field</label>
-            <input
-              type="file"
-              className="form-control-file"
-              onChange={uploadFile}
-            />
-          </div>
-          <h5>Features:</h5>
-          <div className="form-group">
-            {featureOptions.map((feature, index) => (
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  checked={selFeatures.includes(feature)}
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      setSelFeatures([...selFeatures, feature]);
-                    } else {
-                      setSelFeatures(selFeatures.filter((f) => f !== feature));
-                    }
-                  }}
+
+    <section className="h-100 form mb-1  " style={{backgroundImage:'url("/new4.jpg")',
+    backgroundSize:'cover', backgroundRepeat:'no-repeat'}}>
+      <div className="container py-5">
+
+        <div className="card w-75 mx-auto">
+          <div className="card-body">
+            
+              <div className="container h-100">
+                {/* <title>Form Example</title> */}
+                {/* Bootstrap CSS */}
+                <link
+                  rel="stylesheet"
+                  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
                 />
-                <label className="form-check-label">{feature}</label>
+                <div className="container my-3">
+                  <h1 className="text-center">Form Example</h1>
+                  <form onSubmit={extForm.handleSubmit}>
+                    <div className="form-group">
+                      <label htmlFor="textInput">Text Field</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="title"
+                        value={extForm.values.title}
+                        onChange={extForm.handleChange}
+                        placeholder="Enter text"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="imageInput">Image Field</label>
+                      <input
+                        type="file"
+                        className="form-control-file"
+                        onChange={uploadFile}
+                      />
+                    </div>
+                    <h5>Features:</h5>
+                    <div className="form-group">
+                      {featureOptions.map((feature, index) => (
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            checked={selFeatures.includes(feature)}
+                            onChange={(e) => {
+                              if (e.target.checked) {
+                                setSelFeatures([...selFeatures, feature]);
+                              } else {
+                                setSelFeatures(selFeatures.filter((f) => f !== feature));
+                              }
+                            }}
+                          />
+                          <label className="form-check-label">{feature}</label>
+                        </div>
+                      ))}
+                    </div>
+
+                    <MultipleValueTextInput
+                      onItemAdded={(item, allItems) => setItemsToInclude(allItems)}
+                      onItemDeleted={(item, allItems) => setItemsToInclude(allItems)}
+                      label="Items"
+                      name="item-input"
+                      placeholder="Enter whatever items you want; separate them with COMMA or ENTER."
+                    />
+                    <button type="submit" className="btn btn-primary">
+                      Submit
+                    </button>
+                    {/* <button type='button' className='btn btn-primary' onClick={generateExtension} >Generate</button> */}
+
+                    {link ? (
+                      <a className="btn btn-success" href={link} onClick={() => { setExtCount(extCount + 1); console.log(extCount) }}>
+                        Download
+                      </a>
+                    ) : (
+                      ""
+                    )}
+                  </form>
+                </div>
+                {/* Bootstrap JS */}
               </div>
-            ))}
+            
           </div>
+        </div>
 
-          <MultipleValueTextInput
-            onItemAdded={(item, allItems) => setItemsToInclude(allItems)}
-            onItemDeleted={(item, allItems) => setItemsToInclude(allItems)}
-            label="Items"
-            name="item-input"
-            placeholder="Enter whatever items you want; separate them with COMMA or ENTER."
-          />
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-          {/* <button type='button' className='btn btn-primary' onClick={generateExtension} >Generate</button> */}
 
-          {link ? (
-            <a className="btn btn-success" href={link} onClick={() => {setExtCount(extCount + 1); console.log(extCount)}}>
-              Download
-            </a>
-          ) : (
-            ""
-          )}
-        </form>
+
+
+
+
+
+
       </div>
-      {/* Bootstrap JS */}
-      </div>
-      </section>
-      
-    </>
+    
+    </section>
+
+
   );
 };
 

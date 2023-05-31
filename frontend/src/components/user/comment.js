@@ -124,8 +124,8 @@ const CommentPlugin = ({ userid }) => {
   });
 
   return (
-    <>
-      <section className="col-log-6" style={{ backgroundColor: "#a3e7f7" }}>
+    <div className="h-100">
+      <section className="col-log-6 pt-3" style={{ backgroundImage: 'url("/new4.jpg")', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <title>Comment System</title>
         {/* Bootstrap CSS */}
         <link
@@ -138,53 +138,62 @@ const CommentPlugin = ({ userid }) => {
               "\n    .comment {\n      margin-bottom: 20px;\n    }\n    .comment .comment-body {\n      background-color: #f7f7f7;\n      padding: 10px;\n      border-radius: 5px;\n    }\n    .comment .comment-info {\n      margin-bottom: 5px;\n    }\n    .comment .comment-info .comment-author {\n      font-weight: bold;\n    }\n    .comment .comment-info .comment-date {\n      color: #777;\n      font-size: 12px;\n    }\n    .comment .comment-text {\n      margin-top: 10px;\n    }\n  ",
           }}
         />
-        <div className="container mt-5">
-          <h1>Comment System</h1>
+        <div className="container">
+          <h1 className="text-center">Comment System</h1>
           {displayComments()}
           {/* Add Comment Form */}
-          <div className="comment">
-            <h4>Add a Comment</h4>
-            <form onSubmit={commentForm.handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="nameInput">Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="name"
-                  value={commentForm.values.name}
-                  onChange={commentForm.handleChange}
-                />
+          <div className="card">
+            <div className="card-body">
+              <div className="comment">
+                <h4>Add a Comment</h4>
+                <form onSubmit={commentForm.handleSubmit}>
+                  <div className="form-group">
+                    <label htmlFor="nameInput">Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="name"
+                      value={commentForm.values.name}
+                      onChange={commentForm.handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="commentInput">Comment</label>
+                    <textarea
+                      className="form-control"
+                      id="comment"
+                      value={commentForm.values.comment}
+                      onChange={commentForm.handleChange}
+                      rows={3}
+                    />
+                  </div>
+                  <button type="submit" className="btn btn-primary">
+                    {commentForm.isSubmitting ? (
+                      <>
+                        <span
+                          className="spinner-border spinner-border-sm"
+                          role="status"
+                          aria-hidden="true"
+                        ></span>
+                        <span className="visually-hidden">Loading...</span>
+                      </>
+                    ) : (
+                      "Submit"
+                    )}
+                  </button>
+                </form>
               </div>
-              <div className="form-group">
-                <label htmlFor="commentInput">Comment</label>
-                <textarea
-                  className="form-control"
-                  id="comment"
-                  value={commentForm.values.comment}
-                  onChange={commentForm.handleChange}
-                  rows={3}
-                />
-              </div>
-              <button type="submit" className="btn btn-primary">
-                {commentForm.isSubmitting ? (
-                  <>
-                    <span
-                      className="spinner-border spinner-border-sm"
-                      role="status"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Loading...</span>
-                  </>
-                ) : (
-                  "Submit"
-                )}
-              </button>
-            </form>
+            </div>
           </div>
+
+
+
+
+
         </div>
         {/* Bootstrap JS */}
       </section>
-    </>
+    </div>
   );
 };
 

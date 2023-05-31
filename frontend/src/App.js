@@ -78,8 +78,8 @@ function App() {
               <Route path="review" element={<Review userid={'646b13176f0c93b8b9f9126d'} />} />
               <Route path="toxic" element={<ToxicityPrediction />} />
 
-              <Route path="extensiongen" element={<Extension />} />
-              <Route path="plugingen" element={<Plugin />} />
+              {/* <Route path="extensiongen" element={<Extension />} /> */}
+              {/* <Route path="plugingen" element={<Plugin />} /> */}
               <Route path="comment" element={<Comment />} />
               <Route path="review" element={<Review />} />
               <Route path="profile" element={<UserProfile />} />

@@ -56,10 +56,11 @@ const PluginGen = () => {
 
   return (
     <>
-      <section className=" col-log-6" style={{ backgroundColor: '#a3e7f7' }}>
+      <section className=" col-log-6" style={{backgroundImage:'url("/new4.jpg")',
+    backgroundSize:'cover', backgroundRepeat:'no-repeat'}}>
         <div className="container ">
-          <h1 className="text-center">Choose Your Plugin</h1>
-          <hr className="mb-5" />
+          <h1 className="text-center" style={{color:"black"}}>Choose Your Plugin</h1>
+          <hr className="mb-4 border border-dark" />
 
           <div className="row">{displayPlugins()}</div>
         </div>
