@@ -1,17 +1,17 @@
 import { useFormik } from 'formik';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
 
 const UserProfile = () => {
 
     const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+    const [userData, setUserData] = useState('');
 
     const userForm = useFormik({
         initialValues: currentUser ? currentUser : {
             name: '',
             email: '',
-            phone: '',
-            mobile: '',
+            number: '',
             address: '',
         },
         onSubmit: async (values) => {
@@ -45,6 +45,22 @@ const UserProfile = () => {
         }
     })
 
+    const fetchProfileData = async () =>  {
+        const res = await fetch('http://localhost:5000/user/getbyid/' + currentUser._id);
+        console.log(res.status);
+        if (res.status === 200) {
+            const data = await res.json();
+            console.log(data);
+            setUserData(data);
+        }
+    }
+
+    useEffect(() => { 
+        fetchProfileData();
+     }, [])
+
+
+
     return (
         <div>
             <section style={{ backgroundColor: "#eee" }}>
@@ -61,7 +77,7 @@ const UserProfile = () => {
                                     />
                                     <h5 className="my-3">{currentUser.name}</h5>
                                     <p className="text-muted mb-1">{currentUser.email}</p>
-                                    <p className="text-muted mb-4">{currentUser.phone}</p>
+                                    <p className="text-muted mb-4">{currentUser.number}</p>
 
                                 </div>
                             </div>
@@ -129,11 +145,11 @@ const UserProfile = () => {
                                         </div>
 
                                         <div className="row mb-3">
-                                            <label htmlFor="phone" className="col-sm-3 col-form-label">
+                                            <label htmlFor="number" className="col-sm-3 col-form-label">
                                                 Phone Number
                                             </label>
                                             <div className="col-sm-9">
-                                                <input type="tel" id="phone" onChange={userForm.handleChange} value={userForm.values.phone} className="form-control" required="" />
+                                                <input type="tel" id="number" onChange={userForm.handleChange} value={userForm.values.number} className="form-control" required="" />
                                             </div>
                                         </div>
 

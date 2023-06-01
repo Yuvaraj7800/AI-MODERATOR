@@ -1,20 +1,70 @@
+import { useFormik } from 'formik';
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Tilt } from 'react-tilt'
+import Swal from 'sweetalert2';
 
 const defaultOptions = {
-	reverse:        false,  // reverse the tilt direction
-	max:            10,     // max tilt rotation (degrees)
-	perspective:    800,   // Transform perspective, the lower the more extreme the tilt gets.
-	scale:          1,    // 2 = 200%, 1.5 = 150%, etc..
-	speed:          800,   // Speed of the enter/exit transition
-	transition:     true,   // Set a transition on enter/exit.
-	axis:           null,   // What axis should be disabled. Can be X or Y.
-	reset:          true,    // If the tilt effect has to be reset on exit.
-	easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
+  reverse: false,  // reverse the tilt direction
+  max: 10,     // max tilt rotation (degrees)
+  perspective: 800,   // Transform perspective, the lower the more extreme the tilt gets.
+  scale: 1,    // 2 = 200%, 1.5 = 150%, etc..
+  speed: 800,   // Speed of the enter/exit transition
+  transition: true,   // Set a transition on enter/exit.
+  axis: null,   // What axis should be disabled. Can be X or Y.
+  reset: true,    // If the tilt effect has to be reset on exit.
+  easing: "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
 }
 
+
 const Home = () => {
+
+  const feedbackForm = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      feedback: ''
+    },
+    onSubmit: async (values, { setSubmitting }) => {
+      console.log(values);
+
+      const res = await fetch('http://localhost:5000/feedback/add', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      console.log(res.status);
+
+      if (res.status === 200) {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500,
+        })
+        // navigate('/main/Login');
+      }
+      else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        })
+      }
+    },
+    // validationSchema: SignupSchema,
+
+  });
+
+
+
+
+
+
   return (
 
     <div>
@@ -50,33 +100,33 @@ const Home = () => {
                 <span><b>TOOLS OF AI MODERATOR </b></span>
               </h3>
             </div>
-            
+
             {/* Grid row */}
-            
+
             <div className="row">
-            <Tilt options={defaultOptions} className="col-md-6">
-              
+              <Tilt options={defaultOptions} className="col-md-6">
+
                 <div className="card">
                   <img
                     src="https://media.kasperskydaily.com/wp-content/uploads/sites/36/2012/11/05101446/browser-plugin.jpg"
                     className="card-img-top"
                     alt="Fissure in Sandstone"
-                    
-                    
+
+
                   />
                   <div className="card-body">
                     <h5 className="card-title">Extension</h5>
-                    <p className="card-text" style={{textAlign: "justify"}}>
+                    <p className="card-text" style={{ textAlign: "justify" }}>
                       Extensions are small software programs that customize the browsing experience. They enable users to tailor Chrome functionality and behavior to individual needs or preferences. They are built on web technologies such as HTML, JavaScript, and CSS.
                     </p>
 
                   </div>
-                
 
-              </div>
+
+                </div>
               </Tilt>
               <Tilt options={defaultOptions} className="col-md-6" >
-              
+
                 <div className="card">
                   <img
                     src="https://media.kasperskydaily.com/wp-content/uploads/sites/36/2012/11/05101446/browser-plugin.jpg"
@@ -85,17 +135,17 @@ const Home = () => {
                   />
                   <div className="card-body">
                     <h5 className="card-title">Plugins</h5>
-                    <p className="card-text" style={{textAlign: "justify"}}>
+                    <p className="card-text" style={{ textAlign: "justify" }}>
                       Plugins are software that adds capabilities to an existing program without impacting that program's code. These pieces of software effectively "plug in" to existing operational frameworks, allowing users to get the features they want.
                     </p>
 
                   </div>
                 </div>
 
-              
+
               </Tilt>
             </div>
-            
+
             {/* Grid row */}
           </section>
           {/* Section */}
@@ -128,14 +178,14 @@ const Home = () => {
                               <span>What is use of AI-MODERATOR?</span>
                             </h3>
                           </div>
-                          
+
                           <div className='content'>
-                            <p className="mb-5 justify-content-between" style={{textAlign: "justify"}}>
+                            <p className="mb-5 justify-content-between" style={{ textAlign: "justify" }}>
                               AI or automated tools can offer some advantages over human moderation, such as speed, scalability, consistency, and cost-effectiveness. AI can analyze large volumes of data, detect patterns and anomalies, and flag or remove inappropriate or harmful content based on predefined rules or criteria.
                             </p>
                           </div>
-                          
-                          
+
+
                         </div>
                       </div>
                     </div>
@@ -151,77 +201,87 @@ const Home = () => {
       {/* About Us */}
 
 
-        {/* Feedback Form */}
-        <div id="feedback-form-wrapper">
-        <div id="floating-icon" >
-          <button
-          style={{ backgroundColor: '#9dfcfb' }}
-            type="button"
-            className="btn btn-sm rounded-4"
-            data-mdb-toggle="modal"
-            data-mdb-target="#exampleModal"
-          >
-            Feedback
-          </button>
-        </div>
-        <div id="feedback-form-modal">
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content" style={{ backgroundColor: '#9dfcfb' }}>
-                <div className="d-md-flex justify-content-md-end mt-2 me-2">
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-mdb-dismiss="modal"
-                    aria-label="Close"
-                  />
-                </div>
-                <div className="modal-body">
-                  <form className="feedback-form mx-1 mx-md-4 text-black" >
-                    <div className="d-flex flex-row align-items-center mb-5">
-                      <div className="flex-fill mb-0">
-                        <div className='mb-5'>
-                          <h3>
-                            How helpful was this?
-                          </h3>
+      {/* Feedback Form */}
+      <div className='mb-5' >
+        <div id="feedback-form-wrapper " align="right">
+          <div id="icon" className='position-fixed top-50 ms-3 translate-middle'>
+            <button
+              style={{ backgroundColor: 'black', transform: 'rotateZ(-90deg)', color: 'white' }}
+              type="button"
+              className="btn btn-sm rounded-4"
+              data-mdb-toggle="modal"
+              data-mdb-target="#exampleModal"
+
+
+            >
+              Feedback
+            </button>
+          </div>
+          <div id="feedback-form-modal">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content" style={{ backgroundColor: '#96CBFA' }}>
+                  <div className="d-md-flex justify-content-md-end mt-2 me-2">
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-mdb-dismiss="modal"
+                      aria-label="Close"
+                    />
+                  </div>
+                  <div className="modal-body">
+                    <form className="feedback-form mx-1 mx-md-4 text-black" onSubmit={feedbackForm.handleSubmit}>
+                      <div className="d-flex flex-row align-items-center mb-5">
+                        <div className="flex-fill mb-0">
+                          <div className='mb-5'>
+                            <h3>
+                              How helpful was this?
+                            </h3>
+                          </div>
+                          <div className='mb-4'>
+                            <input
+                              type="text"
+                              id="name"
+                              name='name'
+                              className="form-control form-control-lg"
+                              placeholder="Enter Full Name"
+                              value={feedbackForm.values.name}
+                              onChange={feedbackForm.handleChange}
+                            />
+                          </div>
+                          <div className='mb-4'>
+                            <input
+                              type="email"
+                              id="email"
+                              name='email'
+                              className="form-control form-control-lg"
+                              placeholder="Enter Email Address"
+                              value={feedbackForm.values.email}
+                              onChange={feedbackForm.handleChange}
+                            />
+                          </div>
+
+                          <div className='mb-5'>
+                            {/* Text area fields */}
+                            <textarea class="form-control" id="feedback" rows="4"
+                              placeholder='Enter message....'
+                              name='feedback'
+                              value={feedbackForm.values.feedback}
+                              onChange={feedbackForm.handleChange}
+                            ></textarea>
+                          </div>
+                          <button
+                            className="btn btn-primary btn-block"
+                            type="submit"
+                            style={{ borderRadius: "10px", marginLeft: '0px' }}
+                          >
+                            Send Your Feedback &nbsp;
+                            <i className="far fa-paper-plane" />
+                          </button>
                         </div>
-                        <div className='mb-4'>
-                          <input
-                            type="text"
-                            id="name"
-                            name='name'
-                            className="form-control form-control-lg"
-                            placeholder="Enter Full Name"
-                          />
-                        </div>
-                        <div className='mb-4'>
-                          <input
-                            type="email"
-                            id="email"
-                            name='email'
-                            className="form-control form-control-lg"
-                            placeholder="Enter Email Address"
-                          />
-                        </div>
-                        
-                        <div className='mb-5'>
-                          {/* Text area fields */}
-                          <textarea class="form-control" id="textarea" rows="4"
-                            placeholder='Enter message....'
-                            name='message'
-                          ></textarea>
-                        </div>
-                        <button
-                          className="btn btn-primary btn-block"
-                          type="submit"
-                          style={{ borderRadius: "10px", marginLeft: '0px' }}
-                        >
-                          Send Your Feedback &nbsp;
-                          <i className="far fa-paper-plane" />
-                        </button>
                       </div>
-                    </div>
-                  </form>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -230,8 +290,8 @@ const Home = () => {
       </div>
       {/* Feedback Form */}
 
-     
-     
+
+
       <>
         <div className='mb-10'>
           <div style={{ display: "none" }} />
@@ -260,7 +320,7 @@ const Home = () => {
                     aria-controls="#picker-editor"
                   >
                     <div
-                      className="mask"
+                      className=" container mask"
                       style={{ backgroundColor: "rgb(191, 218, 217)" }}
                     >
                       <div className="container h-80">
@@ -270,7 +330,7 @@ const Home = () => {
                               <h1 className="mt-5 mb-5 display-3">
                                 {" "}
                                 <span><h1>To create a browser extension or plugin!</h1></span> {" "}
-                               
+
                               </h1>{" "}
                               <Link
                                 className="btn btn-primary py-3 px-5 mb-5 mb-md-3 me-md-2"
@@ -280,11 +340,11 @@ const Home = () => {
                               >
                                 Get Started
                               </Link>{" "}
-                              
-                              
+
+
                             </div>
-                            <span><h4>Already registered? </h4> 
-                            <Link
+                            <span><h4>Already registered? </h4>
+                              <Link
                                 className="btn btn-primary py-3 px-5 mb-5 mb-md-3 me-md-2"
                                 to="/main/login"
                                 role="button"
@@ -316,7 +376,7 @@ const Home = () => {
           </div>
         </div>
       </>
-     
+
       <div className='mb-10'>
         <div data-draggable="true" style={{ position: "relative" }}>
           {/**/}
@@ -332,7 +392,7 @@ const Home = () => {
                   <span>NEEDS OF AI-MODERATOR</span>
                 </h2>
               </div>
-             
+
 
               {/* row - 1 */}
               <div className="row gx-lg-5 mb-5 align-items-center ">
@@ -351,9 +411,9 @@ const Home = () => {
                   <h4 className="fw-bold mb-3">
                     <strong>Scalability And Speed</strong>
                   </h4>
-                  <p className="align-items-justify mb-4" style={{textAlign: "justify"}}>
-                  According to World Economic Forum estimations, by 2025, the amount of data created by humans each day will be about 463 Exabyte (one Exabyte is equal to one billion gigabytes), which equates to more than 200 million DVDs per day. With such 
-                  large quantities of user-generated content, humans will hardly be able to keep pace. AI, on the other hand, can provide scalable handling of data across multiple channels and in real time. AI can excel humans in terms of the sheer size and volume of the user-generated content it can analyze and detect.
+                  <p className="align-items-justify mb-4" style={{ textAlign: "justify" }}>
+                    According to World Economic Forum estimations, by 2025, the amount of data created by humans each day will be about 463 Exabyte (one Exabyte is equal to one billion gigabytes), which equates to more than 200 million DVDs per day. With such
+                    large quantities of user-generated content, humans will hardly be able to keep pace. AI, on the other hand, can provide scalable handling of data across multiple channels and in real time. AI can excel humans in terms of the sheer size and volume of the user-generated content it can analyze and detect.
                   </p>
                 </div>
               </div>
@@ -376,8 +436,8 @@ const Home = () => {
                   <h4 className="fw-bold mb-3">
                     <strong>Automation And Content Filtering</strong>
                   </h4>
-                  <p className="align-items-justify mb-4" style={{textAlign: "justify"}}>
-                  Given the immense volume of user-generated data, moderating content manually becomes a challenge that needs scalable solutions. AI-backed content moderation can automatically analyze texts, visuals and videos for toxic content. AI also can filter and classify content that’s considered inappropriate for the given case and helps prevent it from being posted, thereby supporting human moderators in the content review process and helping brands keep their content clean and safe.
+                  <p className="align-items-justify mb-4" style={{ textAlign: "justify" }}>
+                    Given the immense volume of user-generated data, moderating content manually becomes a challenge that needs scalable solutions. AI-backed content moderation can automatically analyze texts, visuals and videos for toxic content. AI also can filter and classify content that’s considered inappropriate for the given case and helps prevent it from being posted, thereby supporting human moderators in the content review process and helping brands keep their content clean and safe.
                   </p>{" "}
                 </div>
               </div>
@@ -400,17 +460,17 @@ const Home = () => {
                   <h4 className="fw-bold mb-3">
                     <strong>Less Exposure To Harmful Content</strong>
                   </h4>
-                  <p className="align-items-justify mb-4" style={{textAlign: "justify"}}>
-                  Human moderators deal with challenging content on a daily basis, and many times, their intervention is questioned by users who see human moderators’ decisions as biased. Passing through massive quantities of indecent content makes moderation a tough job for humans that can even cause negative psychological effects. AI can assist human moderators by filtering suspicious content for human review, thus preventing content moderation teams from having to go through all the content reported by users and reducing human exposure to disturbing content. AI can make human labor more productive, helping people manage online content faster, more effectively and with fewer errors.
+                  <p className="align-items-justify mb-4" style={{ textAlign: "justify" }}>
+                    Human moderators deal with challenging content on a daily basis, and many times, their intervention is questioned by users who see human moderators’ decisions as biased. Passing through massive quantities of indecent content makes moderation a tough job for humans that can even cause negative psychological effects. AI can assist human moderators by filtering suspicious content for human review, thus preventing content moderation teams from having to go through all the content reported by users and reducing human exposure to disturbing content. AI can make human labor more productive, helping people manage online content faster, more effectively and with fewer errors.
                   </p>{" "}
                 </div>
-                
-                
-                
+
+
+
               </div>
               {/* row - 3 */}
 
-               {/* row - 4 */}
+              {/* row - 4 */}
 
               <div className="row gx-lg-5 mb-5 flex-lg-row-reverse align-items-center">
                 <div className="col-md-6 mb-4 mb-md-0">
@@ -428,21 +488,21 @@ const Home = () => {
                   <h4 className="fw-bold mb-3">
                     <strong>Moderation Of Live Content</strong>
                   </h4>
-                  <p className="align-items-justify mb-4" style={{textAlign: "justify"}}>
-                  AI could also be used in content moderation to analyze live content. Moderating real-time data is crucial to provide users with a safe user experience. AI can help in livestream content moderation by analyzing content instantly and automatically detecting any harmful cases before they go live.
+                  <p className="align-items-justify mb-4" style={{ textAlign: "justify" }}>
+                    AI could also be used in content moderation to analyze live content. Moderating real-time data is crucial to provide users with a safe user experience. AI can help in livestream content moderation by analyzing content instantly and automatically detecting any harmful cases before they go live.
                   </p>{" "}
                 </div>
               </div>
-               {/* row - 4 */}
-              
+              {/* row - 4 */}
+
             </section>
           </section>
           {/**/}
         </div>
       </div>
-    
 
-      
+
+
 
       {/* Team Members */}
       <>
@@ -457,7 +517,7 @@ const Home = () => {
                     <span>Meet Our Team</span>
                   </h2>
                 </div>
-                <div className='sub-heading'> 
+                <div className='sub-heading'>
                   <h4 className="mb-10 text-center ">
                     <span>Faces behind our success</span>
                   </h4>
@@ -573,8 +633,8 @@ const Home = () => {
 
       {/* FAQ */}
       <>
-        { <div className="container mb-8">
-          
+        {<div className="container mb-8">
+
           <section>
             <div className='heading'>
               <h2 className="mb-3 text-center display-3">
@@ -755,7 +815,7 @@ const Home = () => {
               </div>
             </div>
           </section>
-        </div> }
+        </div>}
       </>
       {/* FAQ */}
 

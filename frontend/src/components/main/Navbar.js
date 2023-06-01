@@ -41,7 +41,8 @@ const Navbar = () => {
             data-mdb-toggle="dropdown"
             aria-expanded="false"
           >
-            <img src={currentUser.avatar ? apiUrl+'/'+currentUser.avatar :'https://png.pngtree.com/png-clipart/20210915/ourlarge/pngtree-avatar-placeholder-abstract-white-blue-green-png-image_3918476.jpg'} className="rounded-circle" height={25} alt="Black and White Portrait of a Man" loading="lazy" />
+            <img src='https://png.pngtree.com/png-clipart/20210915/ourlarge/pngtree-avatar-placeholder-abstract-white-blue-green-png-image_3918476.jpg' className="rounded-circle" height={25} alt="Black and White Portrait of a Man" loading="lazy" />
+            {/* <img src={currentUser.avatar ? apiUrl+'/'+currentUser.avatar :'https://png.pngtree.com/png-clipart/20210915/ourlarge/pngtree-avatar-placeholder-abstract-white-blue-green-png-image_3918476.jpg'} className="rounded-circle" height={25} alt="Black and White Portrait of a Man" loading="lazy" /> */}
           </a>
           <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
             <li>
