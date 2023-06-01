@@ -218,7 +218,7 @@ const Home = () => {
             </button>
           </div>
           <div id="feedback-form-modal">
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content" style={{ backgroundColor: '#96CBFA' }}>
                   <div className="d-md-flex justify-content-md-end mt-2 me-2">

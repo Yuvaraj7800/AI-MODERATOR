@@ -206,7 +206,7 @@ const ContactUs = () => {
                                                 
                                                 {/* Text area fields */}
                                                 <div className="d-flex flex-row align-items-center mb-5">
-                                                    <i class="fas fa-pencil-alt fa-lg me-3 mb-8 fa-fw"></i>
+                                                    <i className="fas fa-pencil-alt fa-lg me-3 mb-8 fa-fw"></i>
                                                     <div className="flex-fill mb-0">
                                                         <textarea class="form-control" id="message" rows="4"
                                                             placeholder='Enter massege....'
