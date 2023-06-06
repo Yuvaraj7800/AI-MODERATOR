@@ -103,7 +103,7 @@ const ExtensionManager = () => {
                       className="btn btn-success"
                       to={link}
                     >
-                      <i class="fas fa-download"></i>
+                      <i className="fas fa-download"></i>
                     </NavLink>
                   </td>
                 )}

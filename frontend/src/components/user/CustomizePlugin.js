@@ -106,7 +106,7 @@ const CustomizePlugin = () => {
                   className="btn btn-secondary mt-3"
                   onClick={copyToClipboard}
                 >
-                  <i class="fas fa-copy"></i>
+                  <i className="fas fa-copy"></i>
                 </button>
               </div>
             </div>
