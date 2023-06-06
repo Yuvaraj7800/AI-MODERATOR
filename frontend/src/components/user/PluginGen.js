@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import MultipleValueTextInput from 'react-multivalue-text-input';
 import { useFormik } from 'formik';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/UserProvider';
 
 const pluginOptions = [
@@ -27,8 +27,11 @@ const PluginGen = () => {
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
   const { updateUser } = useUserContext();
 
+  const navigate= useNavigate();
+
   const generatePlugin = async (link) => {
     await updateUser({ numPlugin: currentUser.numPlugin + 1 }, setCurrentUser);
+    navigate(link);
   };
   const copyToClipboard = (code) => {
     navigator.clipboard.writeText(code);

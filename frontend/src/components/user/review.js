@@ -70,7 +70,7 @@ const ReviewPlugin = ({ userid }) => {
           });
           status = "Toxic";
         } else {
-          const res = await fetch("http://localhost:5000/comment/add", {
+          const res = await fetch("http://localhost:5000/review/add", {
             method: "POST",
             body: JSON.stringify(values),
             headers: {
