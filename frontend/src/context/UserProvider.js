@@ -4,8 +4,13 @@ import app_config from '../config';
 
 const UserContext = createContext();
 
-const UserProvider = ({ children, currentUser }) => {
-  const [loggedIn, setLoggedIn] = useState(currentUser !== null);
+const UserProvider = ({ children }) => {
+
+  const [currentUser, setCurrentUser] = useState()
+
+  const [loggedIn, setLoggedIn] = useState(
+    
+  );
   const navigate = useNavigate();
   const { apiUrl } = app_config;
 
