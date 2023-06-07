@@ -388,7 +388,7 @@ const Home = () => {
           >
             <section>
               <div className='heading'>
-                <h2 className="mb-3 text-center display-3 bg-secondary">
+                <h2 className="mb-3 text-center display-3 bg-info">
                   <span>NEEDS OF AI-MODERATOR</span>
                 </h2>
               </div>
@@ -657,7 +657,7 @@ const Home = () => {
                     aria-expanded="false"
                     aria-controls="collapseOne"
                   >
-                    Why should kids learn to code?
+                   What is content moderator ?
                   </button>
                 </h2>
                 <div
@@ -667,12 +667,8 @@ const Home = () => {
                   data-mdb-parent="#basicAccordion"
                   style={{}}
                 >
-                  <div className="accordion-body">
-                    Kids should learn to code because it helps develop problem-solving skills,
-                    enhances creativity, boosts logical thinking, and prepares them for a
-                    tech-driven future. Additionally, coding teaches persistence, collaboration,
-                    and attention to detail, and opens up career opportunities in a wide range of
-                    fields.
+                  <div className="accordion-body align-item-justify">
+                  Content moderators play a vital role in ensuring the safety, integrity, and positive user experience on online platforms by upholding community standards and enforcing content guidelines
                   </div>
                 </div>
               </div>
@@ -686,7 +682,7 @@ const Home = () => {
                     aria-expanded="false"
                     aria-controls="collapseTwo"
                   >
-                    My child is a beginner, is previous coding experience required?
+                    What is AI content Moderator ?
                   </button>
                 </h2>
                 <div
@@ -696,11 +692,8 @@ const Home = () => {
                   data-mdb-parent="#basicAccordion"
                   style={{}}
                 >
-                  <div className="accordion-body">
-                    No, previous coding experience is not required for our courses. We welcome
-                    children of all skill levels, including beginners. Our courses are designed
-                    to start with the basics and gradually increase in difficulty to ensure that
-                    every child can learn and progress at their own pace.
+                  <div className="accordion-bodylign-item-justify">
+                  AI content moderation systems analyze various types of content, including text, images, videos, and audio, to detect patterns and characteristics that may indicate violations of community guidelines or terms of service. These systems can be trained on large datasets of labeled content to learn and recognize different categories of problematic content, such as hate speech, nudity, violence, spam, or other forms of inappropriate or harmful material.
                   </div>
                 </div>
               </div>
@@ -714,7 +707,7 @@ const Home = () => {
                     aria-expanded="false"
                     aria-controls="collapseThree"
                   >
-                    What is the recommended age for my child to start coding?
+                    What is use of AI Content Moderator ?
                   </button>
                 </h2>
                 <div
@@ -724,12 +717,23 @@ const Home = () => {
                   data-mdb-parent="#basicAccordion"
                   style={{}}
                 >
-                  <div className="accordion-body">
-                    The recommended age for a child to start coding varies, but generally,
-                    children as young as 5 or 6 can start with basic block-based programming.
-                    As they progress, they can move on to more advanced languages and projects.
-                    However, it's never too late to start learning how to code, and people of all
-                    ages can benefit from the skills and knowledge it provides.
+                  <div className="accordion-body lign-item-justify">
+                  AI content moderation serves several purposes and offers various benefits for platforms and online communities. <br/> <br/>
+                  Here are some key uses of AI content moderation:<br/> <br/>
+
+Scalability: AI content moderation enables platforms to handle large volumes of user-generated content efficiently. With the ability to process content at a rapid pace, AI systems can assist in reviewing and filtering massive amounts of data, ensuring a more streamlined moderation process.<br/> <br/>
+
+Efficient Flagging: AI algorithms can quickly flag potentially problematic content for further review by human moderators. By automating the initial screening process, AI content moderation helps prioritize the content that requires human attention, allowing moderators to focus on complex or ambiguous cases.<br/> <br/>
+
+Faster Response Times: AI content moderation can significantly reduce response times for addressing violations and enforcing community guidelines. By automating the identification of violating content, platforms can take prompt action, such as removing or restricting access to the content, issuing warnings, or applying appropriate penalties.<br/> <br/>
+
+Consistency: AI content moderation helps achieve more consistent application of community guidelines and terms of service across a platform. Algorithms follow predefined rules and criteria, reducing the potential for human biases or variations in judgment. This helps create a more uniform and predictable moderation experience for users.<br/> <br/>
+
+User Protection: AI content moderation plays a crucial role in protecting users from harmful or inappropriate content. By quickly identifying and flagging content that violates community standards, AI systems contribute to maintaining a safer and more positive user experience. This is particularly important for preventing the dissemination of hate speech, harassment, violence, or explicit material.<br/> <br/>
+
+Moderation at Scale: With the ever-increasing amount of user-generated content, AI content moderation is essential for platforms to moderate content effectively at scale. It assists in handling the sheer volume of posts, comments, and media files posted by users, ensuring that platforms can maintain a healthy and safe environment for their communities.<br/> <br/>
+
+Cost-Effectiveness: AI content moderation can be a cost-effective solution compared to relying solely on manual moderation. While human moderators are still necessary for complex cases and final decision-making, AI systems can significantly reduce the workload and allow platforms to allocate their human moderation resources more efficiently.<br/> <br/>
                   </div>
                 </div>
               </div>
@@ -743,7 +747,7 @@ const Home = () => {
                     aria-expanded="false"
                     aria-controls="collapseFour"
                   >
-                    What courses does Digi Coders offer?
+                    How can AI content moderation systems be trained to recognize and flag different types of violating content?
                   </button>
                 </h2>
                 <div
@@ -754,65 +758,28 @@ const Home = () => {
                   style={{}}
                 >
                   <div className="accordion-body">
-                    Digi Coders offers block-based coding courses for kids. Some of the courses
-                    they offer include Python programming, Web Development, App Development,
-                    Game Development, A.I. and IOT. These courses are designed to make coding fun
-                    and interactive for kids while teaching them important coding concepts and skills.
+                  AI content moderation systems can be trained to recognize and flag different types of violating content through a combination of supervised learning, data labeling, and feature engineering.<br/>
+                   Here's a general process for training AI moderation systems:<br/> <br/>
+
+Data Collection: Gather a diverse and representative dataset of labeled content that includes examples of different types of violating content you want the AI system to detect. This dataset should cover a range of violations such as hate speech, nudity, violence, spam, etc.<br/> <br/>
+
+Data Labeling: Assign labels to each sample in the dataset based on the type of violation it represents. Human moderators or annotators review the content and apply appropriate labels. The labeled data serves as the training set for the AI model.<br/> <br/>
+
+Feature Extraction: Extract relevant features from the labeled data to represent the content effectively. These features can include textual characteristics, image attributes, audio properties, or other relevant metadata. The choice of features depends on the type of content being moderated.<br/> <br/>
+
+Model Selection: Choose a machine learning algorithm or model architecture that suits the content moderation task. Common choices include convolutional neural networks (CNNs) for images, recurrent neural networks (RNNs) for text, or a combination of multiple models for multi-modal content.<br/> <br/>
+
+Training the Model: Feed the labeled data and extracted features into the chosen AI model for training. The model learns to associate the features with the corresponding violation labels during this phase. The training process involves optimizing the model's parameters to minimize the prediction errors.<br/> <br/>
+
+Validation and Evaluation: Set aside a portion of the labeled dataset as a validation set to monitor the model's performance during training. Regularly evaluate the model's accuracy, precision, recall, and other relevant metrics to assess its effectiveness in recognizing and flagging violating content.<br/> <br/>
+
+Iterative Refinement: Analyze the model's performance and identify areas of improvement. Address any false positives (incorrectly flagging non-violating content) or false negatives (failing to flag violating content) by adjusting the model's parameters, fine-tuning the training process, or updating the dataset with new labeled examples.<br/> <br/>
+
+Ongoing Updates and Monitoring: Continuously update the AI model with new labeled data and retrain it periodically to adapt to emerging content patterns or evolving violation types. Monitor the model's performance in real-world scenarios and make adjustments as needed.<br/> <br/>
                   </div>
                 </div>
               </div>
-              <div className="accordion-item rounded-7 shadow-4-strong">
-                <h2 className="accordion-header" id="headingFive">
-                  <button
-                    className="accordion-button rounded-7 collapsed"
-                    type="button"
-                    data-mdb-toggle="collapse"
-                    data-mdb-target="#basicAccordionCollapseFive"
-                    aria-expanded="false"
-                    aria-controls="collapseFive"
-                  >
-                    Is the coding course schedule flexible?
-                  </button>
-                </h2>
-                <div
-                  id="basicAccordionCollapseFive"
-                  className="accordion-collapse collapse"
-                  aria-labelledby="headingFive"
-                  data-mdb-parent="#basicAccordion"
-                  style={{}}
-                >
-                  <div className="accordion-body">
-                    Yes! You can work the classes around your child’s schedule by selecting any time
-                    and any day that works for you.
-                  </div>
-                </div>
-              </div>
-              <div className="accordion-item rounded-7 shadow-4-strong">
-                <h2 className="accordion-header" id="headingSix">
-                  <button
-                    className="accordion-button rounded-7 collapsed"
-                    type="button"
-                    data-mdb-toggle="collapse"
-                    data-mdb-target="#basicAccordionCollapseSix"
-                    aria-expanded="false"
-                    aria-controls="collapseSix"
-                  >
-                    What kind of device does my child need to start learning to code?
-                  </button>
-                </h2>
-                <div
-                  id="basicAccordionCollapseSix"
-                  className="accordion-collapse collapse"
-                  aria-labelledby="headingSix"
-                  data-mdb-parent="#basicAccordion"
-                  style={{}}
-                >
-                  <div className="accordion-body">
-                    All that is needed to learn coding with Digi Coders is a laptop/computer with a
-                    webcam and a stable internet connection.
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </section>
         </div>}
