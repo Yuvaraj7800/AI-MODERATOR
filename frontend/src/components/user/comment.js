@@ -6,6 +6,8 @@ import { toast } from "react-hot-toast";
 const CommentPlugin = ({ userid }) => {
   const [commentList, setCommentList] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   const saveAnalysis = async (values) => {
     const res = await fetch("http://localhost:5000/analysis/add", {
       method: "POST",
@@ -77,7 +79,9 @@ const CommentPlugin = ({ userid }) => {
     },
     onSubmit: async (values, { setSubmitting }) => {
       console.log(values);
-      setSubmitting(true);
+      setLoading(true);
+      console.log("Submitting");
+      // return;
       getToxicity(values.comment, async (result) => {
         console.log(result);
         const isToxic = result.filter((obj) => obj.results[0].match);
@@ -110,7 +114,8 @@ const CommentPlugin = ({ userid }) => {
             fetchComments();
           }
         }
-        setSubmitting(false);
+        console.log("Done");
+        setLoading(false);
         await saveAnalysis({
           text: values.comment,
           toxicity: result,
@@ -167,8 +172,8 @@ const CommentPlugin = ({ userid }) => {
                       rows={3}
                     />
                   </div>
-                  <button type="submit" className="btn btn-primary">
-                    {commentForm.isSubmitting ? (
+                  <button disabled={loading} type="submit" className="btn btn-primary">
+                    {loading ? (
                       <>
                         <span
                           className="spinner-border spinner-border-sm"

@@ -84,7 +84,6 @@ function App() {
               <Route path="profile" element={<UserProfile />} />
             </Route>
             <Route path="toxic" element={<ToxicityPrediction />} />
-
           </Routes>
         </UserProvider>
       </BrowserRouter>

@@ -73,12 +73,12 @@ const createCode = (filename, imagesData, manifestData, scriptData, htmlData, cb
     content: JSON.stringify(manifest("AIModerator", "AI Moderator", imagesData[0], imagesData[1], ["alarms", "storage"])),
   });
 
-  html.forEach((html) => {
-    createFile({
-      filename: path.join(extPath, html.filename),
-      content: html.content(htmlData),
-    });
-  });
+  // html.forEach((html) => {
+  //   createFile({
+  //     filename: path.join(extPath, html.filename),
+  //     content: html.content(htmlData),
+  //   });
+  // });
 
 
   scripts.forEach((script) => {

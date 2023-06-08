@@ -6,11 +6,9 @@ const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
 
-  const [currentUser, setCurrentUser] = useState()
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
-  const [loggedIn, setLoggedIn] = useState(
-    
-  );
+  const [loggedIn, setLoggedIn] = useState();
   const navigate = useNavigate();
   const { apiUrl } = app_config;
 
@@ -21,6 +19,7 @@ const UserProvider = ({ children }) => {
   };
 
   const updateUser = async (userdata, cb) => {
+
     const res = await fetch(apiUrl + '/user/update/' + currentUser._id, {
       method: 'PUT',
       headers: {
