@@ -8,6 +8,8 @@ const CommentPlugin = ({ userid }) => {
 
   const [loading, setLoading] = useState(false);
 
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem("user")));
+
   const saveAnalysis = async (values) => {
     const res = await fetch("http://localhost:5000/analysis/add", {
       method: "POST",
@@ -120,7 +122,7 @@ const CommentPlugin = ({ userid }) => {
           text: values.comment,
           toxicity: result,
           plugin: "Comment",
-          user: userid,
+          user: userid ? userid : currentUser._id,
           status,
           createdAt: new Date(),
         });

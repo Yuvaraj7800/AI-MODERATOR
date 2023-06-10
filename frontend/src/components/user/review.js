@@ -6,6 +6,7 @@ import Rating from "react-rating";
 
 const ReviewPlugin = ({ userid }) => {
   const [reviewsList, setReviewsList] = useState([]);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem("user")));
 
   const getToxicity = (text, cb) => {
     const threshold = 0.9;
@@ -94,7 +95,7 @@ const ReviewPlugin = ({ userid }) => {
           text: values.comment,
           toxicity: result,
           plugin: "Comment",
-          user: userid,
+          user: userid ? userid : currentUser._id,
           status,
           createdAt: new Date(),
         });
