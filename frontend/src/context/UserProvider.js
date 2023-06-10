@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import app_config from '../config';
 
@@ -11,6 +11,11 @@ const UserProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState();
   const navigate = useNavigate();
   const { apiUrl } = app_config;
+
+  useEffect(() => {
+    setCurrentUser(JSON.parse(sessionStorage.getItem('user')));
+  }, [loggedIn])
+  
 
   const logout = () => {
     sessionStorage.removeItem('user');

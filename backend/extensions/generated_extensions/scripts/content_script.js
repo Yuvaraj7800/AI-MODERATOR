@@ -1,4 +1,8 @@
 console.log("working fine");
+fetch('https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity')
+  .then(resp => resp.text())
+  .then(data => console.log(data))
+  .catch(console.error)
         const threshold = 0.9;
         const getToxicity = (text, cb) => {
           // Load the model. Users optionally pass in a threshold and an array of
