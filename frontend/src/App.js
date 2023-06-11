@@ -74,8 +74,8 @@ function App() {
                 path="custPlugin/:pluginName"
                 element={<CustomizePlugin />}
               />
-              <Route path="comment" element={<Comment userid={'646b13176f0c93b8b9f9126d'} />} />
-              <Route path="review" element={<Review userid={'646b13176f0c93b8b9f9126d'} />} />
+              <Route path="comment" element={<Comment  />} />
+              <Route path="review" element={<Review  />} />
               
               {/* <Route path="extensiongen" element={<Extension />} /> */}
               {/* <Route path="plugingen" element={<Plugin />} /> */}

@@ -40,6 +40,7 @@ router.delete('/delete/:id', (req,res) => {
 });
 
 router.get('/getbyuser/:id', (req,res) => {
+    console.log(req.params.id);
     Model.find({user : req.params.id})
     .then((result) => {
         res.json(result);
