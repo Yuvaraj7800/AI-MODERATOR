@@ -2,15 +2,13 @@ import React from 'react'
 import * as Yup from 'yup';
 import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useUserContext } from '../../context/UserProvider';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useAdminContext } from '../../context/AdminProvider';
 
-const Login = () => {
+const ALogin = () => {
 
-    const { loggedIn, setLoggedIn } = useUserContext();
+    const { loggedIn, setLoggedIn } = useAdminContext();
     const navigate = useNavigate();
-
-
 
     const login = Yup.object().shape({
         email: Yup.string().email('Invalid email').required('Email is Required'),
@@ -20,6 +18,7 @@ const Login = () => {
 
     const Login = useFormik({
         initialValues: {
+            name: '',
             email: '',
             password: '',
         },
@@ -27,7 +26,7 @@ const Login = () => {
             console.log(values);
 
 
-            const res = await fetch('http://localhost:5000/user/authenticate', {
+            const res = await fetch('http://localhost:5000/admin/authenticate', {
                 method: 'POST',
                 body: JSON.stringify(values),  // this is used to convert js data in json formate
                 headers: {
@@ -45,7 +44,7 @@ const Login = () => {
                 setLoggedIn(true)
                 const data = await res.json();
                 sessionStorage.setItem('user', JSON.stringify(data));
-                navigate('/user/extensiongen');
+                navigate('/admin/manageUser');
             }
             else {
                 Swal.fire({
@@ -88,64 +87,27 @@ const Login = () => {
                                             <p className="text-center m-0" style={{ fontSize: "40px", fontWeight: "bold", color: "#69d1fa" }}>
                                                 Welcome back
                                             </p>
-                                            
-                                        </div>
-                                        <div className="text-center m-4" style={{ color: '#fff' }}>
-                                            <p className='text-light' style={{ letterSpacing: '0px' }}>
-                                                Not a member? <a href="/main/Signup"
-                                                    style={{ color: '#53e0fc', fontWeight: 'bold' }}
-                                                >Register</a>
-                                            </p>
-                                            <p className='text-light' style={{ letterSpacing: '0px' }}>or sign up with:</p>
-                                            <button type="button" className="btn btn-floating text-white mx-1">
-                                                <a href="" className="me-4 text-reset">
-                                                    <i className="fab fa-facebook-f" />
-                                                </a>
-                                            </button>
-                                            <button type="button" className="btn btn-floating text-white mx-1">
-                                                <a href="" className="me-4 text-reset">
-                                                    <i className="fab fa-twitter" />
-                                                </a>
-                                            </button>
-                                            <button type="button" className="btn btn-floating text-white mx-1">
-                                                <a href="" className="me-4 text-reset">
-                                                    <i className="fab fa-google" />
-                                                </a>
-                                            </button>
-                                            <button type="button" className="btn btn-floating text-white mx-1">
-                                                <a href="" className="me-4 text-reset">
-                                                    <i className="fab fa-instagram" />
-                                                </a>
-                                            </button>
-                                            <button type="button" className="btn btn-floating text-white mx-1">
-                                                <a href="" className="me-4 text-reset">
-                                                    <i className="fab fa-linkedin" />
-                                                </a>
-                                            </button>
-                                            <button type="button" className="btn btn-floating text-white mx-1">
-                                                <a href="" className="me-4 text-reset">
-                                                    <i className="fab fa-github" />
-                                                </a>
-                                            </button>
 
                                         </div>
+
                                     </div>
                                 </div>
 
                                 <div className="col-lg-6 mt-1 ">
 
                                     <div className="card-body mx-md-4 my-5">
-                                    <img src="/AI.gif" alt="error"
-                                                    style={{ height: "100px" 
-                                                   ,
-                                                    
-                                                    marginLeft: "60%"
-                                                  }}
-                                                    
-                                                />
+                                        <img src="/AI.gif" alt="error"
+                                            style={{
+                                                height: "100px"
+                                                ,
+
+                                                marginLeft: "60%"
+                                            }}
+
+                                        />
 
                                         <div className="text-center mb-5 font-weight-bold my-5">
-                                        
+
                                             <h4 className="text-capitalize mb-0">
                                                 Sign in to Account
                                             </h4>
@@ -160,7 +122,23 @@ const Login = () => {
                                         </div>
                                         <form className="mx-1 mx-md-4 text-black mt-5" onSubmit={Login.handleSubmit}>
                                             <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-user fa-lg me-3 fa-fw" />
+                                                {/* <i className="fas fa-admin fa-lg me-3 fa-fw" /> */}
+                                                <div className="flex-fill mb-0">
+                                                    <input
+                                                        type="text"
+                                                        id="name"
+                                                        name='name'
+                                                        autoComplete='off'
+                                                        className="form-control form-control-lg"
+                                                        placeholder="Name"
+                                                        value={Login.values.name}
+                                                        onChange={Login.handleChange}
+                                                    />
+                                                    <span className='text-danger'>{Login.errors.email}</span>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex flex-row align-items-center mb-4">
+                                                {/* <i className="fas fa-user fa-lg me-3 fa-fw" /> */}
                                                 <div className="flex-fill mb-0">
                                                     <input
                                                         type="email"
@@ -175,8 +153,9 @@ const Login = () => {
                                                     <span className='text-danger'>{Login.errors.email}</span>
                                                 </div>
                                             </div>
+
                                             <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-lock fa-lg me-3 fa-fw" />
+                                                {/* <i className="fas fa-lock fa-lg me-3 fa-fw" /> */}
                                                 <div className="flex-fill mb-0">
                                                     <input
                                                         type="password"
@@ -202,17 +181,12 @@ const Login = () => {
                                                 </button>
                                             </div>
                                             <div className='text-center mt-5'>
-                                                <NavLink className="text-primary mb-3" to='/main/signup'>
-                                                    Forgot password?
-                                                </NavLink>
-                                                <p className="mb-1 pb-lg-1 mt-1" style={{ color: "#393f81", fontWeight: '600' }}>
-                                                Don't have an account?{" "}
-                                                <a href="/main/signup" style={{ color: "#393f81"}} className="studentregister">
-                                                    Register here
-                                                </a>
-                                            </p>
+
+
+
                                             </div>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>
@@ -224,4 +198,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default ALogin

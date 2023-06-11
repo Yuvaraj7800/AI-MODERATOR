@@ -29,63 +29,71 @@ import { useState } from "react";
 import UserProvider from "./context/UserProvider";
 import Dashboard from "./components/user/Dashboard";
 import UserProfile from "./components/user/userProfile";
+import ALogin from "./components/admin/ALogin";
+import AdminProvider from "./context/AdminProvider";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
+  );
+  const [currentAdmin, setCurrentAdmin] = useState(
+    JSON.parse(sessionStorage.getItem("admin"))
   );
 
   return (
     <div>
       <Toaster position="top-center" />
       <BrowserRouter>
-        <UserProvider currentUser={currentUser}>
-          <Routes>
-            <Route path="/" element={<Navigate to="/main/home" />} />
-            <Route path="main" element={<Main />}>
-              <Route path="home" element={<Home />} />
-              <Route path="login" element={<Login />} />
-              <Route path="signup" element={<Signup />} />
-              <Route path="aboutus" element={<AboutUs />} />
-              <Route path="contactus" element={<ContactUs />} />
-            </Route>
+        <AdminProvider currentAdmin={currentAdmin}>
+          <UserProvider currentUser={currentUser}>
+            <Routes>
+              <Route path="/" element={<Navigate to="/main/home" />} />
+              <Route path="main" element={<Main />}>
+                <Route path="home" element={<Home />} />
+                <Route path="login" element={<Login />} />
+                <Route path="signup" element={<Signup />} />
+                <Route path="aboutus" element={<AboutUs />} />
+                <Route path="contactus" element={<ContactUs />} />
+              </Route>
+              <Route path='/admin' element={<Navigate to='/admin/login'/>} />
+              <Route path="admin" element={<Admin />}>
+                <Route path="login" element={<ALogin />} />
+                <Route path="manage" element={<ManageUser />} />
+                <Route path="update/:userid" element={<UpdateUser />} />
+              </Route>
 
-            <Route path="admin" element={<Admin />}>
-              <Route path="manage" element={<ManageUser />} />
-              <Route path="update/:userid" element={<UpdateUser />} />
-            </Route>
-
-            <Route
-              path="user"
-              element={
-                <UserAuth>
-                  <User />
-                </UserAuth>
-              }
-            >
-              <Route path="manageextension" element={<ExtensionManager />} />
-              <Route path="modplugin" element={<ModeratorPlugin />} />
-
-              <Route path="extensiongen" element={<Extension />} />
-              <Route path="plugingen" element={<Plugin />} />
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="custPlugin" element={<CustomizePlugin />} />
               <Route
-                path="custPlugin/:pluginName"
-                element={<CustomizePlugin />}
-              />
-              <Route path="comment" element={<Comment  />} />
-              <Route path="review" element={<Review  />} />
-              
-              {/* <Route path="extensiongen" element={<Extension />} /> */}
-              {/* <Route path="plugingen" element={<Plugin />} /> */}
-              <Route path="comment" element={<Comment />} />
-              <Route path="review" element={<Review />} />
-              <Route path="profile" element={<UserProfile />} />
-            </Route>
-            <Route path="toxic" element={<ToxicityPrediction />} />
-          </Routes>
-        </UserProvider>
+                path="user"
+                element={
+                  <UserAuth>
+                    <User />
+                  </UserAuth>
+                }
+              >
+                <Route path="manageextension" element={<ExtensionManager />} />
+                <Route path="modplugin" element={<ModeratorPlugin />} />
+
+                <Route path="extensiongen" element={<Extension />} />
+                <Route path="plugingen" element={<Plugin />} />
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="custPlugin" element={<CustomizePlugin />} />
+                <Route
+                  path="custPlugin/:pluginName"
+                  element={<CustomizePlugin />}
+                />
+                <Route path="comment" element={<Comment />} />
+                <Route path="review" element={<Review />} />
+
+                {/* <Route path="extensiongen" element={<Extension />} /> */}
+                {/* <Route path="plugingen" element={<Plugin />} /> */}
+                <Route path="comment" element={<Comment />} />
+                <Route path="review" element={<Review />} />
+                <Route path="profile" element={<UserProfile />} />
+              </Route>
+              <Route path="toxic" element={<ToxicityPrediction />} />
+            </Routes>
+          </UserProvider>
+        </AdminProvider>
       </BrowserRouter>
     </div>
   );

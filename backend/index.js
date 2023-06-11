@@ -8,6 +8,7 @@ const contactUsRouter = require('./routers/contactUsRouter');
 const analysisRouter = require('./routers/analysisRouter');
 const countRouter = require('./routers/countRouter');
 const feedbackRouter= require('./routers/feedbackRouter');
+const adminRouter= require('./routers/adminRouter');
 
 const cors = require('cors')
 
@@ -26,6 +27,7 @@ app.use(express.static('./archives'));
 app.use(express.static('./pluginScripts'));
 
 app.use('/user', userRouter);
+app.use('/admin', adminRouter);
 app.use('/extension', extensionRouter);
 app.use('/util', utilRouter);
 app.use('/comment', commentRouter);
