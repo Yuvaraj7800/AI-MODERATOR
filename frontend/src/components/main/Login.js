@@ -44,8 +44,13 @@ const Login = () => {
                 });
                 setLoggedIn(true)
                 const data = await res.json();
-                sessionStorage.setItem('user', JSON.stringify(data));
-                navigate('/user/extensiongen');
+                if(data.role === 'admin'){
+                    sessionStorage.setItem('admin', JSON.stringify(data));
+                    navigate('/admin/manage');
+                }else if(data.role === 'user'){
+                    sessionStorage.setItem('user', JSON.stringify(data));
+                    navigate('/user/extensiongen');
+                }
             }
             else {
                 Swal.fire({
