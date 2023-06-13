@@ -25,14 +25,15 @@ const ManageUser = () => {
   }
 
   return (
-    <div >
+    <div className="h-100">
+     <section className="col-log-6 pt-3" style={{ backgroundImage: 'url("/hi.avif")', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
       <div className="container"  >
         {/* <h3>Loggedin as {currentUser.name}</h3> */}
-        <h1>User Manager</h1>
+        <h1 style={{color:"white" ,textAlign: "center"}}>User Details</h1>
         <hr />
         <table className="table table-striped">
           <thead>
-            <tr>
+            <tr style={{color:"white"}}>
               <th>ID</th>
               <th>Name</th>
               <th>Email</th>
@@ -43,10 +44,10 @@ const ManageUser = () => {
           <tbody>
             {userList.map((user) => (
               <tr key={user._id}>
-                <td>{user._id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.password}</td>
+                <td style={{color:"white"}}>{user._id}</td>
+                <td style={{color:"white"}}>{user.name}</td>
+                <td style={{color:"white"}}>{user.email}</td>
+                <td style={{color:"white"}}>{user.password}</td>
                 <td>
                   <button className="btn btn-danger" onClick={() => deleteUser(user._id)}>
                     <i className="fas fa-trash"></i>
@@ -63,6 +64,7 @@ const ManageUser = () => {
           </tbody>
         </table>
       </div>
+      </section>
     </div>
   );
 };
