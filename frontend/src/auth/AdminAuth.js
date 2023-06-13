@@ -17,7 +17,7 @@ const AdminAuth = ({children}) => {
             text : 'sorry wrong credentials '
         });
 
-        return <Navigate to='/admin/login' />
+        return <Navigate to='/main/login' />
     }
 }
 

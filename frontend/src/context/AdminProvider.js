@@ -20,7 +20,7 @@ const AdminProvider = ({ children }) => {
   const logout = () => {
     sessionStorage.removeItem('admin');
     setLoggedIn(false);
-    navigate('/admin/login');
+    navigate('/main/login');
   };
 
 //   const updateUser = async (userdata, cb) => {

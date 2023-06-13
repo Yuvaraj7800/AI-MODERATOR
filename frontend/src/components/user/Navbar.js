@@ -96,7 +96,7 @@ const Navbar = () => {
               aria-expanded="false"
             >
               <img
-                src="/yuvi.jpeg"
+                src="/ailogo.avif"
                 className="rounded-circle"
                 height={25}
                 loading="lazy"

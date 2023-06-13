@@ -32,6 +32,7 @@ import UserProfile from "./components/user/userProfile";
 import ALogin from "./components/admin/ALogin";
 import AdminProvider from "./context/AdminProvider";
 import AdminAuth from "./auth/AdminAuth";
+import AdminProfile from "./components/admin/AdminProfile";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -59,7 +60,9 @@ function App() {
                 <Route path="adminlogin" element={<ALogin />} />
               </Route>
               <Route path="admin" element={ <AdminAuth> <Admin /> </AdminAuth>}>
+              {/* <Route path="admin" element={ <Admin /> }> */}
                 <Route path="manage" element={<ManageUser />} />
+                <Route path="profile" element={<AdminProfile />} />
                 <Route path="update/:userid" element={<UpdateUser />} />
               </Route>
 
