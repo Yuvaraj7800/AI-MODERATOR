@@ -24,7 +24,7 @@ const Signup = () => {
             name: '',
             email: '',
             password: '',
-            createdAt: '',
+            createdAt: ''
         },
         onSubmit: async (values, { setSubmitting }) => {
             console.log(values);
@@ -47,6 +47,7 @@ const Signup = () => {
                     showConfirmButton: false,
                     timer: 1500,
                 })
+                
                 navigate('/main/Login');
             }
             else {
