@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useUserContext } from "../../context/UserProvider";
 import app_config from "../../config";
 
@@ -22,7 +22,7 @@ const Navbar = () => {
         // <ul className="navbar-nav">
         <>
           {/* <li className="nav-item"> */}
-          <NavLink className="nav-link" aria-current="page" to="/main/login">
+          <NavLink className="nav-link" aria-current="page" to="/main/adminlogin">
             Login
           </NavLink>
           {/* </li> */}
@@ -116,33 +116,54 @@ const Navbar = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
 
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <NavLink className="nav-link" to="/admin/manage">
                   Manage Users
                 </NavLink>
-              </li> */}
-              {showLogout()}
+              </li> 
+              {/* {showLogout()} */}
 
             </ul>
-            {/* Left links */}
+          
           </div>
           {/* Collapsible wrapper */}
           {/* Right elements */}
           <div className="d-flex align-items-center">
 
-            <div className="dropdown">
-              <a>
+            {/* <div className="dropdown"> */}
+              <a className="dropdown-toggle d-flex align-items-center hidden-arrow"
+                href="#"
+                id="navbarDropdownMenuAvatar"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false">
 
                 <img
-                  src="/yuvi.jpeg"
+                  src="/ailogo.avif"
                   className="rounded-circle"
                   height={25}
                   //alt="Black and White Portrait of a Man"
                   loading="lazy"
                 />
               </a>
+              <ul
+                className="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarDropdownMenuAvatar"
+              >
+                <li>
+                  <Link className="dropdown-item" to="/admin/profile">
+                    My profile
+                  </Link>
+                </li>
 
-            </div>
+                <li>
+                  <a className="dropdown-item" onClick={logout} style={{ cursor: "pointer" }}>
+                    Logout
+                  </a>
+                </li>
+              </ul>
+
+            {/* </div> */}
           </div>
           {/* Right elements */}
         </div>

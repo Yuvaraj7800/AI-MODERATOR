@@ -70,7 +70,7 @@ const ALogin = () => {
                             }}>
                                 <div className="col-lg-6"
                                     style={{
-                                        backgroundImage: 'url("/bg-img-7.jpg")',
+                                        backgroundImage: 'url("/admin1.avif")',
                                         height: 668,
                                         backgroundSize: "cover",
                                         backgroundPosition: "90% 50%",
@@ -109,7 +109,7 @@ const ALogin = () => {
                                         <div className="text-center mb-5 font-weight-bold my-5">
 
                                             <h4 className="text-capitalize mb-0">
-                                                Sign in to Account
+                                                Admin 
                                             </h4>
                                             <hr className='hr mt-1'
                                                 style={{
