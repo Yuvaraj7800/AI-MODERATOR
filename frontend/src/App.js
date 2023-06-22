@@ -29,7 +29,7 @@ import { useState } from "react";
 import UserProvider from "./context/UserProvider";
 import Dashboard from "./components/user/Dashboard";
 import UserProfile from "./components/user/userProfile";
-import ALogin from "./components/admin/ALogin";
+//import ALogin from "./components/admin/ALogin";
 import AdminProvider from "./context/AdminProvider";
 import AdminAuth from "./auth/AdminAuth";
 import AdminProfile from "./components/admin/AdminProfile";
@@ -57,7 +57,7 @@ function App() {
                 <Route path="signup" element={<Signup />} />
                 <Route path="aboutus" element={<AboutUs />} />
                 <Route path="contactus" element={<ContactUs />} />
-                <Route path="adminlogin" element={<ALogin />} />
+                {/* <Route path="adminlogin" element={<ALogin />} /> */}
               </Route>
               <Route path="admin" element={ <AdminAuth> <Admin /> </AdminAuth>}>
               {/* <Route path="admin" element={ <Admin /> }> */}
@@ -66,14 +66,7 @@ function App() {
                 <Route path="update/:userid" element={<UpdateUser />} />
               </Route>
 
-              <Route
-                path="user"
-                element={
-                  <UserAuth>
-                    <User />
-                  </UserAuth>
-                }
-              >
+              <Route path="user" element={ <UserAuth> <User /> </UserAuth> }>
                 <Route path="manageextension" element={<ExtensionManager />} />
                 <Route path="modplugin" element={<ModeratorPlugin />} />
 
